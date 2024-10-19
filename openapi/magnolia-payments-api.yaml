@@ -7107,167 +7107,6 @@ paths:
       tags:
         - ExternalAccounts
       summary: Retrieve external accounts by identity identifier. (Auth)
-  /api/v1/private-cross-service/external-accounts/financial:
-    post:
-      parameters:
-        - in: query
-          name: organizationId
-          required: true
-          schema:
-            format: uuid
-            type: string
-          style: form
-        - in: header
-          name: Session-Key
-          schema:
-            type: string
-          style: simple
-        - description: The idempotency key for the endpoint
-          in: header
-          name: Idempotency-Key
-          schema:
-            format: uuid
-            type: string
-          style: simple
-      responses:
-        '200':
-          description: Success
-      tags:
-        - ExternalAccounts
-      requestBody:
-        content:
-          application/*+json:
-            examples:
-              Mx:
-                description: >-
-                  FinancialAccountsProvider is optional and use only if default
-                  provider need to be overridden
-                summary: Mx
-                value:
-                  financialAccountId: <mx-accountId>
-                  financialAccountsProvider: mx
-                  identityId: 93e410ed-7b93-4a58-918e-076c5c26f25d
-              Plaid:
-                description: >-
-                  FinancialAccountsProvider is optional and use only if default
-                  provider need to be overridden
-                summary: Plaid
-                value:
-                  financialAccountId: <plaid-accountId>
-                  financialAccountsProvider: plaid
-                  identityId: c2d6671f-73c3-42d1-a0d8-f0f7a6787fb2
-                  itemId: <plaid-item-id>
-              PlaidProcessorToken:
-                description: >-
-                  FinancialAccountsProvider is optional and use only if default
-                  provider need to be overridden
-                summary: PlaidProcessorToken
-                value:
-                  financialAccountsProvider: plaidProcessorToken
-                  identityId: 0d4641ae-be33-4d0e-bcc9-593f25b94fe3
-                  processorToken: <plaid-processor-token>
-              PlainAchInstructions:
-                description: >-
-                  FinancialAccountsProvider is optional and use only if default
-                  provider need to be overridden
-                summary: PlainAchInstructions
-                value:
-                  accountName: Personal Loan Account
-                  accountNumber: '43458367'
-                  accountType: checking
-                  financialAccountsProvider: plainAchInstructions
-                  identityId: a1457e5b-2afe-42c6-8373-d46b4fa2f846
-                  routingNumber: '124302150'
-            schema:
-              $ref: '#/components/schemas/ExternalAccountCreateModel'
-          application/json:
-            examples:
-              Mx:
-                description: >-
-                  FinancialAccountsProvider is optional and use only if default
-                  provider need to be overridden
-                summary: Mx
-                value:
-                  financialAccountId: <mx-accountId>
-                  financialAccountsProvider: mx
-                  identityId: 93e410ed-7b93-4a58-918e-076c5c26f25d
-              Plaid:
-                description: >-
-                  FinancialAccountsProvider is optional and use only if default
-                  provider need to be overridden
-                summary: Plaid
-                value:
-                  financialAccountId: <plaid-accountId>
-                  financialAccountsProvider: plaid
-                  identityId: c2d6671f-73c3-42d1-a0d8-f0f7a6787fb2
-                  itemId: <plaid-item-id>
-              PlaidProcessorToken:
-                description: >-
-                  FinancialAccountsProvider is optional and use only if default
-                  provider need to be overridden
-                summary: PlaidProcessorToken
-                value:
-                  financialAccountsProvider: plaidProcessorToken
-                  identityId: 0d4641ae-be33-4d0e-bcc9-593f25b94fe3
-                  processorToken: <plaid-processor-token>
-              PlainAchInstructions:
-                description: >-
-                  FinancialAccountsProvider is optional and use only if default
-                  provider need to be overridden
-                summary: PlainAchInstructions
-                value:
-                  accountName: Personal Loan Account
-                  accountNumber: '43458367'
-                  accountType: checking
-                  financialAccountsProvider: plainAchInstructions
-                  identityId: a1457e5b-2afe-42c6-8373-d46b4fa2f846
-                  routingNumber: '124302150'
-            schema:
-              $ref: '#/components/schemas/ExternalAccountCreateModel'
-          text/json:
-            examples:
-              Mx:
-                description: >-
-                  FinancialAccountsProvider is optional and use only if default
-                  provider need to be overridden
-                summary: Mx
-                value:
-                  financialAccountId: <mx-accountId>
-                  financialAccountsProvider: mx
-                  identityId: 93e410ed-7b93-4a58-918e-076c5c26f25d
-              Plaid:
-                description: >-
-                  FinancialAccountsProvider is optional and use only if default
-                  provider need to be overridden
-                summary: Plaid
-                value:
-                  financialAccountId: <plaid-accountId>
-                  financialAccountsProvider: plaid
-                  identityId: c2d6671f-73c3-42d1-a0d8-f0f7a6787fb2
-                  itemId: <plaid-item-id>
-              PlaidProcessorToken:
-                description: >-
-                  FinancialAccountsProvider is optional and use only if default
-                  provider need to be overridden
-                summary: PlaidProcessorToken
-                value:
-                  financialAccountsProvider: plaidProcessorToken
-                  identityId: 0d4641ae-be33-4d0e-bcc9-593f25b94fe3
-                  processorToken: <plaid-processor-token>
-              PlainAchInstructions:
-                description: >-
-                  FinancialAccountsProvider is optional and use only if default
-                  provider need to be overridden
-                summary: PlainAchInstructions
-                value:
-                  accountName: Personal Loan Account
-                  accountNumber: '43458367'
-                  accountType: checking
-                  financialAccountsProvider: plainAchInstructions
-                  identityId: a1457e5b-2afe-42c6-8373-d46b4fa2f846
-                  routingNumber: '124302150'
-            schema:
-              $ref: '#/components/schemas/ExternalAccountCreateModel'
   /api/v1/private-cross-service/external-accounts/international-wire:
     post:
       parameters:
@@ -7354,85 +7193,6 @@ paths:
               $ref: '#/components/schemas/ExternalWireAccountCreateModel'
         description: Request model.
       summary: Create the external wire account.
-  '/api/v1/private-cross-service/identities/{identityId}/custodial-accounts':
-    get:
-      parameters:
-        - in: path
-          name: identityId
-          required: true
-          schema:
-            format: uuid
-            type: string
-          style: simple
-        - in: query
-          name: includeBalances
-          schema:
-            type: boolean
-          style: form
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/CustodialAccountsResponsePrivateModel'
-                type: array
-          description: Success
-      tags:
-        - Identities
-  '/api/v1/private-cross-service/identities/{identityId}/external-accounts':
-    get:
-      parameters:
-        - in: path
-          name: identityId
-          required: true
-          schema:
-            format: uuid
-            type: string
-          style: simple
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/ExternalAccountResponsePrivateModel'
-                type: array
-          description: Success
-      tags:
-        - Identities
-  '/api/v1/private-cross-service/identities/{identityId}/widget-url':
-    get:
-      parameters:
-        - in: path
-          name: identityId
-          required: true
-          schema:
-            format: uuid
-            type: string
-          style: simple
-        - in: query
-          name: WidgetIntegrationType
-          schema:
-            $ref: '#/components/schemas/WidgetIntegrationType'
-          style: form
-        - in: query
-          name: MessageWebViewUrlScheme
-          schema:
-            type: string
-          style: form
-        - in: query
-          name: organizationId
-          required: true
-          schema:
-            format: uuid
-            type: string
-          style: form
-      responses:
-        '200':
-          description: Success
-      tags:
-        - Identities
   '/api/v1/private-cross-service/organizations/{orgId}/crypto-price-markup-configuration/{tradingPair}':
     get:
       parameters:
@@ -7477,25 +7237,6 @@ paths:
       tags:
         - Organizations
       summary: Get crypto price markup configuration (Auth)
-  '/api/v1/private-cross-service/organizations/{organizationId}':
-    get:
-      parameters:
-        - in: path
-          name: organizationId
-          required: true
-          schema:
-            format: uuid
-            type: string
-          style: simple
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/OrganiztionBaseDataResponseModel'
-          description: Success
-      tags:
-        - Organizations
   '/api/v1/private-cross-service/organizations/{organizationId}/custody-provider-configuration':
     get:
       parameters:
@@ -7604,32 +7345,6 @@ paths:
               $ref: '#/components/schemas/TradeRequestModel'
         description: Create payment request model.
       summary: Create the payment.
-  /api/v1/private-cross-service/payments/fiat:
-    post:
-      parameters:
-        - description: The idempotency key for the endpoint
-          in: header
-          name: Idempotency-Key
-          schema:
-            format: uuid
-            type: string
-          style: simple
-      responses:
-        '200':
-          description: Success
-      tags:
-        - Payments
-      requestBody:
-        content:
-          application/*+json:
-            schema:
-              $ref: '#/components/schemas/CreatePaymentRequestModel'
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CreatePaymentRequestModel'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/CreatePaymentRequestModel'
   '/api/v1/private-cross-service/payments/{paymentId}':
     get:
       parameters:
@@ -11933,7 +11648,7 @@ components:
   securitySchemes:
     Bearer:
       description: >-
-        Put access token in the box below.<br>For example: <b>Bearer
+        Put access token in the box below. For example: <b>Bearer
         eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6I</b>
       in: header
       name: Authorization

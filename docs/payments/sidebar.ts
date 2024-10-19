@@ -660,12 +660,6 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "payments/",
-          label: "Missing summary",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
           id: "payments/retrieve-custody-provider-configuration",
           label: "Retrieve custody provider configuration.",
           className: "api-method get",
@@ -924,12 +918,6 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "payments/",
-          label: "Missing summary",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
           id: "payments/create-a-new-international-wire",
           label: "Create a new international wire",
           className: "api-method post",
@@ -992,12 +980,6 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "payments/create-the-payment",
           label: "Create the payment.",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "payments/",
-          label: "Missing summary",
           className: "api-method post",
         },
         {
@@ -1094,30 +1076,6 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "payments/retrieve-global-enabled-endpoints-permissions",
           label: "Retrieve global enabled endpoints permissions",
-          className: "api-method get",
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "Identities",
-      items: [
-        {
-          type: "doc",
-          id: "payments/",
-          label: "Missing summary",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "payments/",
-          label: "Missing summary",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "payments/",
-          label: "Missing summary",
           className: "api-method get",
         },
       ],
