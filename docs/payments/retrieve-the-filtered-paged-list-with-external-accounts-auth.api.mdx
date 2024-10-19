@@ -1,0 +1,489 @@
+---
+id: retrieve-the-filtered-paged-list-with-external-accounts-auth
+title: "Retrieve the filtered, paged list with external accounts. (Auth)"
+description: "Retrieve the filtered, paged list with external accounts. (Auth)"
+sidebar_label: "Retrieve the filtered, paged list with external accounts. (Auth)"
+hide_title: true
+hide_table_of_contents: true
+api: eJytV9tu20YQ/ZXFPjUAK1mJ0QfBNaC4iSEncS62k6KGHpbkSJyY3GV3h7Jlgv9ezJKUJVG25MYvunBnzpn7DkuZK6syILBODq9LiVoO5b8F2IUMpFYZyKEcx6AJaTGOZSBdlECm5LCUU2MzRXIoiwL5hBY5SzuyqGeyCqSjRcpPWFBWQSljcJHFnNAwyxc1AxGZQpMMtvKywHZG1PTm9QMlaoIZ2D05L/AenmBsjn+BdRJICy432oFjgNcHB/wVGU2giX+qPE8xUmxU/6djy8oVQhXHyEcq/WJNDpaQcaYqdRDIfOVRKWNFXmXdy1MgJ4wVjr8pAcFiPfaZIHM7KdbB3t0RWK1SoSKfLNH6JjITQyo3TWrEzossBPtROTrsGniZgEiVI3G4RNVe3nEuijRVIceTbAFb6ipSNv4OFqdNCC9IUeG5QReZHF5LbTTncO6FIJaTTZRAEpJP2cl2sCqQGHcN7wQDfW9MEawMdncEPnRSB7rtsudCam9Rncy3St+MVuO/zQN0JIxOF2JqrGA88adYQxG3aGGfRHDXfA6nhYsUwdZobePi9O2FDnRr7M1Lw1qIAOdgz33Lb8V2HfB9I+JucUonJn4M+YUCXz/YWZxeLFh2xRS10hEq7tmGqQnamhU/+OiJjmlpmkK7ZLFqaZQ04U+I6HH5b834+OSnR/Wot8pateDzDOi5YzFXMzjxN8t+89uCM4WNnqHzhL98iXwCUn42/9/AMMhGpBhqPeEXRRSB88Pq8GDwAndMWXUuGCCFKf/aWZSoHSkdwV7CbjmzO6F+RHclXU0A96BpG2WH4FPZtCZMIfvLx8Fty8KVVgUlxuI9xHUq3nR7872xIcYxaE/mICos0sKvXG9BWZ7U1xPeHEjNeBPbLA7HHbkO+Q3IIszB3/BTTAksxIHg2o9FysPmFikRsDEVXE/8NiooeSV9ayUmlkM5A/Y5V5TIoeyrHPtkC0f9+aDf6v/e6vNyBHbeboyFTeVQJkS5G/ZZteeUjkNz15saSxac42eRyfp+M2pdv+BSrGusDUBnWSuIjQbnBJkb0AK19zU0dyKE1Nz2jkJ7/N5YAXcqy1MYiqPwuEYTsDg7gL9H+BnPPnwffMWPJ2dJeBrx/4ur+/HgHMdunFH+z8n4j/FRPzxuV8IEVOyv3mYnHDXJ9Z30MAlUjh9g4bOJemrY+rZkLiHLU0UgRjnWW4irHRr0DrhAcuMoU74hG44XSOVa6MrWSoI76uepQs3EPlVlk+ZrdoH94USzmQO+KjrJngQyMY5YvixD5eDKplXFj+vdmUsgRsfNFS+n8Q0sNt8b5iot2KJ6Kd9U2LB+OcbWXxK2OlVzNe8Kv8DS7P07OBqpB54J/7FYD5frSRW0BcSBqfVGUQQ5rWh1RjOjLHvx9N2lDCTPlJVEqhwZLGh/MHp7pBcr2JvlWpvAnxySrSplWRdzVS3l66NHNZY9UktzkCZVVf0HSqv0Tg==
+sidebar_class_name: "get api-method"
+info_path: docs/payments/template-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve the filtered, paged list with external accounts. (Auth)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/api/trust/v1/external-accounts"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve the filtered, paged list with external accounts. (Auth)
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"in":"query","name":"IdentityId","schema":{"format":"uuid","type":"string"},"style":"form"}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"description":"Page count","in":"query","name":"Page","schema":{"format":"int32","type":"integer"},"style":"form"}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"description":"PageSize","in":"query","name":"PageSize","schema":{"format":"int32","type":"integer"},"style":"form"}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Success
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                data
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object[]
+                              </span><span
+                                className={"openapi-schema__divider"}
+                              >
+                                
+                              </span><span
+                                className={"openapi-schema__nullable"}
+                              >
+                                nullable
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <div
+                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                            >
+                              
+                              
+                              Gets or sets the data.
+                              
+                              
+                            </div><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                              >
+                                Array [
+                              </div>
+                            </li><SchemaItem
+                              collapsible={false}
+                              name={"accountNumberLast4"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"description":"The last 4 account numbers","nullable":true,"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"cardVerificationStatus"}
+                              required={false}
+                              schemaName={"CardVerificationStatus (string)"}
+                              qualifierMessage={"**Possible values:** [`none`, `verified`]"}
+                              schema={{"enum":["none","verified"],"type":"string","title":"CardVerificationStatus"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"id"}
+                              required={false}
+                              schemaName={"uuid"}
+                              qualifierMessage={undefined}
+                              schema={{"description":"External account identifier","format":"uuid","type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"identityId"}
+                              required={false}
+                              schemaName={"uuid"}
+                              qualifierMessage={undefined}
+                              schema={{"description":"Identity identifier","format":"uuid","type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"internationalBankAccountNumber"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"description":"Exist only for type = international wire","nullable":true,"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"nameObfuscated"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"description":"Exist only for type = card","nullable":true,"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"network"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"description":"Exist only for type = card","nullable":true,"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"receiverName"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"description":"Exists only for type = wire","nullable":true,"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"swiftCode"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"description":"Exist only for type = international wire","nullable":true,"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"type"}
+                              required={false}
+                              schemaName={"ExternalAccountType (string)"}
+                              qualifierMessage={"**Possible values:** [`financial`, `wire`, `card`, `internationalWire`]"}
+                              schema={{"description":"External account type","enum":["financial","wire","card","internationalWire"],"type":"string","title":"ExternalAccountType"}}
+                            >
+                              
+                            </SchemaItem><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                              >
+                                ]
+                              </div>
+                            </li>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                meta
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"pageCount"}
+                              required={false}
+                              schemaName={"int32"}
+                              qualifierMessage={undefined}
+                              schema={{"format":"int32","type":"integer"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"resourceCount"}
+                              required={false}
+                              schemaName={"int32"}
+                              qualifierMessage={undefined}
+                              schema={{"format":"int32","type":"integer"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"data\": [\n    {\n      \"accountNumberLast4\": \"string\",\n      \"cardVerificationStatus\": \"none\",\n      \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n      \"identityId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n      \"internationalBankAccountNumber\": \"string\",\n      \"nameObfuscated\": \"string\",\n      \"network\": \"string\",\n      \"receiverName\": \"string\",\n      \"swiftCode\": \"string\",\n      \"type\": \"financial\"\n    }\n  ],\n  \"meta\": {\n    \"pageCount\": 0,\n    \"resourceCount\": 0\n  }\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Unauthorized
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"detail"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"nullable":true,"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"instance"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"nullable":true,"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"status"}
+                        required={false}
+                        schemaName={"int32"}
+                        qualifierMessage={undefined}
+                        schema={{"format":"int32","nullable":true,"type":"integer"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"title"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"nullable":true,"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"type"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"nullable":true,"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        name={"property name*"}
+                        required={false}
+                        schemaName={"any"}
+                        qualifierMessage={undefined}
+                        schema={{"additionalProperties":{},"properties":{"detail":{"nullable":true,"type":"string"},"instance":{"nullable":true,"type":"string"},"status":{"format":"int32","nullable":true,"type":"integer"},"title":{"nullable":true,"type":"string"},"type":{"nullable":true,"type":"string"}},"type":"object","title":"ProblemDetails"}}
+                        collapsible={false}
+                        discriminator={false}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"status\": 0,\n  \"title\": \"string\",\n  \"type\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"403"}
+        value={"403"}
+      >
+        <div>
+          
+          
+          Forbidden
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

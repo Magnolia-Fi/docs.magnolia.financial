@@ -1,0 +1,5676 @@
+openapi: 3.0.1
+info:
+  title: Fortress.Identity Api
+  version: '1.0'
+servers:
+  - url: 'https://api.sandbox.fortressapi.com/'
+paths:
+  /api/compliance/v1/business-identities:
+    post:
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessUserIdentityModel'
+          description: Business identity was successfully created
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad request model data
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity with such auth identifier is not found
+        '403':
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity is not found
+        '409':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Conflict
+      security:
+        - Bearer: []
+      tags:
+        - BusinessIdentities
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/BusinessUserIdentityCreateModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BusinessUserIdentityCreateModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/BusinessUserIdentityCreateModel'
+        description: >-
+          The <see
+          cref="T:Fortress.Identity.Application.Models.UserIdentities.BusinessUserIdentityCreateModel"></see>
+          data.
+      summary: Creates a new business identity (Auth)
+  '/api/compliance/v1/business-identities/{identityId}':
+    get:
+      parameters:
+        - description: An id of the identity to retrieve
+          in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessUserIdentityModel'
+          description: Identity was successfully retrieved
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: IdentityContainer with such auth identifier is not found
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: IdentityContainer has no access to a specified identity
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity not found
+      security:
+        - Bearer: []
+      tags:
+        - BusinessIdentities
+      summary: Gets a business identity (Auth)
+    patch:
+      parameters:
+        - description: Identity id
+          in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessUserIdentityModel'
+          description: Identity was successfully updated
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad request model data
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity with such auth identifier is not found
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity has no access to a specified identity container
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity not found
+        '409':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Conflict
+      security:
+        - Bearer: []
+      tags:
+        - BusinessIdentities
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/BusinessUserIdentityUpdateModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BusinessUserIdentityUpdateModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/BusinessUserIdentityUpdateModel'
+        description: >-
+          The <see
+          cref="T:Fortress.Identity.Application.Models.UserIdentities.BusinessUserIdentityUpdateModel"></see>
+          data.
+      summary: Update existing business identity (Auth)
+  '/api/compliance/v1/business-identities/{identityId}/documents':
+    post:
+      parameters:
+        - in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentModel'
+          description: Created
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+      security:
+        - Bearer: []
+      tags:
+        - BusinessDocuments
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              DocumentType:
+                style: form
+              Documents:
+                style: form
+            schema:
+              properties:
+                DocumentType:
+                  $ref: '#/components/schemas/BusinessDocumentUploadTypeModel'
+                Documents:
+                  description: A collection of the business document's files
+                  items:
+                    format: binary
+                    type: string
+                  type: array
+              type: object
+      summary: ' (Auth)'
+  /api/compliance/v1/identities:
+    get:
+      parameters:
+        - in: query
+          name: Status
+          schema:
+            $ref: '#/components/schemas/IdentityStatusModel'
+        - in: query
+          name: Page
+          schema:
+            format: int32
+            type: integer
+        - in: query
+          name: PageSize
+          schema:
+            format: int32
+            type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserIdentityModelPageResponseModel'
+          description: Identities were successfully retrieved
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: User with such auth identifier is not found
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not authorized to access these identities
+      security:
+        - Bearer: []
+      tags:
+        - Identities
+      summary: Gets a list of active or inactive identities (Auth)
+  '/api/compliance/v1/identities/{identityId}':
+    patch:
+      parameters:
+        - description: An id of the identity to deactivate/activate
+          in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityUpdateStatusResponse'
+          description: Identity status has been successfully changed
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad request model data
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: User with such auth identifier is not found
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not authorized to access this identity
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity was not found
+      security:
+        - Bearer: []
+      tags:
+        - Identities
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IdentityUpdateStatusModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityUpdateStatusModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IdentityUpdateStatusModel'
+        description: >-
+          The <see
+          cref="T:Fortress.Identity.Application.Models.UserIdentities.IdentityUpdateStatusModel"></see>
+          data
+      summary: Deactivates or activates identity (Auth)
+  /api/compliance/v1/identity-containers:
+    post:
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityContainerModel'
+          description: Identity container was successfully created
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad request model data
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      security:
+        - Bearer: []
+      tags:
+        - IdentityContainers
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IdentityContainerCreateModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityContainerCreateModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IdentityContainerCreateModel'
+        description: >-
+          The <see
+          cref="T:Fortress.Identity.Application.Models.IdentityContainers.IdentityContainerCreateModel"></see>
+          data.
+      summary: Creates a new identity container (Auth)
+  '/api/compliance/v1/identity-containers/{identityContainerId}':
+    get:
+      parameters:
+        - description: An id of the identity container to retrieve
+          in: path
+          name: identityContainerId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityContainerModel'
+          description: Identity container was successfully retrieved
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity container not found
+      security:
+        - Bearer: []
+      tags:
+        - IdentityContainers
+      summary: Get specific identity container (Auth)
+  /api/compliance/v1/identity/verify:
+    post:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonalUserIdentityModel'
+          description: Success
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      security:
+        - Bearer: []
+      tags:
+        - Compliance
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ComplianceCreateModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ComplianceCreateModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ComplianceCreateModel'
+      summary: ' (Auth)'
+  /api/compliance/v1/import/alloy:
+    post:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonalUserIdentityModel'
+          description: Success
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+      security:
+        - Bearer: []
+      tags:
+        - Import
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/AlloyImportModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AlloyImportModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/AlloyImportModel'
+      summary: ' (Auth)'
+  '/api/compliance/v1/personal-identities/sanctions-screen/{identityId}':
+    post:
+      parameters:
+        - description: Identity id
+          in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonalUserIdentityModel'
+          description: Screened successfully
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad request model data
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity with such auth identifier is not found
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity has no access to a specified identity
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity not found
+      security:
+        - Bearer: []
+      tags:
+        - PersonalIdentities
+      summary: Screen existing L0 personal identity (Auth)
+  '/api/compliance/v1/personal-identities/{identityId}':
+    get:
+      parameters:
+        - description: An id of the identity to retrieve
+          in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonalUserIdentityModel'
+          description: Identity was successfully retrieved
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity with such auth identifier is not found
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity has no access to a specified identity container
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity not found
+      security:
+        - Bearer: []
+      tags:
+        - PersonalIdentities
+      summary: Gets a personal identity (Auth)
+    patch:
+      parameters:
+        - description: Identity id
+          in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonalUserIdentityModel'
+          description: Identity was successfully updated
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad request model data
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity with such auth identifier is not found
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity has no access to a specified identity
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity not found
+      security:
+        - Bearer: []
+      tags:
+        - PersonalIdentities
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/PersonalUserIdentityUpdateModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonalUserIdentityUpdateModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/PersonalUserIdentityUpdateModel'
+        description: >-
+          The <see
+          cref="T:Fortress.Identity.Application.Models.UserIdentities.PersonalUserIdentityUpdateModel"></see>
+          data.
+      summary: Update existing personal identity (Auth)
+  '/api/compliance/v1/personal-identities/{identityId}/documents':
+    post:
+      parameters:
+        - description: 'Id of the identity, to which document will be linked'
+          in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentModel'
+          description: Created
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad request model data
+        '401':
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not authorized to access this identity
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity was not found
+      security:
+        - Bearer: []
+      tags:
+        - PersonalDocuments
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              DocumentBack:
+                style: form
+              DocumentFront:
+                style: form
+              DocumentType:
+                style: form
+              SelfPortrait:
+                style: form
+            schema:
+              properties:
+                DocumentBack:
+                  description: >-
+                    An image of the back of the ID. This parameter is optional
+                    for the passport but required for others documents.
+                  format: binary
+                  type: string
+                DocumentFront:
+                  description: >-
+                    An image of the front of the ID. For passports, the front is
+                    the page containing the user's name and photograph.
+                  format: binary
+                  type: string
+                DocumentType:
+                  $ref: '#/components/schemas/PersonalDocumentType'
+                SelfPortrait:
+                  description: >-
+                    A self-portrait of the user for facial recognition. This
+                    parameter is optional and can be used as an additional data
+                    point for verification.
+                  format: binary
+                  type: string
+              required:
+                - DocumentFront
+                - DocumentType
+              type: object
+      summary: Uploads a document for KYC-checks (Auth)
+  '/api/compliance/v1/personal-identities/{identityId}/due-diligence':
+    patch:
+      parameters:
+        - description: Identity id
+          in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonalUserIdentityModel'
+          description: Identity was successfully updated
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad request model data
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity with such auth identifier is not found
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity has no access to a specified identity
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity not found
+      security:
+        - Bearer: []
+      tags:
+        - PersonalIdentities
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/DueDiligenceModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DueDiligenceModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/DueDiligenceModel'
+        description: >-
+          The <see
+          cref="T:Fortress.Identity.Application.Models.UserIdentities.DueDiligenceModel"></see>
+          data.
+      summary: Update personal identity due diligence (Auth)
+    put:
+      parameters:
+        - description: Identity id
+          in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonalUserIdentityModel'
+          description: Identity was successfully updated
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad request model data
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity with such auth identifier is not found
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity has no access to a specified identity
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity not found
+      security:
+        - Bearer: []
+      tags:
+        - PersonalIdentities
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/DueDiligenceModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DueDiligenceModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/DueDiligenceModel'
+        description: >-
+          The <see
+          cref="T:Fortress.Identity.Application.Models.UserIdentities.DueDiligenceModel"></see>
+          data.
+      summary: Put personal identity due diligence (Auth)
+  '/api/compliance/v1/personal-identities/{identityId}/upgrade':
+    post:
+      parameters:
+        - description: Identity id
+          in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonalUserIdentityModel'
+          description: Identity was successfully updated
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad request model data
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity with such auth identifier is not found
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity has no access to a specified identity
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity not found
+      security:
+        - Bearer: []
+      tags:
+        - PersonalIdentities
+      summary: Upgrade existing L0 personal identity (Auth)
+  /api/ops/v1/business-identities/batch-update:
+    patch:
+      responses:
+        '202':
+          description: File accepted
+        '400':
+          description: Bad request model data
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      security:
+        - Bearer:
+            - Ops
+      tags:
+        - Ops
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              File:
+                style: form
+            schema:
+              properties:
+                File:
+                  format: binary
+                  type: string
+              required:
+                - File
+              type: object
+      summary: 'Update batch of business identities. (Auth policies: Ops)'
+  '/api/ops/v1/business-identities/{identityId}/documents/{documentId}/verify':
+    post:
+      parameters:
+        - description: Id of the identity
+          in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+        - description: Id of the document
+          in: path
+          name: documentId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '204':
+          description: No Content
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad request model data
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity was not found
+      security:
+        - Bearer:
+            - Ops
+      tags:
+        - Ops
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ManualDocumentVerificationRequestModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ManualDocumentVerificationRequestModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ManualDocumentVerificationRequestModel'
+        description: >-
+          The <see
+          cref="T:Fortress.Identity.Application.Models.Documents.ManualDocumentVerificationRequestModel"></see>
+          data.
+      summary: >-
+        Updates status of Document with status ManualReviewNeeded (Auth
+        policies: Ops)
+  '/api/ops/v1/business-identities/{identityId}/verify':
+    post:
+      parameters:
+        - description: Identity id
+          in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessUserIdentityModel'
+          description: Identity was successfully updated
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad request model data
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity with such auth identifier is not found
+        '403':
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity not found
+      security:
+        - Bearer:
+            - Ops
+      tags:
+        - Ops
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ManualIdentityVerificationRequestModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ManualIdentityVerificationRequestModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ManualIdentityVerificationRequestModel'
+        description: >-
+          The <see
+          cref="T:Fortress.Identity.Application.Models.UserIdentities.ManualIdentityVerificationRequestModel"></see>
+          data.
+      summary: >-
+        Endpoint for manual verification of business Identity. Identity can be
+        upgraded to L1 level or Suspended based on decision. (Auth policies:
+        Ops)
+  /api/ops/v1/country-tiers:
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CountryTierResponseModel'
+                type: array
+          description: Info has been successfully retrieved.
+        '400':
+          description: Incorrect data
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      security:
+        - Bearer:
+            - Ops
+      tags:
+        - Ops
+      summary: 'Get tiers list. (Auth policies: Ops)'
+    post:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CountryTierResponseModel'
+                type: array
+          description: Info has been added.
+        '400':
+          description: Incorrect data
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      security:
+        - Bearer:
+            - Ops
+      tags:
+        - Ops
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              items:
+                $ref: '#/components/schemas/CountryTierCreateModel'
+              type: array
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/CountryTierCreateModel'
+              type: array
+          text/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/CountryTierCreateModel'
+              type: array
+        description: The post model.
+      summary: 'Create country tiers list. (Auth policies: Ops)'
+  /api/ops/v1/fuzzy-comparison:
+    get:
+      parameters:
+        - in: query
+          name: Left
+          required: true
+          schema:
+            minLength: 1
+            type: string
+        - in: query
+          name: Right
+          required: true
+          schema:
+            minLength: 1
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FuzzyComparisonResponseModel'
+          description: Info has been successfully retrieved.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Incorrect data
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      security:
+        - Bearer:
+            - Ops
+      tags:
+        - Ops
+      summary: >-
+        Calculates a Levenshtein simple ratio between the strings. (Auth
+        policies: Ops)
+  '/api/ops/v1/identities/{identityId}':
+    patch:
+      parameters:
+        - description: An id of the identity to update
+          in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityUpdateResponse'
+          description: Identity has been successfully changed
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad request model data
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity with such auth identifier is not found
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not authorized to access this identity
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity was not found
+      security:
+        - Bearer:
+            - Ops
+      tags:
+        - Ops
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IdentityUpdateModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityUpdateModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IdentityUpdateModel'
+        description: >-
+          The <see
+          cref="T:Fortress.Identity.Application.Models.UserIdentities.IdentityUpdateModel"></see>
+          data
+      summary: 'Update existing identity (Auth policies: Ops)'
+  '/api/ops/v1/identity-cache/{identityId}':
+    get:
+      parameters:
+        - description: Identity id.
+          in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+        - description: Indicator whether identity assessment data should be included.
+          in: query
+          name: includeAssessmentDetails
+          schema:
+            type: boolean
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityCachedDataDto'
+          description: Info has been successfully retrieved.
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity not found.
+      security:
+        - Bearer:
+            - Ops
+      tags:
+        - Ops
+      summary: 'Get cache info about identity. (Auth policies: Ops)'
+  /api/ops/v1/name-invariants:
+    delete:
+      responses:
+        '200':
+          description: Name invariants successfully removed.
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      security:
+        - Bearer:
+            - Ops
+      tags:
+        - Ops
+      summary: 'Clear invariants list. (Auth policies: Ops)'
+    get:
+      parameters:
+        - in: query
+          name: Name
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/NameInvariantResponseModel'
+                type: array
+          description: Info has been successfully retrieved.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Incorrect data
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      security:
+        - Bearer:
+            - Ops
+      tags:
+        - Ops
+      summary: 'Get name invariants list. (Auth policies: Ops)'
+    post:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/NameInvariantResponseModel'
+                type: array
+          description: Info has been added.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Incorrect data
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      security:
+        - Bearer:
+            - Ops
+      tags:
+        - Ops
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              items:
+                $ref: '#/components/schemas/NameInvariantCreateModel'
+              type: array
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/NameInvariantCreateModel'
+              type: array
+          text/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/NameInvariantCreateModel'
+              type: array
+        description: Create model.
+      summary: 'Create name invariants list. (Auth policies: Ops)'
+  '/api/ops/v1/name-invariants/{name}':
+    delete:
+      parameters:
+        - in: path
+          name: name
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Name invariant successfully removed.
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      security:
+        - Bearer:
+            - Ops
+      tags:
+        - Ops
+      summary: 'Delete name invariant. (Auth policies: Ops)'
+  /api/ops/v1/personal-identities/batch-update:
+    patch:
+      responses:
+        '202':
+          description: File accepted
+        '400':
+          description: Bad request model data
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      security:
+        - Bearer:
+            - Ops
+      tags:
+        - Ops
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              File:
+                style: form
+            schema:
+              properties:
+                File:
+                  format: binary
+                  type: string
+              required:
+                - File
+              type: object
+      summary: 'Update batch of personal identities. (Auth policies: Ops)'
+  '/api/ops/v1/personal-identities/{identityId}':
+    patch:
+      parameters:
+        - description: Identity id
+          in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonalUserIdentityModel'
+          description: Identity was successfully updated
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad request model data
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity not found
+      security:
+        - Bearer:
+            - Ops
+      tags:
+        - Ops
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/PersonalUserIdentityPatchModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonalUserIdentityPatchModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/PersonalUserIdentityPatchModel'
+        description: >-
+          The <see
+          cref="T:Fortress.Identity.Application.Models.UserIdentities.PersonalUserIdentityPatchModel"></see>
+          data.
+      summary: 'Updates existing personal identity (Auth policies: Ops)'
+  '/api/ops/v1/personal-identities/{identityId}/documents/{documentId}/verify':
+    post:
+      parameters:
+        - description: Id of the identity
+          in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+        - description: Id of the document
+          in: path
+          name: documentId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '204':
+          description: No Content
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad request model data
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity was not found
+      security:
+        - Bearer:
+            - Ops
+      tags:
+        - Ops
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ManualDocumentVerificationRequestModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ManualDocumentVerificationRequestModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ManualDocumentVerificationRequestModel'
+        description: >-
+          The <see
+          cref="T:Fortress.Identity.Application.Models.Documents.ManualDocumentVerificationRequestModel"></see>
+          data.
+      summary: >-
+        Updates status of Document with status ManualReviewNeeded (Auth
+        policies: Ops)
+  '/api/ops/v1/personal-identities/{identityId}/verify':
+    post:
+      parameters:
+        - description: Identity id
+          in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonalUserIdentityModel'
+          description: Identity was successfully updated
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad request model data
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity with such auth identifier is not found
+        '403':
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity not found
+      security:
+        - Bearer:
+            - Ops
+      tags:
+        - Ops
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ManualIdentityVerificationRequestModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ManualIdentityVerificationRequestModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ManualIdentityVerificationRequestModel'
+        description: >-
+          The <see
+          cref="T:Fortress.Identity.Application.Models.UserIdentities.ManualIdentityVerificationRequestModel"></see>
+          data.
+      summary: >-
+        Endpoint for manual verification of personal Identity. Identity can be
+        upgraded to L1 level or Suspended based on decision. (Auth policies:
+        Ops)
+  /api/trust/v1/business-identities:
+    post:
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessUserIdentityModel'
+          description: Business identity was successfully created
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad request model data
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity with such auth identifier is not found
+        '403':
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity is not found
+        '409':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Conflict
+      security:
+        - Bearer: []
+      tags:
+        - BusinessIdentities
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/BusinessUserIdentityCreateModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BusinessUserIdentityCreateModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/BusinessUserIdentityCreateModel'
+        description: >-
+          The <see
+          cref="T:Fortress.Identity.Application.Models.UserIdentities.BusinessUserIdentityCreateModel"></see>
+          data.
+      summary: Creates a new business identity (Auth)
+  '/api/trust/v1/business-identities/{identityId}':
+    get:
+      parameters:
+        - description: An id of the identity to retrieve
+          in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessUserIdentityModel'
+          description: Identity was successfully retrieved
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: IdentityContainer with such auth identifier is not found
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: IdentityContainer has no access to a specified identity
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity not found
+      security:
+        - Bearer: []
+      tags:
+        - BusinessIdentities
+      summary: Gets a business identity (Auth)
+    patch:
+      parameters:
+        - description: Identity id
+          in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessUserIdentityModel'
+          description: Identity was successfully updated
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad request model data
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity with such auth identifier is not found
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity has no access to a specified identity container
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity not found
+        '409':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Conflict
+      security:
+        - Bearer: []
+      tags:
+        - BusinessIdentities
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/BusinessUserIdentityUpdateModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BusinessUserIdentityUpdateModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/BusinessUserIdentityUpdateModel'
+        description: >-
+          The <see
+          cref="T:Fortress.Identity.Application.Models.UserIdentities.BusinessUserIdentityUpdateModel"></see>
+          data.
+      summary: Update existing business identity (Auth)
+  '/api/trust/v1/business-identities/{identityId}/documents':
+    post:
+      parameters:
+        - in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentModel'
+          description: Created
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+      security:
+        - Bearer: []
+      tags:
+        - BusinessDocuments
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              DocumentType:
+                style: form
+              Documents:
+                style: form
+            schema:
+              properties:
+                DocumentType:
+                  $ref: '#/components/schemas/BusinessDocumentUploadTypeModel'
+                Documents:
+                  description: A collection of the business document's files
+                  items:
+                    format: binary
+                    type: string
+                  type: array
+              type: object
+      summary: ' (Auth)'
+  '/api/trust/v1/business-identities/{identityId}/update-without-kyc':
+    patch:
+      parameters:
+        - description: Identity id
+          in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessUserIdentityModel'
+          description: Identity was successfully updated
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad request model data
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity with such auth identifier is not found
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity has no access to a specified identity
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity not found
+      security:
+        - Bearer: []
+      tags:
+        - BusinessIdentities
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/BusinessIdentityPartialUpdateModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BusinessIdentityPartialUpdateModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/BusinessIdentityPartialUpdateModel'
+        description: >-
+          The <see
+          cref="T:Fortress.Identity.Application.Models.UserIdentities.BusinessIdentityPartialUpdateModel"></see>
+          data.
+      summary: Update existing business identity (Auth)
+  '/api/trust/v1/business-identities/{identityId}/verify':
+    post:
+      parameters:
+        - description: Identity id
+          in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessUserIdentityModel'
+          description: Identity was successfully updated
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad request model data
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity with such auth identifier is not found
+        '403':
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity not found
+      security:
+        - Bearer: []
+      tags:
+        - BusinessIdentities
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ManualIdentityVerificationByOrgRequestModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ManualIdentityVerificationByOrgRequestModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ManualIdentityVerificationByOrgRequestModel'
+        description: >-
+          The <see
+          cref="T:Fortress.Identity.Application.Models.UserIdentities.ManualIdentityVerificationByOrgRequestModel"></see>
+          data.
+      summary: >-
+        Endpoint for manual verification of business identity. Identity can be
+        upgraded to L1 level or Suspended based on decision. (Auth)
+  /api/trust/v1/identity-containers:
+    post:
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityContainerModel'
+          description: Identity container was successfully created
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad request model data
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      security:
+        - Bearer: []
+      tags:
+        - IdentityContainers
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IdentityContainerCreateModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityContainerCreateModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IdentityContainerCreateModel'
+        description: >-
+          The <see
+          cref="T:Fortress.Identity.Application.Models.IdentityContainers.IdentityContainerCreateModel"></see>
+          data.
+      summary: Creates a new identity container (Auth)
+  '/api/trust/v1/identity-containers/{identityContainerId}':
+    get:
+      parameters:
+        - description: An id of the identity container to retrieve
+          in: path
+          name: identityContainerId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityContainerModel'
+          description: Identity container was successfully retrieved
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity container not found
+      security:
+        - Bearer: []
+      tags:
+        - IdentityContainers
+      summary: Get specific identity container (Auth)
+  '/api/trust/v1/personal-identities/sanctions-screen/{identityId}':
+    post:
+      parameters:
+        - description: Identity id
+          in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonalUserIdentityModel'
+          description: Screened successfully
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad request model data
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity with such auth identifier is not found
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity has no access to a specified identity
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity not found
+      security:
+        - Bearer: []
+      tags:
+        - PersonalIdentities
+      summary: Screen existing L0 personal identity (Auth)
+  '/api/trust/v1/personal-identities/{identityId}':
+    get:
+      parameters:
+        - description: An id of the identity to retrieve
+          in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonalUserIdentityModel'
+          description: Identity was successfully retrieved
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity with such auth identifier is not found
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity has no access to a specified identity container
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity not found
+      security:
+        - Bearer: []
+      tags:
+        - PersonalIdentities
+      summary: Gets a personal identity (Auth)
+    patch:
+      parameters:
+        - description: Identity id
+          in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonalUserIdentityModel'
+          description: Identity was successfully updated
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad request model data
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity with such auth identifier is not found
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity has no access to a specified identity
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity not found
+      security:
+        - Bearer: []
+      tags:
+        - PersonalIdentities
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/PersonalUserIdentityUpdateModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonalUserIdentityUpdateModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/PersonalUserIdentityUpdateModel'
+        description: >-
+          The <see
+          cref="T:Fortress.Identity.Application.Models.UserIdentities.PersonalUserIdentityUpdateModel"></see>
+          data.
+      summary: Update existing personal identity (Auth)
+  '/api/trust/v1/personal-identities/{identityId}/documents':
+    post:
+      parameters:
+        - description: 'Id of the identity, to which document will be linked'
+          in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentModel'
+          description: Created
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad request model data
+        '401':
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not authorized to access this identity
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity was not found
+      security:
+        - Bearer: []
+      tags:
+        - PersonalDocuments
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              DocumentBack:
+                style: form
+              DocumentFront:
+                style: form
+              DocumentType:
+                style: form
+              SelfPortrait:
+                style: form
+            schema:
+              properties:
+                DocumentBack:
+                  description: >-
+                    An image of the back of the ID. This parameter is optional
+                    for the passport but required for others documents.
+                  format: binary
+                  type: string
+                DocumentFront:
+                  description: >-
+                    An image of the front of the ID. For passports, the front is
+                    the page containing the user's name and photograph.
+                  format: binary
+                  type: string
+                DocumentType:
+                  $ref: '#/components/schemas/PersonalDocumentType'
+                SelfPortrait:
+                  description: >-
+                    A self-portrait of the user for facial recognition. This
+                    parameter is optional and can be used as an additional data
+                    point for verification.
+                  format: binary
+                  type: string
+              required:
+                - DocumentFront
+                - DocumentType
+              type: object
+      summary: Uploads a document for KYC-checks (Auth)
+  '/api/trust/v1/personal-identities/{identityId}/due-diligence':
+    patch:
+      parameters:
+        - description: Identity id
+          in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonalUserIdentityModel'
+          description: Identity was successfully updated
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad request model data
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity with such auth identifier is not found
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity has no access to a specified identity
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity not found
+      security:
+        - Bearer: []
+      tags:
+        - PersonalIdentities
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/DueDiligenceModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DueDiligenceModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/DueDiligenceModel'
+        description: >-
+          The <see
+          cref="T:Fortress.Identity.Application.Models.UserIdentities.DueDiligenceModel"></see>
+          data.
+      summary: Update personal identity due diligence (Auth)
+    put:
+      parameters:
+        - description: Identity id
+          in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonalUserIdentityModel'
+          description: Identity was successfully updated
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad request model data
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity with such auth identifier is not found
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity has no access to a specified identity
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity not found
+      security:
+        - Bearer: []
+      tags:
+        - PersonalIdentities
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/DueDiligenceModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DueDiligenceModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/DueDiligenceModel'
+        description: >-
+          The <see
+          cref="T:Fortress.Identity.Application.Models.UserIdentities.DueDiligenceModel"></see>
+          data.
+      summary: Put personal identity due diligence (Auth)
+  '/api/trust/v1/personal-identities/{identityId}/update-without-kyc':
+    patch:
+      parameters:
+        - description: Identity id
+          in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonalUserIdentityModel'
+          description: Identity was successfully updated
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad request model data
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity with such auth identifier is not found
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity has no access to a specified identity
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity not found
+      security:
+        - Bearer: []
+      tags:
+        - PersonalIdentities
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/UserIdentityPartialUpdateModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserIdentityPartialUpdateModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/UserIdentityPartialUpdateModel'
+        description: >-
+          The <see
+          cref="T:Fortress.Identity.Application.Models.UserIdentities.UserIdentityPartialUpdateModel"></see>
+          data.
+      summary: Update existing personal identity (Auth)
+  '/api/trust/v1/personal-identities/{identityId}/upgrade':
+    post:
+      parameters:
+        - description: Identity id
+          in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonalUserIdentityModel'
+          description: Identity was successfully updated
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad request model data
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity with such auth identifier is not found
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity has no access to a specified identity
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity not found
+      security:
+        - Bearer: []
+      tags:
+        - PersonalIdentities
+      summary: Upgrade existing L0 personal identity (Auth)
+  '/api/trust/v1/personal-identities/{identityId}/verify':
+    post:
+      parameters:
+        - description: Identity id
+          in: path
+          name: identityId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonalUserIdentityModel'
+          description: Identity was successfully updated
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad request model data
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity with such auth identifier is not found
+        '403':
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Identity not found
+      security:
+        - Bearer: []
+      tags:
+        - PersonalIdentities
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ManualIdentityVerificationByOrgRequestModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ManualIdentityVerificationByOrgRequestModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ManualIdentityVerificationByOrgRequestModel'
+        description: >-
+          The <see
+          cref="T:Fortress.Identity.Application.Models.UserIdentities.ManualIdentityVerificationByOrgRequestModel"></see>
+          data.
+      summary: >-
+        Endpoint for manual verification of personal Identity. Identity can be
+        upgraded to L1 level or Suspended based on decision. (Auth)
+components:
+  schemas:
+    Aamva:
+      additionalProperties: false
+      properties:
+        confidenceScore:
+          format: int64
+          nullable: true
+          type: integer
+        status:
+          nullable: true
+          type: string
+      type: object
+    Address:
+      additionalProperties: false
+      properties:
+        adderss_city:
+          nullable: true
+          type: string
+        address_country_code:
+          nullable: true
+          type: string
+        address_line_1:
+          nullable: true
+          type: string
+        address_line_2:
+          nullable: true
+          type: string
+        address_postal_code:
+          nullable: true
+          type: string
+        address_state:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+      type: object
+    AddressDTO:
+      additionalProperties: false
+      properties:
+        city:
+          nullable: true
+          type: string
+        country:
+          nullable: true
+          type: string
+        id:
+          nullable: true
+          type: string
+        postalCode:
+          nullable: true
+          type: string
+        state:
+          nullable: true
+          type: string
+        street1:
+          nullable: true
+          type: string
+        street2:
+          nullable: true
+          type: string
+      type: object
+    AddressModel:
+      additionalProperties: false
+      description: Represents Address model
+      properties:
+        city:
+          description: Gets or sets the city
+          minLength: 1
+          type: string
+        country:
+          description: Gets or sets the country
+          minLength: 1
+          type: string
+        postalCode:
+          description: Gets or sets the postal code (ZIP code)
+          nullable: true
+          type: string
+        state:
+          description: Gets or sets the state
+          nullable: true
+          type: string
+        street1:
+          description: Gets or sets the first street
+          minLength: 1
+          type: string
+        street2:
+          description: Gets or sets the second street
+          nullable: true
+          type: string
+      required:
+        - city
+        - country
+        - street1
+      type: object
+    AlloyCacheDataDto:
+      additionalProperties: false
+      properties:
+        documents:
+          items:
+            $ref: '#/components/schemas/DocumentDto'
+          nullable: true
+          type: array
+        entity:
+          items:
+            $ref: '#/components/schemas/AlloyEntityDto'
+          nullable: true
+          type: array
+        evaluations:
+          items:
+            $ref: '#/components/schemas/EvaluationDto'
+          nullable: true
+          type: array
+      type: object
+    AlloyEntityDto:
+      additionalProperties: false
+      properties:
+        createdAt:
+          format: date-time
+          type: string
+        documentVersion:
+          nullable: true
+          type: string
+        id:
+          nullable: true
+          readOnly: true
+          type: string
+        identityId:
+          nullable: true
+          type: string
+        request:
+          $ref: '#/components/schemas/CreateEntityRequest'
+        response:
+          $ref: '#/components/schemas/CreateEntityResponse'
+        revision:
+          format: int64
+          type: integer
+        updatedAt:
+          format: date-time
+          type: string
+      type: object
+    AlloyImportModel:
+      additionalProperties: false
+      properties:
+        entityToken:
+          minLength: 1
+          type: string
+        evaluationToken:
+          nullable: true
+          type: string
+      required:
+        - entityToken
+      type: object
+    BusinessDocumentType:
+      enum:
+        - other
+        - proofOfAddress
+        - proofOfCompanyFormation
+        - formationDocument
+        - agreement
+        - taxIdDocument
+      type: string
+    BusinessDocumentUploadTypeModel:
+      enum:
+        - other
+        - formationDocument
+        - agreement
+        - taxIdDocument
+      type: string
+    BusinessIdentityPartialUpdateModel:
+      additionalProperties: false
+      properties:
+        address:
+          $ref: '#/components/schemas/AddressModel'
+        email:
+          nullable: true
+          type: string
+        industry:
+          $ref: '#/components/schemas/BusinessIndustry'
+        otherIndustry:
+          maxLength: 1000
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+      type: object
+    BusinessIndustry:
+      enum:
+        - b2b
+        - b2c
+        - accounting
+        - aerospace
+        - agriculture
+        - aquaticsMarine
+        - automotive
+        - businessServices
+        - charity
+        - computerSoftware
+        - construction
+        - cryptoBlockchain
+        - education
+        - energy
+        - engineering
+        - entertainment
+        - environmentGreen
+        - farming
+        - fashion
+        - financialServices
+        - franchise
+        - gaming
+        - gigEconomy
+        - government
+        - hospitality
+        - informationTechnology
+        - insurance
+        - internet
+        - international
+        - lawEnforcementMilitary
+        - lifestyle
+        - manufacturing
+        - marketingServices
+        - mediaPublishing
+        - medical
+        - mobileApps
+        - music
+        - naturalResources
+        - networkMarketing
+        - performingArts
+        - personalServices
+        - professionalServices
+        - realEstate
+        - recreation
+        - retail
+        - royalties
+        - science
+        - securities
+        - shippingTransportation
+        - software
+        - storageWarehousing
+        - supplier
+        - technology
+        - transportation
+        - wholesale
+        - other
+        - art
+      type: string
+    BusinessUserIdentityCreateModel:
+      additionalProperties: false
+      properties:
+        address:
+          $ref: '#/components/schemas/AddressModel'
+        beneficialOwners:
+          items:
+            format: uuid
+            type: string
+          nullable: true
+          type: array
+        companyName:
+          maxLength: 60
+          minLength: 1
+          type: string
+        description:
+          minLength: 1
+          type: string
+        ein:
+          nullable: true
+          type: string
+        email:
+          minLength: 1
+          type: string
+        establishedOn:
+          format: date-time
+          type: string
+        identityContainerId:
+          format: uuid
+          minLength: 1
+          type: string
+        industry:
+          $ref: '#/components/schemas/BusinessIndustry'
+        legalStructure:
+          $ref: '#/components/schemas/LegalStructure'
+        mailingAddress:
+          $ref: '#/components/schemas/AddressModel'
+        naics:
+          nullable: true
+          type: string
+        naicsDescription:
+          nullable: true
+          type: string
+        otherIndustry:
+          maxLength: 1000
+          nullable: true
+          type: string
+        otherLegalStructure:
+          maxLength: 50
+          minLength: 1
+          nullable: true
+          type: string
+        phone:
+          maxLength: 20
+          minLength: 1
+          type: string
+        regionOfFormation:
+          minLength: 1
+          type: string
+        website:
+          maxLength: 100
+          minLength: 1
+          nullable: true
+          type: string
+      required:
+        - address
+        - companyName
+        - description
+        - email
+        - identityContainerId
+        - legalStructure
+        - phone
+        - regionOfFormation
+      type: object
+    BusinessUserIdentityModel:
+      additionalProperties: false
+      properties:
+        address:
+          $ref: '#/components/schemas/AddressModel'
+        beneficialOwners:
+          items:
+            format: uuid
+            type: string
+          nullable: true
+          type: array
+        companyName:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        documents:
+          items:
+            $ref: '#/components/schemas/DocumentModel'
+          nullable: true
+          type: array
+        ein:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        establishedOn:
+          format: date-time
+          type: string
+        id:
+          format: uuid
+          type: string
+        identityContainerId:
+          format: uuid
+          nullable: true
+          type: string
+        industry:
+          $ref: '#/components/schemas/BusinessIndustry'
+        isSuspended:
+          type: boolean
+        kycLevel:
+          nullable: true
+          type: string
+        legalStructure:
+          $ref: '#/components/schemas/LegalStructure'
+        mailingAddress:
+          $ref: '#/components/schemas/AddressModel'
+        naics:
+          nullable: true
+          type: string
+        naicsDescription:
+          nullable: true
+          type: string
+        otherIndustry:
+          nullable: true
+          type: string
+        otherLegalStructure:
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+        regionOfFormation:
+          nullable: true
+          type: string
+        status:
+          $ref: '#/components/schemas/UserIdentityStatus'
+        type:
+          $ref: '#/components/schemas/UserIdentityType'
+        website:
+          nullable: true
+          type: string
+      type: object
+    BusinessUserIdentityUpdateModel:
+      additionalProperties: false
+      properties:
+        address:
+          $ref: '#/components/schemas/AddressModel'
+        ein:
+          nullable: true
+          type: string
+        regionOfFormation:
+          minLength: 1
+          type: string
+      required:
+        - address
+        - regionOfFormation
+      type: object
+    Codes:
+      additionalProperties: false
+      properties:
+        adaptation:
+          nullable: true
+          type: string
+        detailCode:
+          nullable: true
+          type: string
+        detail_list:
+          nullable: true
+          type: string
+        messages:
+          items:
+            $ref: '#/components/schemas/Message'
+          nullable: true
+          type: array
+        options:
+          nullable: true
+          type: string
+        reliability:
+          nullable: true
+          type: string
+      type: object
+    CognitoCacheDataDto:
+      additionalProperties: false
+      properties:
+        assessments:
+          items:
+            $ref: '#/components/schemas/IdentityAssessmentDTO'
+          nullable: true
+          type: array
+        profile:
+          items:
+            $ref: '#/components/schemas/IdentityProfileDTO'
+          nullable: true
+          type: array
+        searches:
+          items:
+            $ref: '#/components/schemas/IdentitySearchDTO'
+          nullable: true
+          type: array
+      type: object
+    ComplianceCreateModel:
+      additionalProperties: false
+      properties:
+        address:
+          $ref: '#/components/schemas/AddressModel'
+        dateOfBirth:
+          format: date
+          nullable: true
+          type: string
+        dueDiligence:
+          $ref: '#/components/schemas/DueDiligenceModel'
+        email:
+          minLength: 1
+          type: string
+        firstName:
+          minLength: 1
+          type: string
+        lastName:
+          minLength: 1
+          type: string
+        middleName:
+          nullable: true
+          type: string
+        phone:
+          maxLength: 20
+          minLength: 1
+          type: string
+        ssn:
+          nullable: true
+          type: string
+      required:
+        - email
+        - firstName
+        - lastName
+        - phone
+      type: object
+    ComplyAdvantageFormatedData:
+      additionalProperties: false
+      properties:
+        code:
+          format: int32
+          type: integer
+        match_count:
+          format: int32
+          type: integer
+        matched_lists:
+          items: {}
+          nullable: true
+          type: array
+        matches:
+          items: {}
+          nullable: true
+          type: array
+        watchlist_categories:
+          items: {}
+          nullable: true
+          type: array
+        watchlist_sources:
+          items: {}
+          nullable: true
+          type: array
+      type: object
+    ComplyAdvantageItem:
+      additionalProperties: false
+      properties:
+        code:
+          format: int32
+          type: integer
+        content:
+          $ref: '#/components/schemas/Content'
+        status:
+          nullable: true
+          type: string
+      type: object
+    Content:
+      additionalProperties: false
+      properties:
+        data:
+          $ref: '#/components/schemas/ContentData'
+      type: object
+    ContentData:
+      additionalProperties: false
+      properties:
+        tags:
+          items: {}
+          nullable: true
+          type: array
+        assignee_id:
+          format: int32
+          type: integer
+        client_ref:
+          nullable: true
+        created_at:
+          nullable: true
+          type: string
+        filters:
+          $ref: '#/components/schemas/Filters'
+        id:
+          format: int32
+          type: integer
+        match_status:
+          nullable: true
+          type: string
+        ref:
+          nullable: true
+          type: string
+        risk_level:
+          nullable: true
+          type: string
+        search_term:
+          nullable: true
+          type: string
+        searcher_id:
+          format: int32
+          type: integer
+        submitted_term:
+          nullable: true
+          type: string
+        total_hits:
+          format: int32
+          type: integer
+        updated_at:
+          nullable: true
+          type: string
+      type: object
+    CountryTierCreateModel:
+      additionalProperties: false
+      properties:
+        countryCode:
+          minLength: 1
+          type: string
+        tier:
+          $ref: '#/components/schemas/TierModel'
+      required:
+        - countryCode
+      type: object
+    CountryTierResponseModel:
+      additionalProperties: false
+      properties:
+        countryCode:
+          nullable: true
+          type: string
+        tier:
+          $ref: '#/components/schemas/TierModel'
+      type: object
+    CreateEntityRequest:
+      additionalProperties: false
+      properties:
+        addresses:
+          items:
+            $ref: '#/components/schemas/ExternalAddressModel'
+          nullable: true
+          type: array
+        emails:
+          items:
+            $ref: '#/components/schemas/EmailModel'
+          nullable: true
+          type: array
+        external_entity_id:
+          nullable: true
+          type: string
+        phones:
+          items:
+            $ref: '#/components/schemas/PhoneModel'
+          nullable: true
+          type: array
+      type: object
+    CreateEntityResponse:
+      additionalProperties: false
+      properties:
+        addresses:
+          items:
+            $ref: '#/components/schemas/ExternalAddressModel'
+          nullable: true
+          type: array
+        emails:
+          items:
+            $ref: '#/components/schemas/EmailModel'
+          nullable: true
+          type: array
+        entity_token:
+          nullable: true
+          type: string
+        external_entity_id:
+          nullable: true
+          type: string
+        phones:
+          items:
+            $ref: '#/components/schemas/PhoneModel'
+          nullable: true
+          type: array
+        status_code:
+          format: int32
+          type: integer
+        type:
+          nullable: true
+          type: string
+      type: object
+    Crosscheck:
+      additionalProperties: false
+      properties:
+        address:
+          $ref: '#/components/schemas/CrosscheckAddress'
+        darkWeb:
+          $ref: '#/components/schemas/DarkWeb'
+      type: object
+    CrosscheckAddress:
+      additionalProperties: false
+      properties:
+        isCommercial:
+          type: boolean
+        isForwarder:
+          type: boolean
+        isValid:
+          type: boolean
+      type: object
+    DarkWeb:
+      additionalProperties: false
+      properties:
+        criminalCount:
+          format: int64
+          nullable: true
+          type: integer
+        criminalMaxScore:
+          format: int64
+          nullable: true
+          type: integer
+      type: object
+    Data:
+      additionalProperties: false
+      properties:
+        aamvaConfidenceScoreReturned:
+          nullable: true
+          type: boolean
+        age:
+          format: int64
+          nullable: true
+          type: integer
+        confidences:
+          $ref: '#/components/schemas/DataConfidences'
+        crosscheck_address_type:
+          nullable: true
+          type: string
+        fraudulent_document_signal_count:
+          format: int64
+          nullable: true
+          type: integer
+        idAddressFound:
+          nullable: true
+          type: boolean
+        id_expired:
+          nullable: true
+          type: boolean
+        id_type:
+          nullable: true
+          type: string
+        reasoncodes:
+          items: {}
+          nullable: true
+          type: array
+        selfieMatchScoreReturned:
+          nullable: true
+          type: boolean
+        verification_success:
+          nullable: true
+          type: boolean
+      type: object
+    DataConfidences:
+      additionalProperties: false
+      properties:
+        birth_date_match:
+          nullable: true
+        id:
+          nullable: true
+        id_match:
+          nullable: true
+        name_match:
+          nullable: true
+        selfie:
+          nullable: true
+        selfie_match:
+          nullable: true
+      type: object
+    DateDTO:
+      additionalProperties: false
+      properties:
+        date:
+          format: date-time
+          type: string
+        id:
+          nullable: true
+          type: string
+      type: object
+    DescribeDocumentRequest:
+      additionalProperties: false
+      properties:
+        extension:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        note:
+          nullable: true
+          type: string
+        note_author_agent_email:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+      type: object
+    Diligence:
+      additionalProperties: false
+      properties:
+        financial:
+          nullable: true
+        fraud:
+          $ref: '#/components/schemas/Fraud'
+        watchlists:
+          $ref: '#/components/schemas/Watchlists'
+      type: object
+    DobClass:
+      additionalProperties: false
+      properties:
+        matched:
+          nullable: true
+          type: boolean
+        score:
+          format: double
+          nullable: true
+          type: number
+      type: object
+    DocumentDto:
+      additionalProperties: false
+      properties:
+        createdAt:
+          format: date-time
+          type: string
+        documentId:
+          nullable: true
+          type: string
+        documentToken:
+          nullable: true
+          type: string
+        documentVersion:
+          nullable: true
+          type: string
+        entityToken:
+          nullable: true
+          type: string
+        id:
+          nullable: true
+          readOnly: true
+          type: string
+        identityId:
+          nullable: true
+          type: string
+        request:
+          $ref: '#/components/schemas/DescribeDocumentRequest'
+        response:
+          $ref: '#/components/schemas/DocumentResponse'
+        revision:
+          format: int64
+          type: integer
+        updatedAt:
+          format: date-time
+          type: string
+      type: object
+    DocumentModel:
+      additionalProperties: false
+      properties:
+        businessDocumentType:
+          $ref: '#/components/schemas/BusinessDocumentType'
+        documentCheckStatus:
+          $ref: '#/components/schemas/DocumentStatus'
+        documentReferenceId:
+          format: uuid
+          nullable: true
+          type: string
+        documentUuid:
+          format: uuid
+          nullable: true
+          type: string
+        id:
+          format: uuid
+          type: string
+        identityId:
+          format: uuid
+          type: string
+        isVerified:
+          readOnly: true
+          type: boolean
+        personalDocumentType:
+          $ref: '#/components/schemas/PersonalDocumentType'
+      type: object
+    DocumentResponse:
+      additionalProperties: false
+      properties:
+        document_token:
+          nullable: true
+          type: string
+        extension:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        note:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+        uploaded:
+          type: boolean
+      type: object
+    DocumentStatus:
+      enum:
+        - pending
+        - automaticReviewInProgress
+        - manualReviewNeeded
+        - accepted
+        - rejected
+        - resubmit
+      type: string
+    DocumentUpdateStatus:
+      description: Update document status model
+      enum:
+        - accept
+        - reject
+        - resubmit
+      type: string
+    DueDiligenceModel:
+      additionalProperties: false
+      properties:
+        annualIncome:
+          format: int64
+          nullable: true
+          type: integer
+        employer:
+          nullable: true
+          type: string
+        employerCountryCode:
+          nullable: true
+          type: string
+        employerState:
+          nullable: true
+          type: string
+        employmentStatus:
+          $ref: '#/components/schemas/EmploymentStatus'
+        incomeCountryCode:
+          nullable: true
+          type: string
+        incomeSource:
+          $ref: '#/components/schemas/IncomeSource'
+        incomeState:
+          nullable: true
+          type: string
+        industry:
+          $ref: '#/components/schemas/Industry'
+        occupation:
+          $ref: '#/components/schemas/Occupation'
+        occupationDescription:
+          nullable: true
+          type: string
+        sourceOfFunds:
+          $ref: '#/components/schemas/SourceOfFunds'
+        wealthSource:
+          $ref: '#/components/schemas/WealthSource'
+        wealthSourceDescription:
+          nullable: true
+          type: string
+      type: object
+    Email:
+      additionalProperties: false
+      properties:
+        addressee:
+          nullable: true
+          type: string
+        codes:
+          $ref: '#/components/schemas/Codes'
+        countryCode:
+          nullable: true
+          type: string
+        display_name:
+          nullable: true
+          type: string
+        domain:
+          nullable: true
+          type: string
+        full_email_address:
+          nullable: true
+          type: string
+        top_level:
+          nullable: true
+          type: string
+      type: object
+    EmailModel:
+      additionalProperties: false
+      properties:
+        email_address:
+          nullable: true
+          type: string
+      type: object
+    EmploymentStatus:
+      enum:
+        - employed
+        - selfEmployed
+        - retired
+        - unemployed
+        - student
+      type: string
+    EvaluationDto:
+      additionalProperties: false
+      properties:
+        createdAt:
+          format: date-time
+          type: string
+        documentId:
+          nullable: true
+          type: string
+        documentVersion:
+          nullable: true
+          type: string
+        evaluationToken:
+          nullable: true
+          type: string
+        id:
+          nullable: true
+          readOnly: true
+          type: string
+        identityId:
+          nullable: true
+          type: string
+        request:
+          $ref: '#/components/schemas/EvaluationRequest'
+        response:
+          $ref: '#/components/schemas/EvaluationResponse'
+        revision:
+          format: int64
+          type: integer
+        updatedAt:
+          format: date-time
+          type: string
+      type: object
+    EvaluationRequest:
+      additionalProperties: false
+      properties:
+        birth_date:
+          format: date-time
+          nullable: true
+          type: string
+        document_step:
+          nullable: true
+          type: string
+        document_token_back:
+          nullable: true
+          type: string
+        document_token_front:
+          nullable: true
+          type: string
+        document_token_selfie:
+          nullable: true
+          type: string
+        manual_input:
+          nullable: true
+          type: string
+        name_first:
+          nullable: true
+          type: string
+        name_last:
+          nullable: true
+          type: string
+        name_middle:
+          nullable: true
+          type: string
+      type: object
+    EvaluationResponse:
+      additionalProperties: false
+      properties:
+        application_token:
+          nullable: true
+          type: string
+        application_version_id:
+          format: int64
+          nullable: true
+          type: integer
+        audit_archive:
+          nullable: true
+        champion_challenger_id:
+          nullable: true
+          type: string
+        diligence:
+          $ref: '#/components/schemas/Diligence'
+        entity_token:
+          nullable: true
+          type: string
+        error:
+          nullable: true
+        evaluation_token:
+          nullable: true
+          type: string
+        external_entity_id:
+          format: uuid
+          type: string
+        formatted:
+          $ref: '#/components/schemas/Formatted'
+        formatted_responses:
+          $ref: '#/components/schemas/FormattedResponses'
+        matching:
+          $ref: '#/components/schemas/EvaluationResponseModelMatching'
+        parent_entity_token:
+          nullable: true
+          type: string
+        raw_responses:
+          $ref: '#/components/schemas/RawResponses'
+        related_data:
+          $ref: '#/components/schemas/RelatedData'
+        status_code:
+          format: int64
+          type: integer
+        summary:
+          $ref: '#/components/schemas/Summary'
+        supplied:
+          $ref: '#/components/schemas/Formatted'
+        timestamp:
+          format: int64
+          type: integer
+      type: object
+    EvaluationResponseModelMatching:
+      additionalProperties: false
+      properties:
+        average_score:
+          format: double
+          nullable: true
+          type: number
+      type: object
+    ExternalAddressModel:
+      additionalProperties: false
+      properties:
+        address_city:
+          nullable: true
+          type: string
+        address_country:
+          nullable: true
+          type: string
+        address_country_code:
+          nullable: true
+          type: string
+        address_line_1:
+          nullable: true
+          type: string
+        address_postal_code:
+          nullable: true
+          type: string
+        address_state:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+      type: object
+    Filters:
+      additionalProperties: false
+      properties:
+        country_codes:
+          items: {}
+          nullable: true
+          type: array
+        exact_match:
+          type: boolean
+        fuzziness:
+          format: double
+          nullable: true
+          type: number
+        remove_deceased:
+          format: int32
+          type: integer
+        types:
+          items: {}
+          nullable: true
+          type: array
+      type: object
+    FormatedMatching:
+      additionalProperties: false
+      properties:
+        address:
+          $ref: '#/components/schemas/FormatedMatchingItem'
+        business_fein:
+          $ref: '#/components/schemas/FormatedMatchingItem'
+        business_name:
+          $ref: '#/components/schemas/FormatedMatchingItem'
+        dob:
+          $ref: '#/components/schemas/FormatedMatchingItem'
+        document_national_id:
+          $ref: '#/components/schemas/FormatedMatchingItem'
+        email:
+          $ref: '#/components/schemas/FormatedMatchingItem'
+        name:
+          $ref: '#/components/schemas/FormatedMatchingItem'
+        name_and_dob:
+          $ref: '#/components/schemas/FormatedMatchingItem'
+        name_and_dob_and_ssn:
+          $ref: '#/components/schemas/FormatedMatchingItem'
+        name_first:
+          $ref: '#/components/schemas/FormatedMatchingItem'
+        name_last:
+          $ref: '#/components/schemas/FormatedMatchingItem'
+        name_middle:
+          $ref: '#/components/schemas/FormatedMatchingItem'
+        phone:
+          $ref: '#/components/schemas/FormatedMatchingItem'
+        ssn:
+          $ref: '#/components/schemas/FormatedMatchingItem'
+      type: object
+    FormatedMatchingItem:
+      additionalProperties: false
+      properties:
+        matched:
+          type: boolean
+        score:
+          format: double
+          nullable: true
+          type: number
+      type: object
+    Formatted:
+      additionalProperties: false
+      properties:
+        age:
+          nullable: true
+        document_step:
+          nullable: true
+          type: string
+        document_token_back:
+          nullable: true
+          type: string
+        document_token_front:
+          nullable: true
+          type: string
+        document_token_selfie:
+          nullable: true
+          type: string
+      type: object
+    FormattedResponses:
+      additionalProperties: false
+      properties:
+        ComplyAdvantage:
+          $ref: '#/components/schemas/FormattedResponsesComplyAdvantage'
+        GDC Worldview:
+          $ref: '#/components/schemas/FormattedResponsesGdcWorldview'
+        Identity Element Velocity:
+          $ref: '#/components/schemas/FormattedResponsesIdentityElementVelocity'
+        Iovation:
+          $ref: '#/components/schemas/FormattedResponsesIovation'
+        List:
+          $ref: '#/components/schemas/FormattedResponsesList'
+        Vouched:
+          $ref: '#/components/schemas/FormattedResponsesVouched'
+      type: object
+    FormattedResponsesComplyAdvantage:
+      additionalProperties: false
+      properties:
+        data:
+          $ref: '#/components/schemas/ComplyAdvantageFormatedData'
+      type: object
+    FormattedResponsesGdcWorldview:
+      additionalProperties: false
+      properties:
+        data:
+          $ref: '#/components/schemas/GdcFormatedData'
+        matching:
+          $ref: '#/components/schemas/FormatedMatching'
+      type: object
+    FormattedResponsesIdentityElementVelocity:
+      additionalProperties: false
+      properties:
+        data:
+          nullable: true
+      type: object
+    FormattedResponsesIovation:
+      additionalProperties: false
+      properties:
+        data:
+          nullable: true
+      type: object
+    FormattedResponsesList:
+      additionalProperties: false
+      properties:
+        data:
+          nullable: true
+        matching:
+          $ref: '#/components/schemas/FormatedMatching'
+      type: object
+    FormattedResponsesVouched:
+      additionalProperties: false
+      properties:
+        data:
+          $ref: '#/components/schemas/Data'
+        matching:
+          $ref: '#/components/schemas/VouchedMatching'
+      type: object
+    Fraud:
+      additionalProperties: false
+      properties:
+        average_score:
+          format: double
+          nullable: true
+          type: number
+        flags:
+          items: {}
+          nullable: true
+          type: array
+        score:
+          format: double
+          nullable: true
+          type: number
+        sources:
+          $ref: '#/components/schemas/Sources'
+      type: object
+    FraudCheckServiceResult:
+      additionalProperties: false
+      properties:
+        attribute:
+          nullable: true
+          type: string
+        normalized_score:
+          format: double
+          nullable: true
+          type: number
+        raw_score:
+          format: double
+          nullable: true
+          type: number
+      type: object
+    FraudScore:
+      additionalProperties: false
+      properties:
+        reasonCodes:
+          items:
+            type: string
+          nullable: true
+          type: array
+        scores:
+          items:
+            $ref: '#/components/schemas/ScoreDetails'
+          nullable: true
+          type: array
+      type: object
+    FuzzyComparisonRequest:
+      additionalProperties: false
+      properties:
+        left:
+          minLength: 1
+          type: string
+        right:
+          minLength: 1
+          type: string
+      required:
+        - left
+        - right
+      type: object
+    FuzzyComparisonResponseModel:
+      additionalProperties: false
+      properties:
+        left:
+          nullable: true
+          type: string
+        ratio:
+          format: int32
+          type: integer
+        right:
+          nullable: true
+          type: string
+      type: object
+    GdcFormatedData:
+      additionalProperties: false
+      properties:
+        all_reason_codes:
+          items:
+            type: string
+          nullable: true
+          type: array
+        gdc_reasons:
+          nullable: true
+          type: string
+        uk_credit_source:
+          nullable: true
+        uk_electoral_roll_source:
+          nullable: true
+        uk_other_source:
+          nullable: true
+      type: object
+    GdcWorldviewItem:
+      additionalProperties: false
+      properties:
+        address:
+          $ref: '#/components/schemas/Address'
+        codes:
+          $ref: '#/components/schemas/Codes'
+        email:
+          $ref: '#/components/schemas/Email'
+        identity:
+          $ref: '#/components/schemas/Identity'
+        phone:
+          $ref: '#/components/schemas/Phone'
+      type: object
+    GlobalWatchList:
+      additionalProperties: false
+      properties:
+        matches:
+          additionalProperties:
+            items:
+              $ref: '#/components/schemas/MatchObject'
+            nullable: true
+            type: array
+          nullable: true
+          type: object
+        reasonCodes:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    IdAddress:
+      additionalProperties: false
+      properties:
+        city:
+          nullable: true
+          type: string
+        postalCode:
+          nullable: true
+          type: string
+        state:
+          nullable: true
+          type: string
+        street:
+          nullable: true
+          type: string
+        streetNumber:
+          nullable: true
+          type: string
+      type: object
+    IdField:
+      additionalProperties: false
+      properties:
+        name:
+          nullable: true
+          type: string
+      type: object
+    Identity:
+      additionalProperties: false
+      properties:
+        businessid:
+          nullable: true
+          type: string
+        codes:
+          $ref: '#/components/schemas/Codes'
+        completename:
+          nullable: true
+          type: string
+        contact_type:
+          nullable: true
+          type: string
+        countryCode:
+          nullable: true
+          type: string
+        dob:
+          nullable: true
+          type: string
+        formofaddress:
+          nullable: true
+          type: string
+        function:
+          nullable: true
+          type: string
+        gender:
+          nullable: true
+          type: string
+        givenfullname:
+          nullable: true
+          type: string
+        givennameinitials:
+          nullable: true
+          type: string
+        name_qualified:
+          nullable: true
+          type: string
+        nationalid:
+          nullable: true
+          type: string
+        nationality:
+          nullable: true
+          type: string
+        organization_name:
+          nullable: true
+          type: string
+        passport:
+          nullable: true
+          type: string
+        qualification_int_first:
+          nullable: true
+          type: string
+        qualification_int_second:
+          nullable: true
+          type: string
+        qualification_suceeding:
+          nullable: true
+          type: string
+        qualificationpreceding:
+          nullable: true
+          type: string
+        surname_first:
+          nullable: true
+          type: string
+        surname_prefix_first:
+          nullable: true
+          type: string
+        surname_prefix_second:
+          nullable: true
+          type: string
+      type: object
+    IdentityAssessmentDTO:
+      additionalProperties: false
+      properties:
+        assessmentRequest:
+          $ref: '#/components/schemas/IdentityDataDTO'
+        assessmentResponse:
+          $ref: '#/components/schemas/IdentityAssessmentResponseDTO'
+        createdAt:
+          format: date-time
+          type: string
+        dataHash:
+          format: uuid
+          type: string
+        documentVersion:
+          nullable: true
+          type: string
+        id:
+          nullable: true
+          readOnly: true
+          type: string
+        identityId:
+          format: uuid
+          type: string
+        revision:
+          format: int64
+          type: integer
+        searchId:
+          nullable: true
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+      type: object
+    IdentityAssessmentResponseDTO:
+      additionalProperties: false
+      properties:
+        address:
+          $ref: '#/components/schemas/AddressDTO'
+        birth:
+          format: date-time
+          nullable: true
+          type: string
+        death:
+          format: date-time
+          nullable: true
+          type: string
+        id:
+          nullable: true
+          type: string
+        identityRecordComparisons:
+          items: {}
+          nullable: true
+          type: array
+        name:
+          $ref: '#/components/schemas/PersonNameDTO'
+        phone:
+          nullable: true
+          type: string
+        ssn:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    IdentityCachedDataDto:
+      additionalProperties: false
+      properties:
+        address:
+          $ref: '#/components/schemas/AddressModel'
+        alloy:
+          $ref: '#/components/schemas/AlloyCacheDataDto'
+        beneficialOwners:
+          items:
+            format: uuid
+            type: string
+          nullable: true
+          type: array
+        cognito:
+          $ref: '#/components/schemas/CognitoCacheDataDto'
+        comment:
+          nullable: true
+          type: string
+        companyName:
+          nullable: true
+          type: string
+        dateOfBirth:
+          format: date
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        documents:
+          items:
+            $ref: '#/components/schemas/DocumentModel'
+          nullable: true
+          type: array
+        dueDiligence:
+          $ref: '#/components/schemas/DueDiligenceModel'
+        ein:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        establishedOn:
+          format: date-time
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        fullName:
+          nullable: true
+          readOnly: true
+          type: string
+        id:
+          format: uuid
+          type: string
+        identityContainerId:
+          format: uuid
+          nullable: true
+          type: string
+        industry:
+          $ref: '#/components/schemas/BusinessIndustry'
+        isActive:
+          type: boolean
+        isSuspended:
+          type: boolean
+        kycLevel:
+          nullable: true
+          type: string
+        kycUpgradeApprovedBy:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        legalStructure:
+          $ref: '#/components/schemas/LegalStructure'
+        mailingAddress:
+          $ref: '#/components/schemas/AddressModel'
+        middleName:
+          nullable: true
+          type: string
+        naics:
+          nullable: true
+          type: string
+        naicsDescription:
+          nullable: true
+          type: string
+        organizationId:
+          format: uuid
+          type: string
+        otherIndustry:
+          nullable: true
+          type: string
+        otherLegalStructure:
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+        regionOfFormation:
+          nullable: true
+          type: string
+        socure:
+          $ref: '#/components/schemas/SocureCacheDataDto'
+        ssn:
+          nullable: true
+          type: string
+        status:
+          $ref: '#/components/schemas/UserIdentityStatus'
+        suspendReason:
+          nullable: true
+          type: string
+        suspensionHistory:
+          items:
+            $ref: '#/components/schemas/SuspensionHistoryModel'
+          nullable: true
+          type: array
+        type:
+          $ref: '#/components/schemas/UserIdentityType'
+        upgradeRequirements:
+          items:
+            type: string
+          nullable: true
+          type: array
+        website:
+          nullable: true
+          type: string
+      type: object
+    IdentityContainerCreateModel:
+      additionalProperties: false
+      properties:
+        address:
+          $ref: '#/components/schemas/AddressModel'
+        dateOfBirth:
+          format: date
+          nullable: true
+          type: string
+        dueDiligence:
+          $ref: '#/components/schemas/DueDiligenceModel'
+        email:
+          minLength: 1
+          type: string
+        firstName:
+          minLength: 1
+          type: string
+        lastName:
+          minLength: 1
+          type: string
+        middleName:
+          nullable: true
+          type: string
+        phone:
+          maxLength: 20
+          minLength: 1
+          type: string
+        ssn:
+          nullable: true
+          type: string
+        upgradeKYC:
+          type: boolean
+      required:
+        - email
+        - firstName
+        - lastName
+        - phone
+      type: object
+    IdentityContainerModel:
+      additionalProperties: false
+      properties:
+        address:
+          $ref: '#/components/schemas/AddressModel'
+        businessIdentities:
+          items:
+            format: uuid
+            type: string
+          nullable: true
+          type: array
+        dateOfBirth:
+          format: date
+          nullable: true
+          type: string
+        dueDiligence:
+          $ref: '#/components/schemas/DueDiligenceModel'
+        email:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        id:
+          format: uuid
+          type: string
+        isSuspended:
+          type: boolean
+        lastName:
+          nullable: true
+          type: string
+        middleName:
+          nullable: true
+          type: string
+        personalIdentity:
+          format: uuid
+          type: string
+        phone:
+          nullable: true
+          type: string
+        ssn:
+          nullable: true
+          type: string
+      type: object
+    IdentityDataDTO:
+      additionalProperties: false
+      properties:
+        address:
+          $ref: '#/components/schemas/AddressDTO'
+        birth:
+          format: date-time
+          nullable: true
+          type: string
+        death:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          $ref: '#/components/schemas/PersonNameDTO'
+        phone:
+          nullable: true
+          type: string
+        ssn:
+          nullable: true
+          type: string
+      type: object
+    IdentityElementVelocityItem:
+      additionalProperties: false
+      properties:
+        data:
+          $ref: '#/components/schemas/VelocityData'
+      type: object
+    IdentityProfileDTO:
+      additionalProperties: false
+      properties:
+        createdAt:
+          format: date-time
+          type: string
+        documentVersion:
+          nullable: true
+          type: string
+        id:
+          nullable: true
+          readOnly: true
+          type: string
+        identityId:
+          format: uuid
+          type: string
+        profileId:
+          nullable: true
+          type: string
+        revision:
+          format: int64
+          type: integer
+        updatedAt:
+          format: date-time
+          type: string
+      type: object
+    IdentityRecordDTO:
+      additionalProperties: false
+      properties:
+        addresses:
+          items:
+            $ref: '#/components/schemas/AddressDTO'
+          nullable: true
+          type: array
+        births:
+          items:
+            $ref: '#/components/schemas/DateDTO'
+          nullable: true
+          type: array
+        deaths:
+          items:
+            $ref: '#/components/schemas/DateDTO'
+          nullable: true
+          type: array
+        id:
+          nullable: true
+          type: string
+        names:
+          items:
+            $ref: '#/components/schemas/PersonNameDTO'
+          nullable: true
+          type: array
+        phones:
+          items:
+            $ref: '#/components/schemas/PhoneDTO'
+          nullable: true
+          type: array
+        ssNs:
+          items:
+            $ref: '#/components/schemas/SsnDTO'
+          nullable: true
+          type: array
+        type:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    IdentityRestriction:
+      enum:
+        - none
+        - disableBankAccountCreation
+        - disableInternationalWireWithdrawalInitiation
+      type: string
+    IdentitySearchDTO:
+      additionalProperties: false
+      properties:
+        createdAt:
+          format: date-time
+          type: string
+        dataHash:
+          format: uuid
+          type: string
+        documentVersion:
+          nullable: true
+          type: string
+        id:
+          nullable: true
+          readOnly: true
+          type: string
+        identityId:
+          format: uuid
+          type: string
+        revision:
+          format: int64
+          type: integer
+        searchRequest:
+          $ref: '#/components/schemas/IdentityDataDTO'
+        searchResponse:
+          $ref: '#/components/schemas/IdentitySearchResponseDTO'
+        updatedAt:
+          format: date-time
+          type: string
+      type: object
+    IdentitySearchResponseDTO:
+      additionalProperties: false
+      properties:
+        address:
+          $ref: '#/components/schemas/AddressDTO'
+        birth:
+          format: date-time
+          nullable: true
+          type: string
+        createdAt:
+          nullable: true
+          type: string
+        death:
+          format: date-time
+          nullable: true
+          type: string
+        id:
+          nullable: true
+          type: string
+        identityRecords:
+          items:
+            $ref: '#/components/schemas/IdentityRecordDTO'
+          nullable: true
+          type: array
+        name:
+          $ref: '#/components/schemas/PersonNameDTO'
+        phone:
+          nullable: true
+          type: string
+        profile:
+          nullable: true
+          type: string
+        ssn:
+          nullable: true
+          type: string
+        status:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+        updatedAt:
+          nullable: true
+          type: string
+      type: object
+    IdentityStatusModel:
+      enum:
+        - active
+        - inactive
+      type: string
+    IdentityStatusResponse:
+      enum:
+        - active
+        - inactive
+        - inactivationStarted
+      type: string
+    IdentityUpdateModel:
+      additionalProperties: false
+      properties:
+        restrictions:
+          items:
+            $ref: '#/components/schemas/IdentityRestriction'
+          nullable: true
+          type: array
+        status:
+          $ref: '#/components/schemas/IdentityStatusModel'
+      type: object
+    IdentityUpdateResponse:
+      additionalProperties: false
+      properties:
+        restrictions:
+          items:
+            $ref: '#/components/schemas/IdentityRestriction'
+          nullable: true
+          type: array
+        state:
+          $ref: '#/components/schemas/IdentityStatusResponse'
+      type: object
+    IdentityUpdateStatusModel:
+      additionalProperties: false
+      properties:
+        status:
+          $ref: '#/components/schemas/IdentityStatusModel'
+      type: object
+    IdentityUpdateStatusResponse:
+      additionalProperties: false
+      properties:
+        state:
+          $ref: '#/components/schemas/IdentityStatusResponse'
+      type: object
+    IncomeSource:
+      enum:
+        - salary
+        - selfEmployed
+        - inheritance
+        - investments
+        - retirement
+        - rentalIncome
+        - governmentBenefits
+        - familySupport
+      type: string
+    Industry:
+      enum:
+        - agriculture
+        - mining
+        - utilities
+        - construction
+        - manufacturing
+        - chemicalManufacturing
+        - merchantWholesale
+        - automotive
+        - retailFurnishing
+        - retailElectronics
+        - retailHome
+        - retailFood
+        - healthStores
+        - gasoline
+        - retailClothing
+        - retailSporting
+        - retailNonStore
+        - transportation
+        - publishing
+        - finance
+        - realEstate
+        - rentalServices
+        - professionalNonLegal
+        - accounting
+        - travel
+        - educationalMedical
+        - performingArts
+        - recreationGambling
+        - foodService
+        - maintenance
+        - laundry
+        - religiousCharity
+        - publicAdministration
+      type: string
+    IovationItem:
+      additionalProperties: false
+      properties:
+        device.alias:
+          nullable: true
+          type: string
+        device.bb.age:
+          nullable: true
+          type: string
+        device.bb.timestamp:
+          format: date-time
+          type: string
+        device.browser.configuredlang:
+          nullable: true
+          type: string
+        device.browser.lang:
+          nullable: true
+          type: string
+        device.browser.type:
+          nullable: true
+          type: string
+        device.browser.version:
+          nullable: true
+          type: string
+        device.cookie.enabled:
+          nullable: true
+          type: string
+        device.firstseen:
+          format: date-time
+          type: string
+        device.flash.enabled:
+          nullable: true
+          type: string
+        device.flash.installed:
+          nullable: true
+          type: string
+        device.flash.version:
+          nullable: true
+          type: string
+        device.js.enabled:
+          nullable: true
+          type: string
+        device.new:
+          nullable: true
+          type: string
+        device.os:
+          nullable: true
+          type: string
+        device.screen:
+          nullable: true
+          type: string
+        device.type:
+          nullable: true
+          type: string
+        device.tz:
+          nullable: true
+          type: string
+        ipaddress:
+          nullable: true
+          type: string
+        ipaddress.isp:
+          nullable: true
+          type: string
+        ipaddress.loc.countrycode:
+          nullable: true
+          type: string
+        ipaddress.loc.region:
+          nullable: true
+          type: string
+        mobile.app.exeName:
+          nullable: true
+          type: string
+        mobile.build.device:
+          nullable: true
+          type: string
+        mobile.build.product:
+          nullable: true
+          type: string
+        mobile.device.brand:
+          nullable: true
+          type: string
+        mobile.device.charging:
+          nullable: true
+          type: string
+        mobile.device.manufacturer:
+          nullable: true
+          type: string
+        mobile.device.model:
+          nullable: true
+          type: string
+        mobile.location.enabled:
+          nullable: true
+          type: string
+        mobile.location.timezone:
+          nullable: true
+          type: string
+        mobile.system.carrierCountryCode:
+          nullable: true
+          type: string
+        mobile.system.jailrootDetected:
+          nullable: true
+          type: string
+        mobile.system.localeCurrency:
+          nullable: true
+          type: string
+        mobile.system.localeLang:
+          nullable: true
+          type: string
+        mobile.system.simulator:
+          nullable: true
+          type: string
+        realipaddress:
+          nullable: true
+          type: string
+        realipaddress.source:
+          nullable: true
+          type: string
+        reason:
+          nullable: true
+          type: string
+        registration.check.matchstatus:
+          nullable: true
+          type: string
+        registration.check.measureofchange:
+          nullable: true
+          type: string
+        result:
+          nullable: true
+          type: string
+        ruleset.rulesmatched:
+          nullable: true
+          type: string
+        ruleset.score:
+          nullable: true
+          type: string
+        trackingnumber:
+          nullable: true
+          type: string
+      type: object
+    KycDetails:
+      additionalProperties: false
+      properties:
+        fieldValidations:
+          $ref: '#/components/schemas/KycFieldsValidation'
+        reasonCodes:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    KycFieldsValidation:
+      additionalProperties: false
+      properties:
+        city:
+          format: double
+          type: number
+        dob:
+          format: double
+          type: number
+        firstName:
+          format: double
+          type: number
+        mobileNumber:
+          format: double
+          type: number
+        ssn:
+          format: double
+          type: number
+        state:
+          format: double
+          type: number
+        streetAddress:
+          format: double
+          type: number
+        surName:
+          format: double
+          type: number
+        zip:
+          format: double
+          type: number
+      type: object
+    KycLevel:
+      enum:
+        - l0
+        - l1
+        - l2
+      type: string
+    LegalStructure:
+      enum:
+        - ccorp
+        - llc
+        - partnership
+        - nonprofit
+        - scorp
+        - soleprop
+        - other
+      type: string
+    ManualDocumentVerificationRequestModel:
+      additionalProperties: false
+      properties:
+        newStatus:
+          $ref: '#/components/schemas/DocumentUpdateStatus'
+      required:
+        - newStatus
+      type: object
+    ManualIdentityVerificationByOrgRequestModel:
+      additionalProperties: false
+      properties:
+        comment:
+          maxLength: 50
+          minLength: 4
+          type: string
+        decision:
+          $ref: '#/components/schemas/ManualVerificationDecision'
+      required:
+        - comment
+        - decision
+      type: object
+    ManualIdentityVerificationRequestModel:
+      additionalProperties: false
+      properties:
+        comment:
+          maxLength: 50
+          minLength: 4
+          type: string
+        decision:
+          $ref: '#/components/schemas/ManualVerificationDecision'
+        decisionActor:
+          maxLength: 50
+          minLength: 4
+          type: string
+      required:
+        - comment
+        - decision
+        - decisionActor
+      type: object
+    ManualVerificationDecision:
+      description: Update identity decisions
+      enum:
+        - approve
+        - suspend
+      type: string
+    MatchObject:
+      additionalProperties: false
+      properties:
+        comments:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          nullable: true
+          type: object
+        sourceUrls:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    Message:
+      additionalProperties: false
+      properties:
+        code:
+          nullable: true
+          type: string
+        value:
+          nullable: true
+          type: string
+      type: object
+    NameInvariantCreateModel:
+      additionalProperties: false
+      properties:
+        name:
+          nullable: true
+          type: string
+        variants:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    NameInvariantResponseModel:
+      additionalProperties: false
+      properties:
+        name:
+          nullable: true
+          type: string
+        originNames:
+          items:
+            type: string
+          nullable: true
+          type: array
+        variants:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    NamePhoneCorrelation:
+      additionalProperties: false
+      properties:
+        reasonCodes:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    Occupation:
+      enum:
+        - executive
+        - sales
+        - consulting
+        - government
+        - healthcare
+        - financeAccounting
+        - technology
+        - scienceEngineering
+        - foodServices
+        - legalServices
+        - manufacturing
+        - other
+      type: string
+    PageMetadata:
+      additionalProperties: false
+      properties:
+        pageCount:
+          format: int32
+          type: integer
+        resourceCount:
+          format: int32
+          type: integer
+      type: object
+    PersonNameDTO:
+      additionalProperties: false
+      properties:
+        firstName:
+          nullable: true
+          type: string
+        id:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        middleName:
+          nullable: true
+          type: string
+      type: object
+    PersonalDocumentType:
+      enum:
+        - license
+        - identificationCard
+        - passport
+      type: string
+    PersonalUserIdentityModel:
+      additionalProperties: false
+      properties:
+        address:
+          $ref: '#/components/schemas/AddressModel'
+        dateOfBirth:
+          format: date
+          nullable: true
+          type: string
+        documents:
+          items:
+            $ref: '#/components/schemas/DocumentModel'
+          nullable: true
+          type: array
+        dueDiligence:
+          $ref: '#/components/schemas/DueDiligenceModel'
+        email:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        fullName:
+          nullable: true
+          readOnly: true
+          type: string
+        id:
+          format: uuid
+          type: string
+        identityContainerId:
+          format: uuid
+          nullable: true
+          type: string
+        isSuspended:
+          type: boolean
+        kycLevel:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        middleName:
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+        ssn:
+          nullable: true
+          type: string
+        status:
+          $ref: '#/components/schemas/UserIdentityStatus'
+        type:
+          $ref: '#/components/schemas/UserIdentityType'
+        upgradeRequirements:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    PersonalUserIdentityPatchModel:
+      additionalProperties: false
+      description: Represents personal user identity patch model
+      properties:
+        address:
+          $ref: '#/components/schemas/AddressModel'
+        dateOfBirth:
+          format: date
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        middleName:
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+        ssn:
+          nullable: true
+          type: string
+      type: object
+    PersonalUserIdentityUpdateModel:
+      additionalProperties: false
+      description: Represents personal user identity update model
+      properties:
+        address:
+          $ref: '#/components/schemas/AddressModel'
+        dateOfBirth:
+          description: Gets or sets the Date of Birth
+          format: date
+          nullable: true
+          type: string
+        dueDiligence:
+          $ref: '#/components/schemas/DueDiligenceModel'
+        email:
+          description: Get or set email
+          nullable: true
+          type: string
+        firstName:
+          description: Get or set first name
+          nullable: true
+          type: string
+        lastName:
+          description: Get or set last name
+          nullable: true
+          type: string
+        middleName:
+          description: Get or set middle name
+          nullable: true
+          type: string
+        phone:
+          description: Get or set phone
+          nullable: true
+          type: string
+        ssn:
+          description: Gets or sets SSN
+          nullable: true
+          type: string
+        upgradeKYC:
+          description: Indicate whether we need to run KYC upgrade process
+          type: boolean
+      type: object
+    Phone:
+      additionalProperties: false
+      properties:
+        area_code:
+          nullable: true
+          type: string
+        calling_code:
+          nullable: true
+          type: string
+        calling_from:
+          nullable: true
+          type: string
+        codes:
+          $ref: '#/components/schemas/Codes'
+        countryCode:
+          nullable: true
+          type: string
+        formatted_international:
+          nullable: true
+          type: string
+        international_prefix:
+          nullable: true
+          type: string
+        line_type:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        number:
+          nullable: true
+          type: string
+        phone_number:
+          nullable: true
+          type: string
+        timezone:
+          nullable: true
+          type: string
+        trunk:
+          nullable: true
+          type: string
+      type: object
+    PhoneDTO:
+      additionalProperties: false
+      properties:
+        id:
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+      type: object
+    PhoneModel:
+      additionalProperties: false
+      properties:
+        phone_number:
+          nullable: true
+          type: string
+      type: object
+    PhoneRisk:
+      additionalProperties: false
+      properties:
+        reasonCodes:
+          items:
+            type: string
+          nullable: true
+          type: array
+        score:
+          format: double
+          type: number
+      type: object
+    ProblemDetails:
+      additionalProperties: {}
+      properties:
+        detail:
+          nullable: true
+          type: string
+        instance:
+          nullable: true
+          type: string
+        status:
+          format: int32
+          nullable: true
+          type: integer
+        title:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+      type: object
+    RawResponses:
+      additionalProperties: false
+      properties:
+        ComplyAdvantage:
+          items:
+            $ref: '#/components/schemas/ComplyAdvantageItem'
+          nullable: true
+          type: array
+        GDC Worldview:
+          items:
+            $ref: '#/components/schemas/GdcWorldviewItem'
+          nullable: true
+          type: array
+        Identity Element Velocity:
+          items:
+            $ref: '#/components/schemas/IdentityElementVelocityItem'
+          nullable: true
+          type: array
+        Iovation:
+          items:
+            $ref: '#/components/schemas/IovationItem'
+          nullable: true
+          type: array
+        Vouched:
+          items:
+            $ref: '#/components/schemas/VouchedItem'
+          nullable: true
+          type: array
+      type: object
+    RelatedData:
+      additionalProperties: false
+      type: object
+    Result:
+      additionalProperties: false
+      properties:
+        aamva:
+          $ref: '#/components/schemas/Aamva'
+        birthDate:
+          nullable: true
+          type: string
+        class:
+          nullable: true
+          type: string
+        confidences:
+          $ref: '#/components/schemas/ResultConfidences'
+        country:
+          nullable: true
+          type: string
+        crosscheck:
+          $ref: '#/components/schemas/Crosscheck'
+        dob:
+          nullable: true
+          type: string
+        endorsements:
+          nullable: true
+          type: string
+        expireDate:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        id:
+          nullable: true
+          type: string
+        idAddress:
+          $ref: '#/components/schemas/IdAddress'
+        idFields:
+          items:
+            $ref: '#/components/schemas/IdField'
+          nullable: true
+          type: array
+        ipAddress:
+          nullable: true
+        issueDate:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        middleName:
+          nullable: true
+          type: string
+        motorcycle:
+          nullable: true
+        state:
+          nullable: true
+          type: string
+        success:
+          type: boolean
+        successWithSuggestion:
+          type: boolean
+        type:
+          nullable: true
+          type: string
+      type: object
+    ResultConfidences:
+      additionalProperties: false
+      properties:
+        birthDateMatch:
+          format: double
+          nullable: true
+          type: number
+        faceMatch:
+          format: double
+          nullable: true
+          type: number
+        id:
+          format: double
+          nullable: true
+          type: number
+        idMatch:
+          format: double
+          nullable: true
+          type: number
+        idQuality:
+          format: double
+          nullable: true
+          type: number
+        nameMatch:
+          format: double
+          nullable: true
+          type: number
+        selfie:
+          format: double
+          nullable: true
+          type: number
+        selfieEyeglasses:
+          nullable: true
+        selfieSunglasses:
+          nullable: true
+      type: object
+    ScoreDetails:
+      additionalProperties: false
+      properties:
+        name:
+          nullable: true
+          type: string
+        score:
+          format: double
+          type: number
+        version:
+          nullable: true
+          type: string
+      type: object
+    Services:
+      additionalProperties: false
+      properties:
+        Image Metrics:
+          nullable: true
+          type: string
+        Vouched:
+          nullable: true
+          type: string
+      type: object
+    SocureCacheDataDto:
+      additionalProperties: false
+      properties:
+        phoneRisks:
+          items:
+            $ref: '#/components/schemas/SocurePhoneRiskScoreDTO'
+          nullable: true
+          type: array
+        searches:
+          items:
+            $ref: '#/components/schemas/SocureSearchDTO'
+          nullable: true
+          type: array
+        watchLists:
+          items:
+            $ref: '#/components/schemas/SocureWatchListDTO'
+          nullable: true
+          type: array
+      type: object
+    SocurePhoneRiskScoreDTO:
+      additionalProperties: false
+      properties:
+        createdAt:
+          format: date-time
+          type: string
+        documentVersion:
+          nullable: true
+          type: string
+        id:
+          nullable: true
+          readOnly: true
+          type: string
+        identityId:
+          format: uuid
+          type: string
+        request:
+          $ref: '#/components/schemas/SocureTransactionRequest'
+        response:
+          $ref: '#/components/schemas/SocurePhoneRiskScoreResponse'
+        revision:
+          format: int64
+          type: integer
+        updatedAt:
+          format: date-time
+          type: string
+      type: object
+    SocurePhoneRiskScoreResponse:
+      additionalProperties: false
+      properties:
+        namePhoneCorrelation:
+          $ref: '#/components/schemas/NamePhoneCorrelation'
+        phoneRisk:
+          $ref: '#/components/schemas/PhoneRisk'
+        referenceId:
+          format: uuid
+          type: string
+      type: object
+    SocureScoreResponse:
+      additionalProperties: false
+      properties:
+        fraud:
+          $ref: '#/components/schemas/FraudScore'
+        kyc:
+          $ref: '#/components/schemas/KycDetails'
+        referenceId:
+          format: uuid
+          type: string
+      type: object
+    SocureSearchDTO:
+      additionalProperties: false
+      properties:
+        createdAt:
+          format: date-time
+          type: string
+        documentVersion:
+          nullable: true
+          type: string
+        id:
+          nullable: true
+          readOnly: true
+          type: string
+        identityId:
+          format: uuid
+          type: string
+        request:
+          $ref: '#/components/schemas/SocureTransactionRequest'
+        response:
+          $ref: '#/components/schemas/SocureScoreResponse'
+        revision:
+          format: int64
+          type: integer
+        updatedAt:
+          format: date-time
+          type: string
+      type: object
+    SocureTransactionRequest:
+      additionalProperties: false
+      properties:
+        city:
+          nullable: true
+          type: string
+        country:
+          nullable: true
+          type: string
+        dob:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        mobileNumber:
+          nullable: true
+          type: string
+        modules:
+          items:
+            type: string
+          nullable: true
+          type: array
+        nationalId:
+          nullable: true
+          type: string
+        physicalAddress:
+          nullable: true
+          type: string
+        physicalAddress2:
+          nullable: true
+          type: string
+        state:
+          nullable: true
+          type: string
+        surName:
+          nullable: true
+          type: string
+        zip:
+          nullable: true
+          type: string
+      type: object
+    SocureWatchListDTO:
+      additionalProperties: false
+      properties:
+        createdAt:
+          format: date-time
+          type: string
+        documentVersion:
+          nullable: true
+          type: string
+        id:
+          nullable: true
+          readOnly: true
+          type: string
+        identityId:
+          format: uuid
+          type: string
+        request:
+          $ref: '#/components/schemas/SocureTransactionRequest'
+        response:
+          $ref: '#/components/schemas/WatchListPlusResponse'
+        revision:
+          format: int64
+          type: integer
+        updatedAt:
+          format: date-time
+          type: string
+      type: object
+    SourceOfFunds:
+      enum:
+        - selfEmployed
+        - generalEmployee
+        - seniorExecutive
+        - retired
+        - homemaker
+        - inheritanceGift
+        - investment
+        - salary
+        - businessOwner
+        - alimony
+        - retirement
+        - lottery
+        - annuity
+        - trustIncome
+        - realEstate
+        - governmentBenefits
+        - legalSettlement
+      type: string
+    Sources:
+      additionalProperties: false
+      properties:
+        Iovation:
+          $ref: '#/components/schemas/FraudCheckServiceResult'
+      type: object
+    SsnDTO:
+      additionalProperties: false
+      properties:
+        id:
+          nullable: true
+          type: string
+        ssn:
+          nullable: true
+          type: string
+      type: object
+    Summary:
+      additionalProperties: false
+      properties:
+        tags:
+          items:
+            type: string
+          nullable: true
+          type: array
+        outcome:
+          nullable: true
+          type: string
+        outcome_reasons:
+          items:
+            type: string
+          nullable: true
+          type: array
+        result:
+          nullable: true
+          type: string
+        score:
+          format: double
+          nullable: true
+          type: number
+        services:
+          $ref: '#/components/schemas/Services'
+      type: object
+    SuspensionHistoryModel:
+      additionalProperties: false
+      properties:
+        createdAtUtc:
+          format: date-time
+          type: string
+        decisionActor:
+          nullable: true
+          type: string
+        decisionReason:
+          nullable: true
+          type: string
+        isSuspended:
+          type: boolean
+      type: object
+    TierModel:
+      enum:
+        - tier1
+        - tier2
+        - tier3
+        - tier4
+      type: string
+    UserIdentityModel:
+      additionalProperties: false
+      properties:
+        address:
+          $ref: '#/components/schemas/AddressModel'
+        documents:
+          items:
+            $ref: '#/components/schemas/DocumentModel'
+          nullable: true
+          type: array
+        email:
+          nullable: true
+          type: string
+        id:
+          format: uuid
+          type: string
+        identityContainerId:
+          format: uuid
+          nullable: true
+          type: string
+        kycLevel:
+          nullable: true
+          type: string
+        status:
+          $ref: '#/components/schemas/UserIdentityStatus'
+        type:
+          $ref: '#/components/schemas/UserIdentityType'
+      type: object
+    UserIdentityModelPageResponseModel:
+      additionalProperties: false
+      properties:
+        data:
+          description: Gets or sets the data.
+          items:
+            $ref: '#/components/schemas/UserIdentityModel'
+          nullable: true
+          type: array
+        meta:
+          $ref: '#/components/schemas/PageMetadata'
+      type: object
+    UserIdentityPartialUpdateModel:
+      additionalProperties: false
+      properties:
+        address:
+          $ref: '#/components/schemas/AddressModel'
+        email:
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+      type: object
+    UserIdentityStatus:
+      enum:
+        - active
+        - inactive
+        - inactivationStarted
+      type: string
+    UserIdentityType:
+      enum:
+        - personal
+        - business
+      type: string
+    VelocityData:
+      additionalProperties: false
+      properties:
+        decision:
+          nullable: true
+      type: object
+    VouchedElementErrorItem:
+      additionalProperties: false
+      properties:
+        message:
+          nullable: true
+          type: string
+        suggestion:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+        warning:
+          nullable: true
+          type: boolean
+      type: object
+    VouchedItem:
+      additionalProperties: false
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/VouchedElementErrorItem'
+          nullable: true
+          type: array
+        result:
+          $ref: '#/components/schemas/Result'
+      type: object
+    VouchedMatching:
+      additionalProperties: false
+      properties:
+        address:
+          $ref: '#/components/schemas/DobClass'
+        dob:
+          $ref: '#/components/schemas/DobClass'
+        name:
+          $ref: '#/components/schemas/DobClass'
+      type: object
+    WatchListPlusResponse:
+      additionalProperties: false
+      properties:
+        globalWatchlist:
+          $ref: '#/components/schemas/GlobalWatchList'
+        referenceId:
+          format: uuid
+          type: string
+        shouldBeSuspended:
+          readOnly: true
+          type: boolean
+      type: object
+    Watchlists:
+      additionalProperties: false
+      properties:
+        lists:
+          items:
+            type: string
+          nullable: true
+          type: array
+        matches:
+          items: {}
+          nullable: true
+          type: array
+      type: object
+    WealthSource:
+      enum:
+        - salary
+        - selfEmployed
+        - inheritance
+        - familySupport
+        - investments
+        - retirement
+        - rentalIncome
+        - governmentBenefits
+        - businessSale
+        - other
+      type: string
+  securitySchemes:
+    Bearer:
+      description: >-
+        Put access token in the box below.<br>For example: <b>Bearer
+        eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6I</b>
+      in: header
+      name: Authorization
+      type: apiKey
+security:
+  - Bearer: []
+x-readme:
+  explorer-enabled: true
+  proxy-enabled: true
+

@@ -1,0 +1,131 @@
+---
+id: delete-clearing-account-for-payment-type-per-organization-auth-policies-ops
+title: "Delete clearing account for payment type per organization (Auth policies: Ops)"
+description: "Delete clearing account for payment type per organization (Auth policies: Ops)"
+sidebar_label: "Delete clearing account for payment type per organization (Auth policies: Ops)"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVE1v1DAQ/SvWnEAymy4gDlZVaekH2oIo0BYQ1R6cZLaxSGxjT9puo/x3NMmmDbttDxWXKLbH4/fevJkGvA66QsIQQV00kGPMgvFknAUFJ+FSW3OreSlMjpbM0mCYgATD515TARKsrhAUuFH0PAcJAf/UJmAOikKNEmJWYKVBNbB0odIECuracCStPGeIFIy9hFZCpFXZ7ZjKlwit3IT2Ra8qtCT45iN4fB9yxrmfAvN4YpCAtq5AXYDOigP0LhoCyYsfhoo86GtdgoRrE/D+lFej48UmPQlkqGP35R7hkQv7JWoOmGWZqy09JMOCeUTvbMTI0F/vvN1m8NmJfWcJ+xRvd6bbIedW11S4YG4x74PebAcduZCaPEcLLUPBrA6GVp1N3qMOGFiXEx9hwbhIX8a7DbmR6gBLJBTZmqHQPUWxdEH4keDCYxBjH4kXs5oK4V1pMoNRiRMfX4KECqlwOSjIu8wg+9orSLQ3ifMxuZomw3Ov1s+9ypxdmsuk+depbdKMrNICcw1XQ0fUoQQFBZGPKuHsk6htnrqbydIFChgj72WuSrryDDKdsr36Ig1ibTmtJhYCYxTkfqMVxgoqUKTuRqRYuuvJbhr2jlwQeKO5/krspnt9NoGr4x38OTMn5vjj9+lX82n/uEg/ZLw+Pb+dTz+beZxX5H/tz9/Nd5N0b+iRAnWO4b5LZmsjdGLct6L25iOuusobu3SMfnDtGVa+1IRi5g1IYKV6QtPJDpvJu0iVtnxl/cZ/L/8/QjYDZsIbSnypjWUYXeGatS8umBBIcD4y5ClIeMQdIEFtTTI1niULCYWLxEmbJtURz0PZtrz9p8bADbKQcKWD0SnrxVPVRP7PQS11GXELf7ZuVwUvvq3H1EvxxPB9kO9QOLtihrqseQUSfuNqezh3A/U5qDbn7jOgjLVsF+2omQ8OPx2eHfKArblozciMfFUOP6zpg29smrl/kL9M+MErTdNbvW3v4vujR2/cdVAfzZQXbdv+BVvlgnA=
+sidebar_class_name: "delete api-method"
+info_path: docs/payments/template-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete clearing account for payment type per organization (Auth policies: Ops)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/api/ops/v1/clearing-account-config/{organizationId}/{paymentType}"}
+>
+  
+</MethodEndpoint>
+
+
+
+Delete clearing account for payment type per organization (Auth policies: Ops)
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"Organization identifier.","in":"path","name":"organizationId","required":true,"schema":{"format":"uuid","type":"string"},"style":"simple"}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"description":"Payment type.","in":"path","name":"paymentType","required":true,"schema":{"description":"Payment type","enum":["achDeposit","achWithdrawal","wireDeposit","wireWithdrawal"],"type":"string","title":"PaymentTypeForClearingAccount"},"style":"simple"}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"204"}
+        value={"204"}
+      >
+        <div>
+          
+          
+          No Content
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Unauthorized
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"403"}
+        value={"403"}
+      >
+        <div>
+          
+          
+          Forbidden
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

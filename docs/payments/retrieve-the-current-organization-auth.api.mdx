@@ -1,0 +1,350 @@
+---
+id: retrieve-the-current-organization-auth
+title: "Retrieve the current organization. (Auth)"
+description: "Retrieve the current organization. (Auth)"
+sidebar_label: "Retrieve the current organization. (Auth)"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1V99P40YQ/ldW89RKPoe0VR8shJSiA4W79iiQUhXlYe2d4D3sXXd3DITI/3s1axsckoNE6r0k9u7M55lv59euoJJOlkjoPCQ3K1DoM6cr0tZAAlc5Cm2yolaoROVshY40+hgi0Lz/b41uCREYWSIk0IlCBD7LsZSQrEATlp4f1pG/uFtp9JPkV+GwCA8+FtMWwgtriqWQRWEfUImFdYJyFGjUh9qj8wMViABNXUJyAw+Y5tbeHVuz0Lcwj4CWFdvlyWlzCxGQpoIXZh7d0IKLDg2aZx3pnFzyu6dl0FlYV0Izj8Chr6zxGLz66eCA/zJrCA3xo6yqQmcBbvTVs7OrAR1SKc1bsjh/phOShSw8Rm9RpCRJiKAaKK0AS6mLTW5PkbywTnj+D7SxHBNl6qKQKbtDrsbX/DQRaLUDnFZoSC80OsZkXiRBAnWtFWzBbIPjXVQW28nGSnr/YN0ulvaisTh36NFQG1bahN3+IIVdCDskO3MYHnYzJ7dmF/+C3E6IDqViOz/+78fbI59/Dwp7cMEZuh+H64m7X5pct7oiC8picj59saq0CouNtAmmoZrQjLIdGOjEhSQxuzpeC3klCT+QLnFb3KNhn9/jWIp7WdRcZlWoGuZWPORIOXLF016cWEcOvY+PrcN48lJc4t/ZOR8Py4SPr4dMXnQ8BEmhvehMil/MTa0tUJrvlfvDtJrugr+Wh3t+zOfSobrEzCHt8KlWXPggv1OY1pXaJ3A68fcC5/3Pul2qwOzi8z65drWscEtf3oDtxAXjtI1/e0PnUYFluBLIXmvQmyu5LLlDRkBOGi+zoBeBWfDa3TKDCJTN6k4oqz1ZpWUxyTJbhyV8JHRmuNLGB/EEIr1HXnqQRYH0Vu+/fvG/z4/Qpbbz1o0BL3OBTb9iRpt4WzLuTbX18WNdq3lzFFivbj5m6385GG8eyczImnLr9BOqVujnTaET61KtFJpgrcesdswoz4K/oXToILmZ89hD8pZHRDiunUNDQ5OY7nXUCySn8R7bAtpqrOV2LH6Y1JT/CBGUSLlVkMBtOMFKUg4JjGSlR0ON0f141CF9GK7ztInuvh9gQ7JATlT5ZMQgsZdGpfYxXnSVlNcyW47CMNc7fMkTWpsQvduvmTqvScgsQ+8F2Ts0fQ9M7aNIsbAP8WHqjk6sE/goy6rARBymRy2awOXZAf490V/02ae/xn/qz8dneXqa8fvl7Gk6/kNP/bSk6p/j6a/Tw1F61I/YOUqF7mXGnnRH2vvex2mlP2EbqNosLFvfR9oVllUhCcWk0hABM9U6NI4PwgBjPZUyzKndN/Y5vTWOVr05hI80qgqpzaCAtSd7w7bCemtgs8Yh67ec7zyC3HpizdUqlR5nrmgaXm6vH+Haon3XbLfNCIP5/K0rzVbb73C5drMJ3RoSCNFzL51ui8bNvIn6s2KDWrVJlmFFA62NywGjPCfA6ccrLmU107QanCyDRf0Do/dbZjnAfh0ZrQn820TfUFmt2rhpmmf5duubGs/h2PMCzbxpmv8AxKj9Kg==
+sidebar_class_name: "get api-method"
+info_path: docs/payments/template-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve the current organization. (Auth)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/api/organization/v1/current-organization"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve the current organization. (Auth)
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The included properties.","in":"query","name":"include","schema":{"items":{"description":"Organization relations. Includes only allowed for the end-users relations.","enum":["webhookConfig"],"type":"string","title":"UserOrganizationRelation"},"type":"array"},"style":"form"}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Organization response models.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"email"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"description":"Gets or sets the email.","nullable":true,"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={false}
+                        schemaName={"uuid"}
+                        qualifierMessage={undefined}
+                        schema={{"description":"Gets or sets the identifier.","format":"uuid","type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"name"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"description":"Gets or sets the name.","nullable":true,"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"password"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"description":"Gets or sets the password. Present only in the response of organization creation.","nullable":true,"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"phone"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"description":"Gets or sets the phone.","nullable":true,"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"readonlyEmail"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"description":"Gets or sets the email.","nullable":true,"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"readonlyPassword"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"description":"Gets or sets the password. Present only in the response of readonly user creation.","nullable":true,"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                webhookConfig
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <div
+                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                            >
+                              
+                              
+                              Webhook config API response model
+                              
+                              
+                            </div><SchemaItem
+                              collapsible={false}
+                              name={"createdAtUtc"}
+                              required={false}
+                              schemaName={"date-time"}
+                              qualifierMessage={undefined}
+                              schema={{"description":"Gets or sets the created at UTC.","format":"date-time","type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"enabled"}
+                              required={false}
+                              schemaName={"boolean"}
+                              qualifierMessage={undefined}
+                              schema={{"description":"Gets or sets a value indicating whether this Fortress.Core.Application.Models.Organizations.WebhookConfigResponseModel is enabled.","type":"boolean"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"id"}
+                              required={false}
+                              schemaName={"uuid"}
+                              qualifierMessage={undefined}
+                              schema={{"description":"Gets or sets the identifier.","format":"uuid","type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"organizationId"}
+                              required={false}
+                              schemaName={"uuid"}
+                              qualifierMessage={undefined}
+                              schema={{"description":"Gets or sets the organization identifier.","format":"uuid","type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"sharedSecret"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"description":"Gets or sets the shared secret.","nullable":true,"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"updatedAtUtc"}
+                              required={false}
+                              schemaName={"date-time"}
+                              qualifierMessage={undefined}
+                              schema={{"description":"Gets or sets the updated at UTC.","format":"date-time","nullable":true,"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"url"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"description":"Gets or sets the URL.","nullable":true,"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"webhookTypes"}
+                              required={false}
+                              schemaName={"WebhookTypeResponse (string)[]"}
+                              qualifierMessage={"**Possible values:** [`payment`, `transaction`, `nft`, `kyc`, `document`, `custodialAccount`, `externalAccount`, `identity`, `asset`, `wallet`]"}
+                              schema={{"description":"Gets or sets the webhook types.","items":{"description":"The type of a webhook","enum":["payment","transaction","nft","kyc","document","custodialAccount","externalAccount","identity","asset","wallet"],"type":"string","title":"WebhookTypeResponse"},"nullable":true,"type":"array"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"email\": \"string\",\n  \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n  \"name\": \"string\",\n  \"password\": \"string\",\n  \"phone\": \"string\",\n  \"readonlyEmail\": \"string\",\n  \"readonlyPassword\": \"string\",\n  \"webhookConfig\": {\n    \"createdAtUtc\": \"2024-07-29T15:51:28.071Z\",\n    \"enabled\": true,\n    \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n    \"organizationId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n    \"sharedSecret\": \"string\",\n    \"updatedAtUtc\": \"2024-07-29T15:51:28.071Z\",\n    \"url\": \"string\",\n    \"webhookTypes\": [\n      \"payment\"\n    ]\n  }\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Unauthorized
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"403"}
+        value={"403"}
+      >
+        <div>
+          
+          
+          Forbidden
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

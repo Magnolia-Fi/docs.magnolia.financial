@@ -1,0 +1,150 @@
+---
+id: approve-payment-allowed-only-for-integration-dashboard-users-auth
+title: "Approve payment. Allowed only for Integration dashboard users. (Auth)"
+description: "Approve payment. Allowed only for Integration dashboard users. (Auth)"
+sidebar_label: "Approve payment. Allowed only for Integration dashboard users. (Auth)"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVNtu2zAM/RWBTyvgxclW7MEoCmQFOqQd2m5th2FBHmSbqYXYkirRaVzD/z7Ql/SSFNiwvdiWTFKH5xyxBiudLJDQeYjmNaToE6csKaMhgitZFahJqBQ1qaVCBwEo/mMlZRCAlgW2qzZulkIADu9L5TCFiFyJAfgkw0JCVMPSuEISRFCWiiOpspzsySl9B00Anqq83VGFzRGa4DWemwwZS2ENoU4qscJKLI0TlKFAnVqjNA0IM5Rpi7fHOHvKe3+OFfwTsgX36a3RHj0X+DA+5NdLtBdGnBhNqIlLHI4nuyG3WpaUGaceMe2CPu4GnRoXqzRFDQ1DwaR0iqpWrs8oHTqI5guGRPKOVRxk87AIXpWaWuvMGkUv2EhM89w8YCqMzjsqZ5rwzkmOF6n0WWykS0Xp0fmReDctKTuAAAqkzKSsvPHMeGuHCEJpVUiu9BSuJ2F/iA/rrT+aUHYImH5068F2pctZMiLro5CrjLzUaWw2o6Vx5NB73ktMEbbcDxxcs4KdAgMTOxYuScgkQe8FmRVqoXRrl9hsRIy5eRgdxe741DiBG8niRuIoPu6qCazOxvhzqi7V2fmPyTf19eQsi78kvL6+fZxNLtTMzwqyv05mn2ZHYXz8lvmmvcotr08Gk1axFVlWpZeG0ZOi1mk3WNhcEoqpVRAAM9U1NBmN2SlMfCE1pwxn/CdtX/BXD1AJNxTaXCrNp7d61b3sc+6Dm2LhGeukdUTvwQCi5+Nh0H8RQMbeieZQ17H0eOvypuHt+xIdu3sRwFo6JWPmg0eT8vydQrSUuccdoEl/1yJ4972fQQdi7wTb29IgiebRsJZ5ySsIYIXViwnXLJpg0PfvYP3h9NqLrkOxO8O2QPlabG/l1eX1DXNdsjz1M7et2qT+g9Hv7fq1W7vD+ckjeW9KXXdebpptfPfrzYztFemiuc1F0zS/AbnSPtc=
+sidebar_class_name: "post api-method"
+info_path: docs/payments/template-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Approve payment. Allowed only for Integration dashboard users. (Auth)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/api/trust/v1/payments/{paymentId}/approve"}
+>
+  
+</MethodEndpoint>
+
+
+
+Approve payment. Allowed only for Integration dashboard users. (Auth)
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"Payment identifier","in":"path","name":"paymentId","required":true,"schema":{"format":"uuid","type":"string"},"style":"simple"}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Header Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The idempotency key for the endpoint","in":"header","name":"Idempotency-Key","schema":{"format":"uuid","type":"string"},"style":"simple"}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"204"}
+        value={"204"}
+      >
+        <div>
+          
+          
+          No Content
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Unauthorized
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"403"}
+        value={"403"}
+      >
+        <div>
+          
+          
+          Forbidden
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

@@ -1,0 +1,374 @@
+---
+id: patch-the-organization-permissions-auth-policies-security-admin
+title: "Patch the organization permissions. (Auth policies: SecurityAdmin)"
+description: "Patch the organization permissions. (Auth policies: SecurityAdmin)"
+sidebar_label: "Patch the organization permissions. (Auth policies: SecurityAdmin)"
+hide_title: true
+hide_table_of_contents: true
+api: eJztWNtu4zYQ/RVinnZbxY7bRR+EIIDX6G6d3W7cXIqigR8oaWzNRiIZkorjCPr3YnSJ5dhJb/vol1imhsPDmXPGMynBSCtz9GgdhDclJOhiS8aTVhDCVYpC26VU9Ch5SVCCytOC0A4gAGIbI30KASiZI4TQt54mEIDFu4IsJhB6W2AALk4xlxCWsNA2lx5CKApiS7827MF5S2oJVQDOr7N6hXKTIVTBPniUYG60RxWvxS2uxUJb4VMUqBKjSfkOZooyQbsBOt3sO/qEa/hfyOZ8T2e0cujYwQ/H7/hjG+0XLWKtPCovOuMBO3t3PNo1vlay8Km29IhJY/TjrtEHbSNKElRQMSiMC0t+XefxPUqLFsIbuGyXx0lOCuaM1cslZxvOe8lyMG+Shc6/18maT2vh8qM0JqO4thx+9/1Xx+eXvZDJJCF+KbOZ1QatJ47EQmYOg2eo+6cKgzYn5xiAMNLHqch1ghkEYHp+SpBZpleYXBbR2JDbDcUFGosOlXdilVKcissiEuPZ1AlpUbS7a3I4naNwBmNaULzFbqaKx7z2jqrIOURKK2Ru5NL6iVbeypgp5W3h+HMlswz5Ida5yUiqGDmO24QJwJOv+TLu34LTqooskxG/a9TRbpTWyjW/j+3aeP2Z7gpKyK9nVt8T07iHMNakLnTh0UEAjxjNJJPZy0y716BMXvBcBbBAdOM41oXyLeDdeH9E7wRHkz+luJdZgYJUUnNELcUqRZ+iFexLyMaZINdlgqvHC3ePtM5QKgZCTn4rHOTkf4RRPS3p6Cs22W9jeG6Xsw1/Z0zfX2v28qa+Yg56OejloJfX9eLxwR+EchDKQSivCqV6znpugmtq183k9rt6Z90O6xe0MRBvxoVPhdEZxYQuFFv94lsIIEef6qTp9GNu9euOP4ShNDTsms4jyebD+9Gwf5IbltsDQTXsnc30R3vfjR6FzbhP9964cMjOB06qJNIPg4W23qJzvBbrfFg33N3Jl1wqGi13Te/zXM4KzzlC54TXt6gEqTookX4QEWZ6NTiJ7OkHbQU+SO7oQ3ESnTbeBK7PjvGPMZ3T2affR7/R58lZGn2M+fvl9eN09IWmbpp78+dk+tP0ZBidvjRxjNuGvisJnSQN8fzBieXqd7FpwX9uwOyrUm39mL8i5G397pNeQ8s9WuAXrBK10Hx4x8orzE0mPQquMQFw4pr4jgbHzD2jnc9lXb/bK38T/m3lsuzCVv9cmExSLeiaO2XLzBuOKWwY0nCTEY8g2JpQOTLhzsjap+g8gFQ7z07LMpIOr21WVbx8V6DlWWsewL201CidJ2hy/Jzs/5HqDVXw5qKdjd+Kvxm0996544/islzXJwgBArjF9e4gXs2roGPkv0P5D4fsvRAbKLuj9hNanukbo0lz4NEV+9lY7HTRLP2nijQbX01+gQCidmDlOgghWLni/zzIVRMQbZpch2WzVkIm1bKQS7ZtnNYNe8HkKXu6vK3Btg8ctb0hf67r5j78l2+3d0tZNqqvqif75tWLO56KSWPN4Z1XVfUXC5xB3w==
+sidebar_class_name: "patch api-method"
+info_path: docs/payments/template-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Patch the organization permissions. (Auth policies: SecurityAdmin)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"patch"}
+  path={"/api/security-admin/v1/organizations/{organizationId}/permissions"}
+>
+  
+</MethodEndpoint>
+
+
+
+Patch the organization permissions. (Auth policies: SecurityAdmin)
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The organization identifier.","in":"path","name":"organizationId","required":true,"schema":{"format":"uuid","type":"string"},"style":"simple"}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Header Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The idempotency key for the endpoint","in":"header","name":"Idempotency-Key","schema":{"format":"uuid","type":"string"},"style":"simple"}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><MimeTabs
+  className={"openapi-tabs__mime"}
+  schemaType={"request"}
+>
+  <TabItem
+    label={"application/*+json"}
+    value={"application/*+json"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        <div
+          style={{"marginTop":"1rem","marginBottom":"1rem"}}
+        >
+          
+          
+          The model.
+          
+          
+        </div>
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"allowedSubApis"}
+          required={false}
+          schemaName={"AllowedSubApi (string)[]"}
+          qualifierMessage={"**Possible values:** [`none`, `smartContract`, `trust`, `wallet`, `compliance`]"}
+          schema={{"description":"Represents which Sub APIs are allowed for some specific organization","items":{"enum":["none","smartContract","trust","wallet","compliance"],"type":"string","title":"AllowedSubApi"},"nullable":true,"type":"array"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"cryptoLiquidityProvider"}
+          required={false}
+          schemaName={"CryptoLiquidityProvider (string)"}
+          qualifierMessage={"**Possible values:** [`coinRoutes`, `zebPay`, `talos`]"}
+          schema={{"enum":["coinRoutes","zebPay","talos"],"type":"string","title":"CryptoLiquidityProvider"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"feesAccountAllowed"}
+          required={false}
+          schemaName={"boolean"}
+          qualifierMessage={undefined}
+          schema={{"description":"Gets or sets a value indicating whether fees account is allowed.","nullable":true,"type":"boolean"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"isaAccountAllowed"}
+          required={false}
+          schemaName={"boolean"}
+          qualifierMessage={undefined}
+          schema={{"description":"Gets or sets a value indicating whether isa account is allowed.","nullable":true,"type":"boolean"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem><TabItem
+    label={"application/json"}
+    value={"application/json"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        <div
+          style={{"marginTop":"1rem","marginBottom":"1rem"}}
+        >
+          
+          
+          The model.
+          
+          
+        </div>
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"allowedSubApis"}
+          required={false}
+          schemaName={"AllowedSubApi (string)[]"}
+          qualifierMessage={"**Possible values:** [`none`, `smartContract`, `trust`, `wallet`, `compliance`]"}
+          schema={{"description":"Represents which Sub APIs are allowed for some specific organization","items":{"enum":["none","smartContract","trust","wallet","compliance"],"type":"string","title":"AllowedSubApi"},"nullable":true,"type":"array"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"cryptoLiquidityProvider"}
+          required={false}
+          schemaName={"CryptoLiquidityProvider (string)"}
+          qualifierMessage={"**Possible values:** [`coinRoutes`, `zebPay`, `talos`]"}
+          schema={{"enum":["coinRoutes","zebPay","talos"],"type":"string","title":"CryptoLiquidityProvider"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"feesAccountAllowed"}
+          required={false}
+          schemaName={"boolean"}
+          qualifierMessage={undefined}
+          schema={{"description":"Gets or sets a value indicating whether fees account is allowed.","nullable":true,"type":"boolean"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"isaAccountAllowed"}
+          required={false}
+          schemaName={"boolean"}
+          qualifierMessage={undefined}
+          schema={{"description":"Gets or sets a value indicating whether isa account is allowed.","nullable":true,"type":"boolean"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem><TabItem
+    label={"text/json"}
+    value={"text/json"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        <div
+          style={{"marginTop":"1rem","marginBottom":"1rem"}}
+        >
+          
+          
+          The model.
+          
+          
+        </div>
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"allowedSubApis"}
+          required={false}
+          schemaName={"AllowedSubApi (string)[]"}
+          qualifierMessage={"**Possible values:** [`none`, `smartContract`, `trust`, `wallet`, `compliance`]"}
+          schema={{"description":"Represents which Sub APIs are allowed for some specific organization","items":{"enum":["none","smartContract","trust","wallet","compliance"],"type":"string","title":"AllowedSubApi"},"nullable":true,"type":"array"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"cryptoLiquidityProvider"}
+          required={false}
+          schemaName={"CryptoLiquidityProvider (string)"}
+          qualifierMessage={"**Possible values:** [`coinRoutes`, `zebPay`, `talos`]"}
+          schema={{"enum":["coinRoutes","zebPay","talos"],"type":"string","title":"CryptoLiquidityProvider"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"feesAccountAllowed"}
+          required={false}
+          schemaName={"boolean"}
+          qualifierMessage={undefined}
+          schema={{"description":"Gets or sets a value indicating whether fees account is allowed.","nullable":true,"type":"boolean"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"isaAccountAllowed"}
+          required={false}
+          schemaName={"boolean"}
+          qualifierMessage={undefined}
+          schema={{"description":"Gets or sets a value indicating whether isa account is allowed.","nullable":true,"type":"boolean"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"204"}
+        value={"204"}
+      >
+        <div>
+          
+          
+          No content response.
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Unauthorized
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"403"}
+        value={"403"}
+      >
+        <div>
+          
+          
+          Forbidden
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

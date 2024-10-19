@@ -1,0 +1,196 @@
+---
+id: retrieve-full-tree-of-endpoints-permissions
+title: "Retrieve full tree of endpoints permissions"
+description: "Retrieve full tree of endpoints permissions"
+sidebar_label: "Retrieve full tree of endpoints permissions"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVFFv3DYM/isCn1bAiXMdsAcjCJB2XXHp0GVpWhQN7kGWeWe2sqRR9DXXg/97QTt3vaRph+3JMkV+/ER+5BYYc4ohY4ZqC09PTvTjYhAMokebkidnhWIoP+YY1JZdi50db5uG9Mr6S44JWUhxltZnLCAdmLbAMcp4IMEu/2twg9kxJb2HCq5bNCE2aOLSJOSOcqYYjDCiWUY2HTWNx8+W0fQZ4WFu15JvXsdm+vse2lMWhR79xkQZih1RcMSu95Z/eRGaFCnI5Z7BNSMq7hMoIPTe29ojVMI9FiCbhFCBZbYbGArAXbSV9nEaOw+TrLRGWiuG8uF7GVe9t4LNj9NlYQorzUfN41nmv+tT5a6iUMAycmcFKqAgvz6FPRQFwRUyDMPeFOuP6ERdSDQ1/LgkSuHnJflfsFd3coVB4++/bhd1WLM8imRKZlcZqhs476WFxcPgKxQmXKNZ9t5PyorLfUvuQUIBHUobG6hghco7jT2F0iYq17MyMa2t4JHjmPNRRl6Tw9L20pZ7wKMDwKORYwHqiawkt9CzhwpakZSrUoGPsw1NHW+Pl5GFMWe1udiVMCw01PVMshljn6FlZKhuFodXb3RspxHYOTzUx2UvxjqHORuJnzAYCqNS6nhravTx8/FpzWd/RDZ4a7vksTKn9dmEZnBzcYLvz+kvunj1bvY3/fn8oq1fOv1/8/bLfPaa5nneSfrwfP7b/LSsz3TGNGuLtkFWTdtOu68Nikxfxq3zTY820SucdENhGZX9Ti/X2CUdDHOeCArQIk4Pmh2fqBBTzNLZcXnd5fhv7b5Xpe2OkOCtlMlbCppjbNj2Tgo3ylaZzMZl9IgcoAAVBHxbDI9IYlFAG7Mo3nZb24xv2Q+Dmv/pkbXZiwLWlmmaspvFUOyqqTr4hBstp3OYVKVr6/upkA92uqpkr+iXL65hGL4CenAlCg==
+sidebar_class_name: "get api-method"
+info_path: docs/payments/template-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve full tree of endpoints permissions"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/api/v1/private-cross-service/auth/endpoints-permissions-tree"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve full tree of endpoints permissions
+
+<div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Endpoints permissions tree
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                roots
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object[]
+                              </span><span
+                                className={"openapi-schema__divider"}
+                              >
+                                
+                              </span><span
+                                className={"openapi-schema__nullable"}
+                              >
+                                nullable
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                              >
+                                Array [
+                              </div>
+                            </li><SchemaItem
+                              collapsible={false}
+                              name={"childNodes"}
+                              required={false}
+                              schemaName={"undefined[]"}
+                              qualifierMessage={undefined}
+                              schema={{"description":"The list of child nodes","items":"circular(EndpointPermissionTreeNode)","nullable":true,"type":"array"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"endpointPath"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"description":"The endpoint path that is permission regulated","nullable":true,"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"id"}
+                              required={false}
+                              schemaName={"int32"}
+                              qualifierMessage={undefined}
+                              schema={{"description":"The ID of the node","format":"int32","type":"integer"}}
+                            >
+                              
+                            </SchemaItem><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                              >
+                                ]
+                              </div>
+                            </li>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"roots\": [\n    {\n      \"childNodes\": [\n        null\n      ],\n      \"endpointPath\": \"string\",\n      \"id\": 0\n    }\n  ]\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

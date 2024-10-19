@@ -1,0 +1,1574 @@
+openapi: 3.0.1
+info:
+  title: Trading Api
+  version: '1.0'
+paths:
+  /api/internal-admin/v1/crypto-configuration/crypto-currency-discretion:
+    get:
+      parameters:
+        - description: Whether to sort in ascending order
+          in: query
+          name: SortingAscending
+          schema:
+            type: boolean
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CryptoCurrencyDiscretionModel'
+                type: array
+          description: Success
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+      security:
+        - Bearer:
+            - InternalAdmin
+      tags:
+        - CryptoConfiguration
+      summary: 'Retrieve assets discretion list (Auth policies: InternalAdmin)'
+    post:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CryptoCurrencyDiscretionModel'
+          description: Success
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+      security:
+        - Bearer:
+            - InternalAdmin
+      tags:
+        - CryptoConfiguration
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CryptoCurrencyDiscretionModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CryptoCurrencyDiscretionModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CryptoCurrencyDiscretionModel'
+        description: Currency with discretion
+      summary: 'Set up asset discretion (Auth policies: InternalAdmin)'
+  '/api/internal-admin/v1/crypto-configuration/crypto-currency-price/{tradingPair}':
+    put:
+      parameters:
+        - description: Trading pair
+          in: path
+          name: tradingPair
+          required: true
+          schema:
+            description: Trading pair
+            minLength: 1
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CryptoCurrencyPriceRequestModel'
+          description: Success
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+      security:
+        - Bearer:
+            - InternalAdmin
+      tags:
+        - CryptoConfiguration
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CryptoCurrencyPriceRequestModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CryptoCurrencyPriceRequestModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CryptoCurrencyPriceRequestModel'
+        description: Currency
+      summary: 'Update crypto currency price (Auth policies: InternalAdmin)'
+  /api/internal-admin/v1/liquidity-providers/default/sandbox/talos-trading-pair:
+    post:
+      parameters:
+        - description: The idempotency key for the endpoint
+          in: header
+          name: Idempotency-Key
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TradingPairDataModel'
+          description: Success
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      security:
+        - Bearer:
+            - InternalAdmin
+      tags:
+        - LiquidityProviders
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/TradingPairDataModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TradingPairDataModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/TradingPairDataModel'
+        description: Trading pair data model
+      summary: "Add custom trading pairs for testing purposes.\r\nWorks on sandbox environments only (int, stage, dev, sandbox, local) (Auth policies: InternalAdmin)"
+  '/api/internal-admin/v1/talos-order-status-check-trigger/{orderId}':
+    post:
+      parameters:
+        - in: path
+          name: orderId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '202':
+          description: Accepted
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      security:
+        - Bearer:
+            - InternalAdmin
+      tags:
+        - InternalAdmin
+      summary: ' (Auth policies: InternalAdmin)'
+  /api/ops/v1/liquidity-provider-order-refunds:
+    get:
+      parameters:
+        - description: Organization Identifier
+          in: query
+          name: OrganizationId
+          schema:
+            description: Organization Identifier
+            format: uuid
+            nullable: true
+            type: string
+        - description: Status to filter by
+          in: query
+          name: Status
+          schema:
+            $ref: '#/components/schemas/PartiallyFilledOrderStatus'
+        - description: Date from
+          in: query
+          name: FromDate
+          schema:
+            description: Date from
+            format: date-time
+            nullable: true
+            type: string
+        - description: Date to
+          in: query
+          name: ToDate
+          schema:
+            description: Date to
+            format: date-time
+            nullable: true
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                format: binary
+                type: string
+          description: Success
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+      security:
+        - Bearer:
+            - Ops
+      tags:
+        - LiquidityProviderOrderRefunds
+      summary: >-
+        Retrieves a .csv file with partially filled order refunds based on
+        certain filters. (Auth policies: Ops)
+  /api/ops/v1/otc/trades:
+    get:
+      parameters:
+        - description: Page count
+          in: query
+          name: Page
+          schema:
+            format: int32
+            type: integer
+        - description: PageSize
+          in: query
+          name: PageSize
+          schema:
+            format: int32
+            type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OtcTradeResponseModelPageResponseModel'
+          description: Success
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      security:
+        - Bearer:
+            - Ops
+      tags:
+        - Ops
+      summary: 'Get OTC trades (Auth policies: Ops)'
+  /api/ops/v1/otc/trades/initiate:
+    post:
+      parameters:
+        - description: The idempotency key for the endpoint
+          in: header
+          name: Idempotency-Key
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TradeResponseModel'
+          description: Created
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+      security:
+        - Bearer:
+            - Ops
+      tags:
+        - Ops
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/OtcTradeRequestModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OtcTradeRequestModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/OtcTradeRequestModel'
+        description: Buy/sell crypto request model
+      summary: 'OTC Buy/Sell crypto. (Auth policies: Ops)'
+  '/api/ops/v1/otc/trades/{paymentId}':
+    patch:
+      parameters:
+        - description: Payment Id
+          in: path
+          name: paymentId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '204':
+          description: No Content
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+      security:
+        - Bearer:
+            - Ops
+      tags:
+        - Ops
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/UpdateOtcTradeRequestModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateOtcTradeRequestModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/UpdateOtcTradeRequestModel'
+        description: The update trade request
+      summary: 'To complete or abort UTC trade (Auth policies: Ops)'
+  /api/ops/v1/talos-order-configuration:
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TalosOrderConfigurationsResponse'
+          description: Success
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      security:
+        - Bearer:
+            - Ops
+      tags:
+        - Ops
+      summary: ' (Auth policies: Ops)'
+    post:
+      responses:
+        '200':
+          description: Success
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      security:
+        - Bearer:
+            - Ops
+      tags:
+        - Ops
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CreateTalosOrderConfigurationRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTalosOrderConfigurationRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CreateTalosOrderConfigurationRequest'
+      summary: ' (Auth policies: Ops)'
+    put:
+      responses:
+        '200':
+          description: Success
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      security:
+        - Bearer:
+            - Ops
+      tags:
+        - Ops
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/UpdateTalosOrderConfigurationRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateTalosOrderConfigurationRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/UpdateTalosOrderConfigurationRequest'
+      summary: ' (Auth policies: Ops)'
+  '/api/ops/v1/talos-order-configuration/{orgId}':
+    get:
+      parameters:
+        - in: path
+          name: orgId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TalosOrderConfigurationResponse'
+          description: Success
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      security:
+        - Bearer:
+            - Ops
+      tags:
+        - Ops
+      summary: ' (Auth policies: Ops)'
+  /api/trust/v1/crypto-currency/crypto-currency-price/list:
+    get:
+      parameters:
+        - description: >-
+            Coins filter represented by string pairs of kind
+            cryptoCurrency-network
+          in: query
+          name: filter
+          schema:
+            items:
+              type: string
+            type: array
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/CryptoCurrencyPriceListItemResponseModelCollectionResponseModel
+          description: Success
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+      security:
+        - Bearer: []
+      tags:
+        - CryptoCurrency
+      summary: Get crypto currency prices list (Auth)
+  '/api/trust/v1/crypto-currency/crypto-currency-price/{network}/{currency}':
+    get:
+      parameters:
+        - description: Network
+          in: path
+          name: network
+          required: true
+          schema:
+            $ref: '#/components/schemas/Network'
+        - description: Currency
+          in: path
+          name: currency
+          required: true
+          schema:
+            $ref: '#/components/schemas/CryptoCurrency'
+        - description: Spread BasisPoints
+          in: query
+          name: SpreadBasisPoints
+          schema:
+            description: Spread BasisPoints
+            format: double
+            nullable: true
+            type: number
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CryptoCurrencyPriceResponseModel'
+          description: Success
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+      security:
+        - Bearer: []
+      tags:
+        - CryptoCurrency
+      summary: Get crypto currency price (Auth)
+  /api/trust/v1/partially-filled-order-refunds/liquidity-provider-order-refunds:
+    get:
+      parameters:
+        - description: Status to filter by
+          in: query
+          name: Status
+          schema:
+            $ref: '#/components/schemas/PartiallyFilledOrderStatus'
+        - description: Date from
+          in: query
+          name: FromDate
+          schema:
+            description: Date from
+            format: date-time
+            nullable: true
+            type: string
+        - description: Date to
+          in: query
+          name: ToDate
+          schema:
+            description: Date to
+            format: date-time
+            nullable: true
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                format: binary
+                type: string
+          description: Success
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+      security:
+        - Bearer: []
+      tags:
+        - PartiallyFilledOrderRefunds
+      summary: >-
+        Retrieves a .csv file with partially filled order refunds based on
+        certain filters. (Auth)
+  '/api/trust/v1/precious-metals/price/{type}':
+    get:
+      parameters:
+        - description: Type of a precious metal
+          in: path
+          name: type
+          required: true
+          schema:
+            $ref: '#/components/schemas/PreciousMetalType'
+        - description: Integrator spread basis points
+          in: query
+          name: SpreadBasisPoints
+          schema:
+            description: Integrator spread basis points
+            format: double
+            nullable: true
+            type: number
+        - description: Integrator spread fiat per unit
+          in: query
+          name: SpreadFiatPerUnit
+          schema:
+            description: Integrator spread fiat per unit
+            format: double
+            nullable: true
+            type: number
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PreciousMetalPriceResponseModel'
+          description: Success
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      security:
+        - Bearer: []
+      tags:
+        - PreciousMetals
+      summary: Get precious metals price (Auth)
+  /api/trust/v1/trades:
+    post:
+      parameters:
+        - description: The idempotency key for the endpoint
+          in: header
+          name: Idempotency-Key
+          schema:
+            format: uuid
+            type: string
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TradeResponseModel'
+          description: Buy/sell crypto process started successfully
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad request model data
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Custodial account was not found
+      security:
+        - Bearer: []
+      tags:
+        - Trades
+      requestBody:
+        content:
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/TradeRequestModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TradeRequestModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/TradeRequestModel'
+        description: Buy/sell crypto request model
+      summary: Buy/Sell crypto. (Auth)
+components:
+  schemas:
+    AssetData:
+      additionalProperties: false
+      description: Asset data
+      properties:
+        asset:
+          $ref: '#/components/schemas/ModelAssetFiatType'
+        network:
+          $ref: '#/components/schemas/ModelNetworkChain'
+      type: object
+    AssetDataFrom:
+      additionalProperties: false
+      description: Asset data from
+      properties:
+        amount:
+          description: Gets amount.
+          format: double
+          nullable: true
+          type: number
+        asset:
+          $ref: '#/components/schemas/ModelAssetFiatType'
+        network:
+          $ref: '#/components/schemas/ModelNetworkChain'
+      type: object
+    CreateTalosOrderConfigurationRequest:
+      additionalProperties: false
+      properties:
+        organizationId:
+          format: uuid
+          type: string
+        timeInForce:
+          $ref: '#/components/schemas/TimeInForce'
+      type: object
+    CryptoCurrency:
+      description: Types of the crypto currency
+      enum:
+        - eth
+        - matic
+        - btc
+        - usdc
+        - sol
+        - ada
+        - xlm
+        - dot
+        - link
+        - algo
+        - busd
+        - bnb
+        - avax
+        - ltc
+        - uni
+        - crv
+        - aave
+        - eos
+        - bch
+        - xtz
+        - comp
+        - bat
+        - shib
+        - doge
+        - grt
+        - sushi
+        - sand
+        - enj
+        - axs
+        - mana
+        - mkr
+        - yfi
+        - atom
+        - ape
+        - dai
+        - usdt
+        - near
+        - trx
+        - ftm
+        - xrp
+        - flrns
+        - flow
+        - qnt
+        - hbar
+        - chz
+        - gala
+        - smtf
+        - pol
+      type: string
+    CryptoCurrencyDiscretionModel:
+      additionalProperties: false
+      properties:
+        cryptoCurrency:
+          $ref: '#/components/schemas/CryptoCurrency'
+        discretion:
+          format: int32
+          maximum: 10000
+          minimum: 0
+          type: integer
+      required:
+        - cryptoCurrency
+        - discretion
+      type: object
+    CryptoCurrencyPriceListItemResponseModel:
+      additionalProperties: false
+      properties:
+        currency:
+          $ref: '#/components/schemas/CryptoCurrency'
+        network:
+          $ref: '#/components/schemas/Network'
+        price:
+          $ref: '#/components/schemas/Price'
+      type: object
+    CryptoCurrencyPriceListItemResponseModelCollectionResponseModel:
+      additionalProperties: false
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/CryptoCurrencyPriceListItemResponseModel'
+          nullable: true
+          type: array
+      type: object
+    CryptoCurrencyPriceRequestFilterExternal:
+      additionalProperties: false
+      description: Crypto currency price request filter external
+      properties:
+        spreadBasisPoints:
+          description: Spread BasisPoints
+          format: double
+          nullable: true
+          type: number
+      type: object
+    CryptoCurrencyPriceRequestModel:
+      additionalProperties: false
+      description: Crypto currency price request
+      properties:
+        buyPrice:
+          description: Buy price
+          exclusiveMinimum: true
+          format: double
+          minimum: 0
+          type: number
+        sellPrice:
+          description: Sell price
+          exclusiveMinimum: true
+          format: double
+          minimum: 0
+          type: number
+      required:
+        - buyPrice
+        - sellPrice
+      type: object
+    CryptoCurrencyPriceResponseModel:
+      additionalProperties: false
+      description: Crypto currency price response
+      properties:
+        price:
+          $ref: '#/components/schemas/Price'
+      type: object
+    FundsStorageResponseModel:
+      additionalProperties: false
+      description: Funds storage response model
+      properties:
+        custodialAccountId:
+          description: Custodial account identifier
+          format: uuid
+          nullable: true
+          type: string
+        identityId:
+          description: Identity identifier
+          format: uuid
+          nullable: true
+          type: string
+      type: object
+    InternalAdminRefundsDataRequestModel:
+      additionalProperties: false
+      properties:
+        fromDate:
+          description: Date from
+          format: date-time
+          nullable: true
+          type: string
+        organizationId:
+          description: Organization Identifier
+          format: uuid
+          nullable: true
+          type: string
+        status:
+          $ref: '#/components/schemas/PartiallyFilledOrderStatus'
+        toDate:
+          description: Date to
+          format: date-time
+          nullable: true
+          type: string
+      type: object
+    ModelAssetFiatType:
+      description: Asset fiat type
+      enum:
+        - usd
+        - btc
+        - eth
+        - matic
+        - usdc
+        - sol
+        - ada
+        - xlm
+        - dot
+        - link
+        - algo
+        - bnb
+        - busd
+        - avax
+        - ltc
+        - uni
+        - crv
+        - aave
+        - eos
+        - bch
+        - xtz
+        - comp
+        - bat
+        - shib
+        - doge
+        - grt
+        - sushi
+        - sand
+        - enj
+        - axs
+        - mana
+        - mkr
+        - yfi
+        - atom
+        - ape
+        - dai
+        - usdt
+        - near
+        - trx
+        - ftm
+        - xrp
+        - flrns
+        - flow
+        - qnt
+        - hbar
+        - chz
+        - gala
+        - smtf
+        - pol
+        - gold
+        - silver
+      type: string
+    ModelNetworkChain:
+      description: Supported networks
+      enum:
+        - mainnet
+        - bnbSmartChainMainnet
+        - eosMainnet
+        - bnbSmartChainTestnet
+        - polygonMainnet
+        - fantomMainnet
+        - eosTestnet
+        - bitcoinMainnet
+        - cosmosHub
+        - cosmosHubTestnet
+        - bitcoinTestnet
+        - bchMainnet
+        - bchTestnet
+        - solanaMainnet
+        - solanaDevnet
+        - polkadotMainnet
+        - polkadotWestend
+        - cardanoMainnet
+        - cardanoTestnet
+        - algorandMainnet
+        - algorandTestnet
+        - stellarMainnet
+        - stellarTestnet
+        - litecoinMainnet
+        - litecoinTestnet
+        - tezosMainnet
+        - tezosTestnet
+        - arbitrumMainnet
+        - avalancheFuji
+        - avalancheMainnet
+        - polygonMumbai
+        - polygonAmoy
+        - rippleMainnet
+        - rippleTestnet
+        - arbitrumSepolia
+        - dogeTestnet
+        - dogeMainnet
+        - nearMainnet
+        - nearTestnet
+        - tronMainnet
+        - tronTestnet
+        - flowMainnet
+        - flowTestnet
+        - hederaMainnet
+        - hederaTestnet
+        - sepolia
+      type: string
+    ModelOrderType:
+      description: Order type
+      enum:
+        - market
+        - limit
+      type: string
+    Network:
+      description: Supported crypto networks
+      enum:
+        - mainnet
+        - bnbSmartChainMainnet
+        - eosMainnet
+        - bnbSmartChainTestnet
+        - polygonMainnet
+        - fantomMainnet
+        - eosTestnet
+        - bitcoinMainnet
+        - cosmosHubTestnet
+        - cosmosHub
+        - bitcoinTestnet
+        - bchMainnet
+        - bchTestnet
+        - solanaMainnet
+        - solanaDevnet
+        - polkadotMainnet
+        - polkadotWestend
+        - cardanoMainnet
+        - cardanoTestnet
+        - algorandMainnet
+        - algorandTestnet
+        - stellarMainnet
+        - stellarTestnet
+        - litecoinMainnet
+        - litecoinTestnet
+        - tezosMainnet
+        - tezosTestnet
+        - arbitrumMainnet
+        - avalancheFuji
+        - avalancheMainnet
+        - polygonAmoy
+        - rippleMainnet
+        - rippleTestnet
+        - arbitrumSepolia
+        - dogeTestnet
+        - dogeMainnet
+        - nearMainnet
+        - nearTestnet
+        - tronMainnet
+        - tronTestnet
+        - flowMainnet
+        - flowTestnet
+        - hederaMainnet
+        - hederaTestnet
+        - sepolia
+      type: string
+    OrganisationRefundsDataRequestModel:
+      additionalProperties: false
+      properties:
+        fromDate:
+          description: Date from
+          format: date-time
+          nullable: true
+          type: string
+        status:
+          $ref: '#/components/schemas/PartiallyFilledOrderStatus'
+        toDate:
+          description: Date to
+          format: date-time
+          nullable: true
+          type: string
+      type: object
+    OtcTradeRequestModel:
+      additionalProperties: false
+      description: Buy/sell crypto request model
+      properties:
+        accountId:
+          description: Custodial account identifier
+          format: uuid
+          minLength: 1
+          type: string
+        comment:
+          description: Gets or sets the comment.
+          maxLength: 1000
+          nullable: true
+          type: string
+        fortressMarkup:
+          description: Gets or sets the fortress markup.
+          format: double
+          minimum: 0
+          nullable: true
+          type: number
+        from:
+          $ref: '#/components/schemas/AssetDataFrom'
+        marketMakerOrLP:
+          description: Gets or sets the market maker or liquidity provider.
+          nullable: true
+          type: string
+        organizationId:
+          description: Organization account identifier
+          format: uuid
+          minLength: 1
+          type: string
+        price:
+          description: Gets or sets the price for 1 crypto.
+          exclusiveMinimum: true
+          format: double
+          minimum: 0
+          type: number
+        spreadBasisPoints:
+          description: Integrator spread basis points
+          format: double
+          nullable: true
+          type: number
+        spreadFiatPerUnit:
+          description: Integrator spread fixed amount (for PM trading ONLY)
+          format: double
+          nullable: true
+          type: number
+        to:
+          $ref: '#/components/schemas/AssetData'
+        type:
+          $ref: '#/components/schemas/ModelOrderType'
+      required:
+        - accountId
+        - from
+        - organizationId
+        - price
+        - to
+      type: object
+    OtcTradeResponseModel:
+      additionalProperties: false
+      description: OTC trade response model
+      properties:
+        amount:
+          description: Gets or sets the amount
+          format: double
+          nullable: true
+          type: number
+        assetType:
+          description: Gets or sets the asset type
+          nullable: true
+          type: string
+        createdAt:
+          description: Gets or sets the created at
+          format: date-time
+          type: string
+        cryptoAmount:
+          description: Gets or sets the amount
+          format: double
+          nullable: true
+          type: number
+        custodialAccountId:
+          description: Gets or sets the custodial account identifier
+          format: uuid
+          type: string
+        fortressMarkupAmount:
+          description: Gets or sets the fortress markup amount
+          format: double
+          nullable: true
+          type: number
+        integratorsMarkupAmount:
+          description: Gets or sets the integrators markup amount
+          format: double
+          nullable: true
+          type: number
+        network:
+          $ref: '#/components/schemas/ModelNetworkChain'
+        organizationId:
+          description: Gets or sets the organization identifier
+          format: uuid
+          type: string
+        paymentId:
+          description: Gets or sets the payment identifier
+          format: uuid
+          type: string
+        paymentType:
+          $ref: '#/components/schemas/PaymentType'
+        price:
+          description: Gets or sets the price
+          format: double
+          nullable: true
+          type: number
+      type: object
+    OtcTradeResponseModelPageResponseModel:
+      additionalProperties: false
+      properties:
+        data:
+          description: Gets or sets the data.
+          items:
+            $ref: '#/components/schemas/OtcTradeResponseModel'
+          nullable: true
+          type: array
+        meta:
+          $ref: '#/components/schemas/PageMetadata'
+      type: object
+    OtcTradeStatus:
+      description: OTC trade status
+      enum:
+        - completed
+        - aborted
+      type: string
+    PageMetadata:
+      additionalProperties: false
+      properties:
+        pageCount:
+          format: int32
+          type: integer
+        resourceCount:
+          format: int32
+          type: integer
+      type: object
+    PartiallyFilledOrderStatus:
+      enum:
+        - new
+        - inProgress
+        - completed
+        - failed
+      type: string
+    PaymentStatus:
+      description: Payment status
+      enum:
+        - new
+        - completed
+        - approvalNeeded
+        - rejected
+      type: string
+    PaymentType:
+      description: Payment type
+      enum:
+        - internal
+        - cardDeposit
+        - cardWithdrawal
+        - achDeposit
+        - achWithdrawal
+        - wireDeposit
+        - wireWithdrawal
+        - buyCrypto
+        - sellCrypto
+        - depositCrypto
+        - withdrawalCrypto
+        - internalCrypto
+        - privateSecurityDeposit
+        - privateSecurityWithdrawal
+        - privateSecurityInternal
+        - incomingAchDeposit
+        - incomingAchWithdrawal
+        - checkDeposit
+        - buyPreciousMetal
+        - sellPreciousMetal
+      type: string
+    PreciousMetalPrice:
+      additionalProperties: false
+      properties:
+        buy:
+          format: double
+          type: number
+        sell:
+          format: double
+          type: number
+      type: object
+    PreciousMetalPriceRequestFilter:
+      additionalProperties: false
+      properties:
+        spreadBasisPoints:
+          description: Integrator spread basis points
+          format: double
+          nullable: true
+          type: number
+        spreadFiatPerUnit:
+          description: Integrator spread fiat per unit
+          format: double
+          nullable: true
+          type: number
+      type: object
+    PreciousMetalPriceResponseModel:
+      additionalProperties: false
+      properties:
+        price:
+          $ref: '#/components/schemas/PreciousMetalPrice'
+      type: object
+    PreciousMetalType:
+      enum:
+        - gold
+        - silver
+      type: string
+    Price:
+      additionalProperties: false
+      description: Price model
+      properties:
+        buy:
+          description: Buy price
+          format: double
+          type: number
+        sell:
+          description: Sell price
+          format: double
+          type: number
+      type: object
+    ProblemDetails:
+      additionalProperties: {}
+      properties:
+        detail:
+          nullable: true
+          type: string
+        instance:
+          nullable: true
+          type: string
+        status:
+          format: int32
+          nullable: true
+          type: integer
+        title:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+      type: object
+    TalosOrderConfigurationItemResponse:
+      additionalProperties: false
+      properties:
+        organizationId:
+          format: uuid
+          type: string
+        timeInForce:
+          $ref: '#/components/schemas/TimeInForce'
+      type: object
+    TalosOrderConfigurationResponse:
+      additionalProperties: false
+      properties:
+        timeInForce:
+          $ref: '#/components/schemas/TimeInForce'
+      type: object
+    TalosOrderConfigurationsResponse:
+      additionalProperties: false
+      properties:
+        talosOrderConfigurationItems:
+          items:
+            $ref: '#/components/schemas/TalosOrderConfigurationItemResponse'
+          nullable: true
+          type: array
+      type: object
+    TimeInForce:
+      enum:
+        - goodTillCancel
+        - fillOrKill
+        - fillAndKill
+        - postOnly
+      type: string
+    TradeRequestModel:
+      additionalProperties: false
+      description: Buy/sell crypto request model
+      properties:
+        accountId:
+          description: Custodial account identifier
+          format: uuid
+          minLength: 1
+          type: string
+        comment:
+          description: Gets or sets the comment.
+          maxLength: 1000
+          nullable: true
+          type: string
+        from:
+          $ref: '#/components/schemas/AssetDataFrom'
+        spreadBasisPoints:
+          description: Integrator spread basis points
+          format: double
+          nullable: true
+          type: number
+        spreadFiatPerUnit:
+          description: Integrator spread fixed amount (for PM trading ONLY)
+          format: double
+          nullable: true
+          type: number
+        to:
+          $ref: '#/components/schemas/AssetData'
+        type:
+          $ref: '#/components/schemas/ModelOrderType'
+      required:
+        - accountId
+        - from
+        - to
+      type: object
+    TradeResponseModel:
+      additionalProperties: false
+      description: Payment response model
+      properties:
+        assetTypeId:
+          description: Id of Asset type (for Private Security)
+          format: uuid
+          nullable: true
+          type: string
+        comment:
+          description: Comment
+          nullable: true
+          type: string
+        cryptoAmount:
+          description: Crypto amount
+          format: double
+          nullable: true
+          type: number
+        currency:
+          $ref: '#/components/schemas/ModelAssetFiatType'
+        destination:
+          $ref: '#/components/schemas/FundsStorageResponseModel'
+        destinationCurrency:
+          $ref: '#/components/schemas/ModelAssetFiatType'
+        funds:
+          description: Funds
+          format: double
+          nullable: true
+          type: number
+        id:
+          description: Payment identifier
+          format: uuid
+          type: string
+        network:
+          $ref: '#/components/schemas/ModelNetworkChain'
+        quantity:
+          description: Precious metal quantity
+          format: double
+          nullable: true
+          type: number
+        source:
+          $ref: '#/components/schemas/FundsStorageResponseModel'
+        sourceCurrency:
+          $ref: '#/components/schemas/ModelAssetFiatType'
+        spreadBasisPoints:
+          description: Integrator spread basis points
+          format: double
+          nullable: true
+          type: number
+        spreadFiatPerUnit:
+          description: Integrator spread fiat per unit
+          format: double
+          nullable: true
+          type: number
+        status:
+          $ref: '#/components/schemas/PaymentStatus'
+        txHash:
+          description: Transaction hash
+          nullable: true
+          type: string
+        type:
+          $ref: '#/components/schemas/PaymentType'
+      type: object
+    TradingPairDataModel:
+      additionalProperties: false
+      description: Model for adding mocked trading pairs in fake storage
+      properties:
+        customAsks:
+          additionalProperties:
+            type: string
+          description: Optional custom adds
+          nullable: true
+          type: object
+        customBids:
+          additionalProperties:
+            type: string
+          description: Optional custom bids
+          nullable: true
+          type: object
+        shouldUseValuesFromConfig:
+          description: >-
+            Whether to use values from configuration instead (in this case you
+            wouldn't needs custom bids and asks)
+          type: boolean
+        symbol:
+          description: 'The name of the trading pair to add (for example: "BTC-USD")'
+          nullable: true
+          type: string
+      type: object
+    TradingPairModel:
+      additionalProperties: false
+      description: Trading pair name
+      properties:
+        tradingPair:
+          description: Trading pair
+          minLength: 1
+          type: string
+      required:
+        - tradingPair
+      type: object
+    UpdateOtcTradeRequestModel:
+      additionalProperties: false
+      description: Update OTC trade request model
+      properties:
+        status:
+          $ref: '#/components/schemas/OtcTradeStatus'
+      type: object
+    UpdateTalosOrderConfigurationRequest:
+      additionalProperties: false
+      properties:
+        organizationId:
+          format: uuid
+          type: string
+        timeInForce:
+          $ref: '#/components/schemas/TimeInForce'
+      type: object
+  securitySchemes:
+    Bearer:
+      description: >-
+        Put access token in the box below.<br>For example: <b>Bearer
+        eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6I</b>
+      in: header
+      name: Authorization
+      type: apiKey
+security:
+  - Bearer: []
+x-readme:
+  explorer-enabled: true
+  proxy-enabled: true
+
