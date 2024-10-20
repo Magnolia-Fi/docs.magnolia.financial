@@ -7,9 +7,9 @@ import type * as Plugin from "@docusaurus/types/src/plugin";
 import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 
 const config: Config = {
-  title: "My Site",
-  tagline: "Dinosaurs are cool",
-  url: "https://your-docusaurus-test-site.com",
+  title: "Magnolia Docs",
+  tagline: "Trust in Crypto.",
+  url: "https://docs.magnolia.financial/",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -17,8 +17,8 @@ const config: Config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "facebook", // Usually your GitHub org/user name.
-  projectName: "docusaurus", // Usually your repo name.
+  organizationName: "magnolia-fi", // Usually your GitHub org/user name.
+  projectName: "docs.magnolia.financial", // Usually your repo name.
 
   presets: [
     [
@@ -56,7 +56,7 @@ const config: Config = {
         },
       },
       navbar: {
-        title: "My Site",
+        title: "Magnolia Docs",
         logo: {
           alt: "My Site Logo",
           src: "img/logo.svg",
