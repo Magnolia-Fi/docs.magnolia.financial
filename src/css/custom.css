@@ -86,3 +86,9 @@
   content: "patch";
   background-color: var(--openapi-code-orange);
 }
+
+/* contrast fixes */
+.openapi-explorer__request-btn {
+  color: black !important;
+}
+/* end contrast fixes */
