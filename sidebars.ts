@@ -27,7 +27,17 @@ const sidebars: SidebarsConfig = {
       label: "Endpoints",
       collapsed: false,
       collapsible: false,
-      items: require("./docs/api/endpoints/sidebar.ts")
+      items: ((sidebar)=>{
+        // filter out superfluous Introduction page
+        sidebar = sidebar.filter((x) => {
+          if (x.id === 'api/endpoints/magnolia-api') {
+            return false
+          }
+
+          return true
+        })
+        return sidebar
+      })(require("./docs/api/endpoints/sidebar.ts"))
     }
   ],
   guides: [
