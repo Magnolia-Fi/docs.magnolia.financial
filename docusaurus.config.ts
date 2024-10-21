@@ -179,12 +179,12 @@ const config: Config = {
     [
       "docusaurus-plugin-openapi-docs",
       {
-        id: "payments",
+        id: "api",
         docsPluginId: "classic",
         config: {
           magnoliaPayments: {
             specPath: "openapi/magnolia-payments-api.yaml",
-            outputDir: "docs/api/payments",
+            outputDir: "docs/api",
             downloadUrl:
               "https://github.com/Magnolia-Fi/docs.magnolia.financial/tree/main/openapi/magnolia-payments-api.yaml",
             sidebarOptions: {
