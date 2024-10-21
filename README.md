@@ -1,6 +1,4 @@
-<center>
 <img src="./static/img/logo.png" width="60" height="60"/>
-</center>
 
 # Magnolia Docs
 
