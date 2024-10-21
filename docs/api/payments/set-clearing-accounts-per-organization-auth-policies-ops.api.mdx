@@ -1,0 +1,850 @@
+---
+id: set-clearing-accounts-per-organization-auth-policies-ops
+title: "Set clearing accounts per organization (Auth policies: Ops)"
+description: "Set clearing accounts per organization (Auth policies: Ops)"
+sidebar_label: "Set clearing accounts per organization (Auth policies: Ops)"
+hide_title: true
+hide_table_of_contents: true
+api: eJztWW1v2zYQ/ivEfWo32Y6TNN2EokDiNoPbrsmSZhuW+gMtnW22EsmSVBJX0H8fjpQSxXbcrFvXYfWXxKKOx3t5niOpK0Fzw3N0aCzE5yWkaBMjtBNKQgxHZsql+MjpkYkUpRMTgaYLEQh6r7mbQQSS5wgxqJb0MIUIDH4ohMEUYmcKjMAmM8w5xCVMlMm5gxiKQpCkm2vSYJ0RcgpVBNbNMz8icp0hVNGiacd8nqN0jGbeYY8OIm9I9zpj7lYMEaAscojPgSezZ6iVFQ4ievhNuFlq+CXPIIJLYfDmLT21Xo8W3YvACee9O76x8FCZQYacBPaTRBXSrQrDiPywWkmLlkzf3tqif4mSDqWjn1zrTCQ+B713ljwqW67yNBX0imfHRmk0TpCeCc8sRgtxaKxhPJhjWaLkREwZBRKtY7lKkZzXLU1lO07/ynpJYZ1KBc/qqA3T5ZQOGplGdwvLEC2BURZZxscU94CUJXBqoy5EiuYeK1nWCEcsxYmQaD2ymJqwQ2WcQWu7A2Ww+0zlXMjuz+Sl7T6XTpCL3cNCpvbUKcOnaLuDBW+XR47r5U41JmIiku5b81YOLdPcuHsvOpQOp8aD6BTNhUiwUdttUcIZ5LYw82MjcqJKoixFT8l9LQ64fE9Ab4sQJ2h8oKYE1jW8WHKzWd5zQhUmwXsTV5npwAMJIphmasyz+nHd+l7iNCxUVdeCavwOE9cSrO0L8ic1M300ydLbZWJDhw0dvmk6tHfJDRk2ZPjmybDZHDZ82PCB+LBm2sKtyK6eXy1S5LRIErSWgrD7j1ySymqRTik6Ljx1P8kCIa3jMmTik8LWcVfYW9dkId3O9t10E4TBkPE6bPdYJgx8UnBNao6NGmeYP/NxsKuycMBTdhJqUshEfxmLZ5IXbqaM+IhpENpZFjpUZizSFGWQ2N0k9Osk9LVy7FAVMvV6LCaFEW7uPx0dIDdU58/hSFsY0bcKx6f2eiB8gkHrDlQ6X5O/777/Gt8tvsDemAv5CuXUzSDub3bG/9TOWLW/B56vSn4rP6O/vjl5pN3sbV/7o9wG3BtwfzFwO7xyG1RvUP1/QvXSueekjUTmFLPoWHIXbjUa1u6GwfL1ZOX0xXnswX7hZkyrTCQCbcyOtH1IMEU3Uym1uApyzbe9YuhxLXpK295Fv9fo7tS6O8GyXnm7SVf1ylaXrAI60pmLphlYmAximDmnbdwj7V3LZTpWV91JDSYaS1Te852p5jR4SjUgULQ5Ey7dPwtHXqO1zKn3KJmQzM2QjdUVG2OmLruEV4ZXnPpeMXsyfhpUMZy/2MLf98WRePHy1/4v4tXgxWz8U0LPp2cfh/3XYmiHudN/DIZ7wye98dOmNzhDnnrO193B/frSERJ0jReuxUuce7hRTTu5ObI+D8bcVXlgZ8J/eDTZ2+08etx/3Nl9tLfdGe9Mks528uPezmRvj0/4Xhuj8QKP/K1iokh/g9U3mOuMO2T7WkAElJgQv353y9cjZV3OfeGtvfp7uLqVpLIJiS/wOuPC49iDoqwxd07xggiUpgpw0adisBp5EEG81CCO2y3aUQQzZR0pLcsxt3hmsqqi4Q8FGrpjjCK44EaEuw01q4Wl3+nqbaV1wYAHJ3XpeMjW9LRX+tvgQs7JQ54V9AQRvMf5cs/b96k/x6rFdvZnmNKOZTWqogbxFKkgMQgrd+qOeKNh6XRKXoQZ+0mC2q2VHbXK0fHZG4hgXN/vqFZCDIZfUvudXwZjlQ+Erw5+rISMy2nBpyQbVPojc0H4Klu0JIui5gc5tTIci7QOftBf8mrllLIMpK+qa/nw6s4Z17UkSFN2RlVV/QkdzenB
+sidebar_class_name: "put api-method"
+info_path: api/payments/template-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Set clearing accounts per organization (Auth policies: Ops)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/api/ops/v1/clearing-account-config/{organizationId}/{paymentType}"}
+>
+  
+</MethodEndpoint>
+
+
+
+Set clearing accounts per organization (Auth policies: Ops)
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"Organization identifier.","in":"path","name":"organizationId","required":true,"schema":{"format":"uuid","type":"string"},"style":"simple"}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"description":"Payment type.","in":"path","name":"paymentType","required":true,"schema":{"description":"Payment type","enum":["achDeposit","achWithdrawal","wireDeposit","wireWithdrawal"],"type":"string","title":"PaymentTypeForClearingAccount"},"style":"simple"}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><MimeTabs
+  className={"openapi-tabs__mime"}
+  schemaType={"request"}
+>
+  <TabItem
+    label={"application/*+json"}
+    value={"application/*+json"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        <div
+          style={{"marginTop":"1rem","marginBottom":"1rem"}}
+        >
+          
+          
+          Request model to set clearing accounts config per organization
+          
+          
+        </div>
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"custodialAccountId"}
+          required={true}
+          schemaName={"uuid"}
+          qualifierMessage={"**Possible values:** `non-empty`"}
+          schema={{"description":"Custodial account identifier","format":"uuid","minLength":1,"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"provider"}
+          required={true}
+          schemaName={"CustodialAccountsProvider (string)"}
+          qualifierMessage={"**Possible values:** [`treasuryPrime`, `cos`, `nonApiBank`, `treasuryPrimeWithBankCogent`]"}
+          schema={{"description":"Custodial accounts provider, defines type of Fortress.Core.Domain.Models.Entities.FundsStorages.CustodialAccounts.CustodialAccountProviderSpecific.\r\nIs part of Fortress.Core.Domain.Models.Entities.IntegrationServiceProvider.","enum":["treasuryPrime","cos","nonApiBank","treasuryPrimeWithBankCogent"],"type":"string","title":"CustodialAccountsProvider"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem><TabItem
+    label={"application/json"}
+    value={"application/json"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        <div
+          style={{"marginTop":"1rem","marginBottom":"1rem"}}
+        >
+          
+          
+          Request model to set clearing accounts config per organization
+          
+          
+        </div>
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"custodialAccountId"}
+          required={true}
+          schemaName={"uuid"}
+          qualifierMessage={"**Possible values:** `non-empty`"}
+          schema={{"description":"Custodial account identifier","format":"uuid","minLength":1,"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"provider"}
+          required={true}
+          schemaName={"CustodialAccountsProvider (string)"}
+          qualifierMessage={"**Possible values:** [`treasuryPrime`, `cos`, `nonApiBank`, `treasuryPrimeWithBankCogent`]"}
+          schema={{"description":"Custodial accounts provider, defines type of Fortress.Core.Domain.Models.Entities.FundsStorages.CustodialAccounts.CustodialAccountProviderSpecific.\r\nIs part of Fortress.Core.Domain.Models.Entities.IntegrationServiceProvider.","enum":["treasuryPrime","cos","nonApiBank","treasuryPrimeWithBankCogent"],"type":"string","title":"CustodialAccountsProvider"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem><TabItem
+    label={"text/json"}
+    value={"text/json"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        <div
+          style={{"marginTop":"1rem","marginBottom":"1rem"}}
+        >
+          
+          
+          Request model to set clearing accounts config per organization
+          
+          
+        </div>
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"custodialAccountId"}
+          required={true}
+          schemaName={"uuid"}
+          qualifierMessage={"**Possible values:** `non-empty`"}
+          schema={{"description":"Custodial account identifier","format":"uuid","minLength":1,"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"provider"}
+          required={true}
+          schemaName={"CustodialAccountsProvider (string)"}
+          qualifierMessage={"**Possible values:** [`treasuryPrime`, `cos`, `nonApiBank`, `treasuryPrimeWithBankCogent`]"}
+          schema={{"description":"Custodial accounts provider, defines type of Fortress.Core.Domain.Models.Entities.FundsStorages.CustodialAccounts.CustodialAccountProviderSpecific.\r\nIs part of Fortress.Core.Domain.Models.Entities.IntegrationServiceProvider.","enum":["treasuryPrime","cos","nonApiBank","treasuryPrimeWithBankCogent"],"type":"string","title":"CustodialAccountsProvider"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Success
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                achDeposit
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <div
+                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                            >
+                              
+                              
+                              Clearing accounts config request model
+                              
+                              
+                            </div><SchemaItem
+                              collapsible={false}
+                              name={"custodialAccountId"}
+                              required={false}
+                              schemaName={"uuid"}
+                              qualifierMessage={undefined}
+                              schema={{"description":"Custodial account identifier","format":"uuid","nullable":true,"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"provider"}
+                              required={false}
+                              schemaName={"CustodialAccountsProvider (string)"}
+                              qualifierMessage={"**Possible values:** [`treasuryPrime`, `cos`, `nonApiBank`, `treasuryPrimeWithBankCogent`]"}
+                              schema={{"description":"Custodial accounts provider, defines type of Fortress.Core.Domain.Models.Entities.FundsStorages.CustodialAccounts.CustodialAccountProviderSpecific.\r\nIs part of Fortress.Core.Domain.Models.Entities.IntegrationServiceProvider.","enum":["treasuryPrime","cos","nonApiBank","treasuryPrimeWithBankCogent"],"type":"string","title":"CustodialAccountsProvider"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"source"}
+                              required={false}
+                              schemaName={"ConfigSource (string)"}
+                              qualifierMessage={"**Possible values:** [`orgConfig`, `globalConfig`]"}
+                              schema={{"description":"Payment type","enum":["orgConfig","globalConfig"],"type":"string","title":"ConfigSource"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                achWithdrawal
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <div
+                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                            >
+                              
+                              
+                              Clearing accounts config request model
+                              
+                              
+                            </div><SchemaItem
+                              collapsible={false}
+                              name={"custodialAccountId"}
+                              required={false}
+                              schemaName={"uuid"}
+                              qualifierMessage={undefined}
+                              schema={{"description":"Custodial account identifier","format":"uuid","nullable":true,"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"provider"}
+                              required={false}
+                              schemaName={"CustodialAccountsProvider (string)"}
+                              qualifierMessage={"**Possible values:** [`treasuryPrime`, `cos`, `nonApiBank`, `treasuryPrimeWithBankCogent`]"}
+                              schema={{"description":"Custodial accounts provider, defines type of Fortress.Core.Domain.Models.Entities.FundsStorages.CustodialAccounts.CustodialAccountProviderSpecific.\r\nIs part of Fortress.Core.Domain.Models.Entities.IntegrationServiceProvider.","enum":["treasuryPrime","cos","nonApiBank","treasuryPrimeWithBankCogent"],"type":"string","title":"CustodialAccountsProvider"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"source"}
+                              required={false}
+                              schemaName={"ConfigSource (string)"}
+                              qualifierMessage={"**Possible values:** [`orgConfig`, `globalConfig`]"}
+                              schema={{"description":"Payment type","enum":["orgConfig","globalConfig"],"type":"string","title":"ConfigSource"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                wireDeposit
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <div
+                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                            >
+                              
+                              
+                              Clearing accounts config request model
+                              
+                              
+                            </div><SchemaItem
+                              collapsible={false}
+                              name={"custodialAccountId"}
+                              required={false}
+                              schemaName={"uuid"}
+                              qualifierMessage={undefined}
+                              schema={{"description":"Custodial account identifier","format":"uuid","nullable":true,"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"provider"}
+                              required={false}
+                              schemaName={"CustodialAccountsProvider (string)"}
+                              qualifierMessage={"**Possible values:** [`treasuryPrime`, `cos`, `nonApiBank`, `treasuryPrimeWithBankCogent`]"}
+                              schema={{"description":"Custodial accounts provider, defines type of Fortress.Core.Domain.Models.Entities.FundsStorages.CustodialAccounts.CustodialAccountProviderSpecific.\r\nIs part of Fortress.Core.Domain.Models.Entities.IntegrationServiceProvider.","enum":["treasuryPrime","cos","nonApiBank","treasuryPrimeWithBankCogent"],"type":"string","title":"CustodialAccountsProvider"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"source"}
+                              required={false}
+                              schemaName={"ConfigSource (string)"}
+                              qualifierMessage={"**Possible values:** [`orgConfig`, `globalConfig`]"}
+                              schema={{"description":"Payment type","enum":["orgConfig","globalConfig"],"type":"string","title":"ConfigSource"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                wireWithdrawal
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <div
+                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                            >
+                              
+                              
+                              Clearing accounts config request model
+                              
+                              
+                            </div><SchemaItem
+                              collapsible={false}
+                              name={"custodialAccountId"}
+                              required={false}
+                              schemaName={"uuid"}
+                              qualifierMessage={undefined}
+                              schema={{"description":"Custodial account identifier","format":"uuid","nullable":true,"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"provider"}
+                              required={false}
+                              schemaName={"CustodialAccountsProvider (string)"}
+                              qualifierMessage={"**Possible values:** [`treasuryPrime`, `cos`, `nonApiBank`, `treasuryPrimeWithBankCogent`]"}
+                              schema={{"description":"Custodial accounts provider, defines type of Fortress.Core.Domain.Models.Entities.FundsStorages.CustodialAccounts.CustodialAccountProviderSpecific.\r\nIs part of Fortress.Core.Domain.Models.Entities.IntegrationServiceProvider.","enum":["treasuryPrime","cos","nonApiBank","treasuryPrimeWithBankCogent"],"type":"string","title":"CustodialAccountsProvider"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"source"}
+                              required={false}
+                              schemaName={"ConfigSource (string)"}
+                              qualifierMessage={"**Possible values:** [`orgConfig`, `globalConfig`]"}
+                              schema={{"description":"Payment type","enum":["orgConfig","globalConfig"],"type":"string","title":"ConfigSource"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"achDeposit\": {\n    \"custodialAccountId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n    \"provider\": \"treasuryPrime\",\n    \"source\": \"orgConfig\"\n  },\n  \"achWithdrawal\": {\n    \"custodialAccountId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n    \"provider\": \"treasuryPrime\",\n    \"source\": \"orgConfig\"\n  },\n  \"wireDeposit\": {\n    \"custodialAccountId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n    \"provider\": \"treasuryPrime\",\n    \"source\": \"orgConfig\"\n  },\n  \"wireWithdrawal\": {\n    \"custodialAccountId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n    \"provider\": \"treasuryPrime\",\n    \"source\": \"orgConfig\"\n  }\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"400"}
+        value={"400"}
+      >
+        <div>
+          
+          
+          Bad Request
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"detail"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"nullable":true,"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"instance"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"nullable":true,"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"status"}
+                        required={false}
+                        schemaName={"int32"}
+                        qualifierMessage={undefined}
+                        schema={{"format":"int32","nullable":true,"type":"integer"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"title"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"nullable":true,"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"type"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"nullable":true,"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        name={"property name*"}
+                        required={false}
+                        schemaName={"any"}
+                        qualifierMessage={undefined}
+                        schema={{"additionalProperties":{},"properties":{"detail":{"nullable":true,"type":"string"},"instance":{"nullable":true,"type":"string"},"status":{"format":"int32","nullable":true,"type":"integer"},"title":{"nullable":true,"type":"string"},"type":{"nullable":true,"type":"string"}},"type":"object","title":"ProblemDetails"}}
+                        collapsible={false}
+                        discriminator={false}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"status\": 0,\n  \"title\": \"string\",\n  \"type\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Unauthorized
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"403"}
+        value={"403"}
+      >
+        <div>
+          
+          
+          Forbidden
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"404"}
+        value={"404"}
+      >
+        <div>
+          
+          
+          Not Found
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"detail"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"nullable":true,"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"instance"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"nullable":true,"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"status"}
+                        required={false}
+                        schemaName={"int32"}
+                        qualifierMessage={undefined}
+                        schema={{"format":"int32","nullable":true,"type":"integer"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"title"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"nullable":true,"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"type"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"nullable":true,"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        name={"property name*"}
+                        required={false}
+                        schemaName={"any"}
+                        qualifierMessage={undefined}
+                        schema={{"additionalProperties":{},"properties":{"detail":{"nullable":true,"type":"string"},"instance":{"nullable":true,"type":"string"},"status":{"format":"int32","nullable":true,"type":"integer"},"title":{"nullable":true,"type":"string"},"type":{"nullable":true,"type":"string"}},"type":"object","title":"ProblemDetails"}}
+                        collapsible={false}
+                        discriminator={false}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"status\": 0,\n  \"title\": \"string\",\n  \"type\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

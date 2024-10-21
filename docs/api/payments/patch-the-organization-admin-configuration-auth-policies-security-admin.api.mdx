@@ -1,0 +1,709 @@
+---
+id: patch-the-organization-admin-configuration-auth-policies-security-admin
+title: "Patch the organization admin configuration. (Auth policies: SecurityAdmin)"
+description: "Patch the organization admin configuration. (Auth policies: SecurityAdmin)"
+sidebar_label: "Patch the organization admin configuration. (Auth policies: SecurityAdmin)"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "patch api-method"
+info_path: api/payments/template-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Patch the organization admin configuration. (Auth policies: SecurityAdmin)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"patch"}
+  path={"/api/security-admin/v1/organizations/{organizationId}/admin-configuration"}
+>
+  
+</MethodEndpoint>
+
+
+
+Patch the organization admin configuration. (Auth policies: SecurityAdmin)
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The organization identifier.","in":"path","name":"organizationId","required":true,"schema":{"format":"uuid","type":"string"},"style":"simple"}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Header Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The idempotency key for the endpoint","in":"header","name":"Idempotency-Key","schema":{"format":"uuid","type":"string"},"style":"simple"}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><MimeTabs
+  className={"openapi-tabs__mime"}
+  schemaType={"request"}
+>
+  <TabItem
+    label={"application/*+json"}
+    value={"application/*+json"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        <div
+          style={{"marginTop":"1rem","marginBottom":"1rem"}}
+        >
+          
+          
+          Patch model
+          
+          
+        </div>
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"achDescriptor"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={"**Possible values:** `<= 10 characters`, Value must match regular expression `^[a-zA-Z0-9 ]*$`"}
+          schema={{"description":"ACHDescriptor for COS ACH payments","maxLength":10,"nullable":true,"pattern":"^[a-zA-Z0-9 ]*$","type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"assetsToAllowNegativeBalances"}
+          required={false}
+          schemaName={"ModelAssetFiatType (string)[]"}
+          qualifierMessage={"**Possible values:** [`usd`, `btc`, `eth`, `matic`, `usdc`, `sol`, `ada`, `xlm`, `dot`, `link`, `algo`, `bnb`, `busd`, `avax`, `ltc`, `uni`, `crv`, `aave`, `eos`, `bch`, `xtz`, `comp`, `bat`, `shib`, `doge`, `grt`, `sushi`, `sand`, `enj`, `axs`, `mana`, `mkr`, `yfi`, `atom`, `ape`, `dai`, `usdt`, `near`, `trx`, `ftm`, `xrp`, `flrns`, `flow`, `smtf`, `qnt`, `chz`, `gala`, `hbar`, `gold`, `silver`]"}
+          schema={{"description":"Assets to allow negative balances","items":{"description":"Asset fiat type","enum":["usd","btc","eth","matic","usdc","sol","ada","xlm","dot","link","algo","bnb","busd","avax","ltc","uni","crv","aave","eos","bch","xtz","comp","bat","shib","doge","grt","sushi","sand","enj","axs","mana","mkr","yfi","atom","ape","dai","usdt","near","trx","ftm","xrp","flrns","flow","smtf","qnt","chz","gala","hbar","gold","silver"],"type":"string","title":"ModelAssetFiatType"},"nullable":true,"type":"array"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"cardProcessingProvider"}
+          required={false}
+          schemaName={"CardProcessingProvider (string)"}
+          qualifierMessage={"**Possible values:** [`checkout`, `nmi`]"}
+          schema={{"description":"Card processing provider, maps to Fortress.Core.Domain.Models.Entities.FundsStorages.ExternalAccounts.ExternalAccountProviderSpecific.\r\nIs part of Fortress.Core.Domain.Models.Entities.IntegrationServiceProvider.","enum":["checkout","nmi"],"type":"string","title":"CardProcessingProvider"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"custodyModel"}
+          required={false}
+          schemaName={"CustodyModel (string)"}
+          qualifierMessage={"**Possible values:** [`segregated`, `omnibus`, `pseudoOmnibus`]"}
+          schema={{"description":"Custody model","enum":["segregated","omnibus","pseudoOmnibus"],"type":"string","title":"CustodyModel"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"defaultOmnibusId"}
+          required={false}
+          schemaName={"uuid"}
+          qualifierMessage={undefined}
+          schema={{"description":"Gets or sets default OmnibusId.","format":"uuid","nullable":true,"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"defaultTrustBucketId"}
+          required={false}
+          schemaName={"uuid"}
+          qualifierMessage={undefined}
+          schema={{"description":"Gets or sets default TrustBucketId.","format":"uuid","nullable":true,"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"depositsClearingModel"}
+          required={false}
+          schemaName={"CustodyModel (string)"}
+          qualifierMessage={"**Possible values:** [`segregated`, `omnibus`, `pseudoOmnibus`]"}
+          schema={{"description":"Custody model","enum":["segregated","omnibus","pseudoOmnibus"],"type":"string","title":"CustodyModel"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"feesAccountId"}
+          required={false}
+          schemaName={"uuid"}
+          qualifierMessage={undefined}
+          schema={{"description":"Gets or sets fees account Id","format":"uuid","nullable":true,"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"financialAccountsProvider"}
+          required={false}
+          schemaName={"FinancialAccountsProvider (string)"}
+          qualifierMessage={"**Possible values:** [`mx`, `plaid`, `plaidProcessorToken`, `plainAchInstructions`]"}
+          schema={{"description":"Financial accounts provider, maps to Fortress.Core.Domain.Models.Entities.FundsStorages.ExternalAccounts.ExternalAccountProviderSpecific.\r\nIs part of Fortress.Core.Domain.Models.Entities.IntegrationServiceProvider.","enum":["mx","plaid","plaidProcessorToken","plainAchInstructions"],"type":"string","title":"FinancialAccountsProvider"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"isaAccountId"}
+          required={false}
+          schemaName={"uuid"}
+          qualifierMessage={undefined}
+          schema={{"description":"Gets or sets ISA account Id","format":"uuid","nullable":true,"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"useTradingShortcut"}
+          required={false}
+          schemaName={"boolean"}
+          qualifierMessage={undefined}
+          schema={{"description":"Use trading shortcut in case true","nullable":true,"type":"boolean"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"withdrawalsClearingModel"}
+          required={false}
+          schemaName={"CustodyModel (string)"}
+          qualifierMessage={"**Possible values:** [`segregated`, `omnibus`, `pseudoOmnibus`]"}
+          schema={{"description":"Custody model","enum":["segregated","omnibus","pseudoOmnibus"],"type":"string","title":"CustodyModel"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem><TabItem
+    label={"application/json"}
+    value={"application/json"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        <div
+          style={{"marginTop":"1rem","marginBottom":"1rem"}}
+        >
+          
+          
+          Patch model
+          
+          
+        </div>
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"achDescriptor"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={"**Possible values:** `<= 10 characters`, Value must match regular expression `^[a-zA-Z0-9 ]*$`"}
+          schema={{"description":"ACHDescriptor for COS ACH payments","maxLength":10,"nullable":true,"pattern":"^[a-zA-Z0-9 ]*$","type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"assetsToAllowNegativeBalances"}
+          required={false}
+          schemaName={"ModelAssetFiatType (string)[]"}
+          qualifierMessage={"**Possible values:** [`usd`, `btc`, `eth`, `matic`, `usdc`, `sol`, `ada`, `xlm`, `dot`, `link`, `algo`, `bnb`, `busd`, `avax`, `ltc`, `uni`, `crv`, `aave`, `eos`, `bch`, `xtz`, `comp`, `bat`, `shib`, `doge`, `grt`, `sushi`, `sand`, `enj`, `axs`, `mana`, `mkr`, `yfi`, `atom`, `ape`, `dai`, `usdt`, `near`, `trx`, `ftm`, `xrp`, `flrns`, `flow`, `smtf`, `qnt`, `chz`, `gala`, `hbar`, `gold`, `silver`]"}
+          schema={{"description":"Assets to allow negative balances","items":{"description":"Asset fiat type","enum":["usd","btc","eth","matic","usdc","sol","ada","xlm","dot","link","algo","bnb","busd","avax","ltc","uni","crv","aave","eos","bch","xtz","comp","bat","shib","doge","grt","sushi","sand","enj","axs","mana","mkr","yfi","atom","ape","dai","usdt","near","trx","ftm","xrp","flrns","flow","smtf","qnt","chz","gala","hbar","gold","silver"],"type":"string","title":"ModelAssetFiatType"},"nullable":true,"type":"array"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"cardProcessingProvider"}
+          required={false}
+          schemaName={"CardProcessingProvider (string)"}
+          qualifierMessage={"**Possible values:** [`checkout`, `nmi`]"}
+          schema={{"description":"Card processing provider, maps to Fortress.Core.Domain.Models.Entities.FundsStorages.ExternalAccounts.ExternalAccountProviderSpecific.\r\nIs part of Fortress.Core.Domain.Models.Entities.IntegrationServiceProvider.","enum":["checkout","nmi"],"type":"string","title":"CardProcessingProvider"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"custodyModel"}
+          required={false}
+          schemaName={"CustodyModel (string)"}
+          qualifierMessage={"**Possible values:** [`segregated`, `omnibus`, `pseudoOmnibus`]"}
+          schema={{"description":"Custody model","enum":["segregated","omnibus","pseudoOmnibus"],"type":"string","title":"CustodyModel"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"defaultOmnibusId"}
+          required={false}
+          schemaName={"uuid"}
+          qualifierMessage={undefined}
+          schema={{"description":"Gets or sets default OmnibusId.","format":"uuid","nullable":true,"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"defaultTrustBucketId"}
+          required={false}
+          schemaName={"uuid"}
+          qualifierMessage={undefined}
+          schema={{"description":"Gets or sets default TrustBucketId.","format":"uuid","nullable":true,"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"depositsClearingModel"}
+          required={false}
+          schemaName={"CustodyModel (string)"}
+          qualifierMessage={"**Possible values:** [`segregated`, `omnibus`, `pseudoOmnibus`]"}
+          schema={{"description":"Custody model","enum":["segregated","omnibus","pseudoOmnibus"],"type":"string","title":"CustodyModel"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"feesAccountId"}
+          required={false}
+          schemaName={"uuid"}
+          qualifierMessage={undefined}
+          schema={{"description":"Gets or sets fees account Id","format":"uuid","nullable":true,"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"financialAccountsProvider"}
+          required={false}
+          schemaName={"FinancialAccountsProvider (string)"}
+          qualifierMessage={"**Possible values:** [`mx`, `plaid`, `plaidProcessorToken`, `plainAchInstructions`]"}
+          schema={{"description":"Financial accounts provider, maps to Fortress.Core.Domain.Models.Entities.FundsStorages.ExternalAccounts.ExternalAccountProviderSpecific.\r\nIs part of Fortress.Core.Domain.Models.Entities.IntegrationServiceProvider.","enum":["mx","plaid","plaidProcessorToken","plainAchInstructions"],"type":"string","title":"FinancialAccountsProvider"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"isaAccountId"}
+          required={false}
+          schemaName={"uuid"}
+          qualifierMessage={undefined}
+          schema={{"description":"Gets or sets ISA account Id","format":"uuid","nullable":true,"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"useTradingShortcut"}
+          required={false}
+          schemaName={"boolean"}
+          qualifierMessage={undefined}
+          schema={{"description":"Use trading shortcut in case true","nullable":true,"type":"boolean"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"withdrawalsClearingModel"}
+          required={false}
+          schemaName={"CustodyModel (string)"}
+          qualifierMessage={"**Possible values:** [`segregated`, `omnibus`, `pseudoOmnibus`]"}
+          schema={{"description":"Custody model","enum":["segregated","omnibus","pseudoOmnibus"],"type":"string","title":"CustodyModel"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem><TabItem
+    label={"text/json"}
+    value={"text/json"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        <div
+          style={{"marginTop":"1rem","marginBottom":"1rem"}}
+        >
+          
+          
+          Patch model
+          
+          
+        </div>
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"achDescriptor"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={"**Possible values:** `<= 10 characters`, Value must match regular expression `^[a-zA-Z0-9 ]*$`"}
+          schema={{"description":"ACHDescriptor for COS ACH payments","maxLength":10,"nullable":true,"pattern":"^[a-zA-Z0-9 ]*$","type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"assetsToAllowNegativeBalances"}
+          required={false}
+          schemaName={"ModelAssetFiatType (string)[]"}
+          qualifierMessage={"**Possible values:** [`usd`, `btc`, `eth`, `matic`, `usdc`, `sol`, `ada`, `xlm`, `dot`, `link`, `algo`, `bnb`, `busd`, `avax`, `ltc`, `uni`, `crv`, `aave`, `eos`, `bch`, `xtz`, `comp`, `bat`, `shib`, `doge`, `grt`, `sushi`, `sand`, `enj`, `axs`, `mana`, `mkr`, `yfi`, `atom`, `ape`, `dai`, `usdt`, `near`, `trx`, `ftm`, `xrp`, `flrns`, `flow`, `smtf`, `qnt`, `chz`, `gala`, `hbar`, `gold`, `silver`]"}
+          schema={{"description":"Assets to allow negative balances","items":{"description":"Asset fiat type","enum":["usd","btc","eth","matic","usdc","sol","ada","xlm","dot","link","algo","bnb","busd","avax","ltc","uni","crv","aave","eos","bch","xtz","comp","bat","shib","doge","grt","sushi","sand","enj","axs","mana","mkr","yfi","atom","ape","dai","usdt","near","trx","ftm","xrp","flrns","flow","smtf","qnt","chz","gala","hbar","gold","silver"],"type":"string","title":"ModelAssetFiatType"},"nullable":true,"type":"array"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"cardProcessingProvider"}
+          required={false}
+          schemaName={"CardProcessingProvider (string)"}
+          qualifierMessage={"**Possible values:** [`checkout`, `nmi`]"}
+          schema={{"description":"Card processing provider, maps to Fortress.Core.Domain.Models.Entities.FundsStorages.ExternalAccounts.ExternalAccountProviderSpecific.\r\nIs part of Fortress.Core.Domain.Models.Entities.IntegrationServiceProvider.","enum":["checkout","nmi"],"type":"string","title":"CardProcessingProvider"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"custodyModel"}
+          required={false}
+          schemaName={"CustodyModel (string)"}
+          qualifierMessage={"**Possible values:** [`segregated`, `omnibus`, `pseudoOmnibus`]"}
+          schema={{"description":"Custody model","enum":["segregated","omnibus","pseudoOmnibus"],"type":"string","title":"CustodyModel"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"defaultOmnibusId"}
+          required={false}
+          schemaName={"uuid"}
+          qualifierMessage={undefined}
+          schema={{"description":"Gets or sets default OmnibusId.","format":"uuid","nullable":true,"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"defaultTrustBucketId"}
+          required={false}
+          schemaName={"uuid"}
+          qualifierMessage={undefined}
+          schema={{"description":"Gets or sets default TrustBucketId.","format":"uuid","nullable":true,"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"depositsClearingModel"}
+          required={false}
+          schemaName={"CustodyModel (string)"}
+          qualifierMessage={"**Possible values:** [`segregated`, `omnibus`, `pseudoOmnibus`]"}
+          schema={{"description":"Custody model","enum":["segregated","omnibus","pseudoOmnibus"],"type":"string","title":"CustodyModel"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"feesAccountId"}
+          required={false}
+          schemaName={"uuid"}
+          qualifierMessage={undefined}
+          schema={{"description":"Gets or sets fees account Id","format":"uuid","nullable":true,"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"financialAccountsProvider"}
+          required={false}
+          schemaName={"FinancialAccountsProvider (string)"}
+          qualifierMessage={"**Possible values:** [`mx`, `plaid`, `plaidProcessorToken`, `plainAchInstructions`]"}
+          schema={{"description":"Financial accounts provider, maps to Fortress.Core.Domain.Models.Entities.FundsStorages.ExternalAccounts.ExternalAccountProviderSpecific.\r\nIs part of Fortress.Core.Domain.Models.Entities.IntegrationServiceProvider.","enum":["mx","plaid","plaidProcessorToken","plainAchInstructions"],"type":"string","title":"FinancialAccountsProvider"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"isaAccountId"}
+          required={false}
+          schemaName={"uuid"}
+          qualifierMessage={undefined}
+          schema={{"description":"Gets or sets ISA account Id","format":"uuid","nullable":true,"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"useTradingShortcut"}
+          required={false}
+          schemaName={"boolean"}
+          qualifierMessage={undefined}
+          schema={{"description":"Use trading shortcut in case true","nullable":true,"type":"boolean"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"withdrawalsClearingModel"}
+          required={false}
+          schemaName={"CustodyModel (string)"}
+          qualifierMessage={"**Possible values:** [`segregated`, `omnibus`, `pseudoOmnibus`]"}
+          schema={{"description":"Custody model","enum":["segregated","omnibus","pseudoOmnibus"],"type":"string","title":"CustodyModel"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"204"}
+        value={"204"}
+      >
+        <div>
+          
+          
+          No content response.
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Unauthorized
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"403"}
+        value={"403"}
+      >
+        <div>
+          
+          
+          Forbidden
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"404"}
+        value={"404"}
+      >
+        <div>
+          
+          
+          Organization was not found.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"detail"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"nullable":true,"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"instance"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"nullable":true,"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"status"}
+                        required={false}
+                        schemaName={"int32"}
+                        qualifierMessage={undefined}
+                        schema={{"format":"int32","nullable":true,"type":"integer"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"title"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"nullable":true,"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"type"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"nullable":true,"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        name={"property name*"}
+                        required={false}
+                        schemaName={"any"}
+                        qualifierMessage={undefined}
+                        schema={{"additionalProperties":{},"properties":{"detail":{"nullable":true,"type":"string"},"instance":{"nullable":true,"type":"string"},"status":{"format":"int32","nullable":true,"type":"integer"},"title":{"nullable":true,"type":"string"},"type":{"nullable":true,"type":"string"}},"type":"object","title":"ProblemDetails"}}
+                        collapsible={false}
+                        discriminator={false}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"status\": 0,\n  \"title\": \"string\",\n  \"type\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

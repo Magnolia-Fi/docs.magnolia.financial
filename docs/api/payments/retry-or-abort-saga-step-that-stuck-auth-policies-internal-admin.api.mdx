@@ -1,0 +1,521 @@
+---
+id: retry-or-abort-saga-step-that-stuck-auth-policies-internal-admin
+title: "Retry or abort saga step that stuck (Auth policies: InternalAdmin)"
+description: "Retry or abort saga step that stuck (Auth policies: InternalAdmin)"
+sidebar_label: "Retry or abort saga step that stuck (Auth policies: InternalAdmin)"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVllv4zYQ/ivEPPWQ4ziHtxUWCzjbbuHsleYoihp+oKSxzY1EcslREq2g/14MJTu24+wGiwJ9yYsO8pvhzHwzw6nBSicLJHQe4kkNGfrUKUvKaIjhcoFCZVhYQ6jTSlxjJWbGCVqgQJ1ZozRBBIqxC5QZOohAywIhhvG9XO8tVhCBTxdYSIhrmBlXSIIYylJlEAFVlkU8OaXn0ETgqcrDiipsjtBMI3DordEePSs42D/i16a1H4x4bTShJlZxtL/PkLRbiWuQ1uYqlYzuf/IsUq/ZJLNM8ZbMz5yx6EiFo5oI7Po/ZEhS5fylyzyXCdtJrsQdXijtSeoUnwT2JKn0G9FRmg4POKK7ZZUmnKNjYVKUP+2YduGbwBUSTPIJU2a5OwPOnElyLH4LcfDQMHaTiBOZiXP8XKLvmBg8M/H/MHGlZUkL49QXzFoqDh/WzRvjEpVlqMNhHtPSKapCOzhB6dBBPIGxJnRa5qOsUBqmXJEk537HFpdq4P7EZNVXiP/p56dSP5O5x232rawK1DTOwp8iLPyTWssj4ZbOyYr3HXqTl2zEe6SFyVgp6rJgTx2S404mE+OIPd3UvsFMit5fUJlen7WGnq/0fovTh5IhnO9NhnmQ/Z7yeY7hZgwJ7+g5eN8VvAddpoN5QQtJ4hbFrdQkyAjb6oIHEufshzBOBEeEl3MpPKFtNXg+W/wwKmkhrMlVqtDHYqPN/AgRFF14wBrPHlhJC4ihL63qqw7ck4zu3wz6HV2+3xnVC6f0umUeT9DdLMeg0uU80hBZH/dZ4Z6XOkvM3d7MOHLoPa+lpuiH2WTZMy84j9rsWHbO7WZ7VpKQKRsgyFyjFkqHcSoxdyLB3NzuiTfGCbyTPPnE4mXyqlUlsDrdx79H6qM6ffvX4E/17vXpIvkj5f+Lqy/jwQc19uOC7D+vx8Pxy37y6rHJbNRdCaGB3GeotIrnNKaX6+L8von/3hqznfQTOJzJX45nw6Pe8YvBi97R8fCglxzO0t5B+uvwcDYcypkcthfCdkp3mRyu5plhzcv8u8TC5pJQjKyCCJiSNnKDvX3GM9mFDGXb+fOfJNMGS/UyJqFL2FwqzUeHrKi7PJtwwEKI1zONLR6EXGyzDULX2JFv0wgWnLbxBOo6kR6vXN40vPy5RMe37zSCG+lU2yom0yZaEhnmdOV5I1v1pi37V3fuU2f4nQ5fY7Vzkr+RecloaKK6A3WTd++S9dwjHlxV9xKjNEVLX8VO14r87OPFJUSQdENFYTKWcfIWovCMASIwIQChAMNaDbnU81LOGdvqDBdoyQzWa5l/HfzqPjjAyy297u925bSO8JPd2ilS121dNc0K3249KrEq1xbNTEybpvkXIYbCew==
+sidebar_class_name: "post api-method"
+info_path: api/payments/template-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retry or abort saga step that stuck (Auth policies: InternalAdmin)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/api/internal-admin/v1/payments/process-stuck-payment"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retry or abort saga step that stuck (Auth policies: InternalAdmin)
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Header Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The idempotency key for the endpoint","in":"header","name":"Idempotency-Key","schema":{"format":"uuid","type":"string"},"style":"simple"}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><MimeTabs
+  className={"openapi-tabs__mime"}
+  schemaType={"request"}
+>
+  <TabItem
+    label={"application/*+json"}
+    value={"application/*+json"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        <div
+          style={{"marginTop":"1rem","marginBottom":"1rem"}}
+        >
+          
+          
+          Payments that we want to process
+          
+          
+        </div>
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"paymentIds"}
+          required={false}
+          schemaName={"uuid[]"}
+          qualifierMessage={undefined}
+          schema={{"items":{"format":"uuid","type":"string"},"nullable":true,"type":"array"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"resolutionMethod"}
+          required={false}
+          schemaName={"ProcessStuckPaymentResolution (string)"}
+          qualifierMessage={"**Possible values:** [`retry`, `abort`]"}
+          schema={{"enum":["retry","abort"],"type":"string","title":"ProcessStuckPaymentResolution"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem><TabItem
+    label={"application/json"}
+    value={"application/json"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        <div
+          style={{"marginTop":"1rem","marginBottom":"1rem"}}
+        >
+          
+          
+          Payments that we want to process
+          
+          
+        </div>
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"paymentIds"}
+          required={false}
+          schemaName={"uuid[]"}
+          qualifierMessage={undefined}
+          schema={{"items":{"format":"uuid","type":"string"},"nullable":true,"type":"array"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"resolutionMethod"}
+          required={false}
+          schemaName={"ProcessStuckPaymentResolution (string)"}
+          qualifierMessage={"**Possible values:** [`retry`, `abort`]"}
+          schema={{"enum":["retry","abort"],"type":"string","title":"ProcessStuckPaymentResolution"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem><TabItem
+    label={"text/json"}
+    value={"text/json"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        <div
+          style={{"marginTop":"1rem","marginBottom":"1rem"}}
+        >
+          
+          
+          Payments that we want to process
+          
+          
+        </div>
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"paymentIds"}
+          required={false}
+          schemaName={"uuid[]"}
+          qualifierMessage={undefined}
+          schema={{"items":{"format":"uuid","type":"string"},"nullable":true,"type":"array"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"resolutionMethod"}
+          required={false}
+          schemaName={"ProcessStuckPaymentResolution (string)"}
+          qualifierMessage={"**Possible values:** [`retry`, `abort`]"}
+          schema={{"enum":["retry","abort"],"type":"string","title":"ProcessStuckPaymentResolution"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"204"}
+        value={"204"}
+      >
+        <div>
+          
+          
+          No Content
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"400"}
+        value={"400"}
+      >
+        <div>
+          
+          
+          Bad Request
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"detail"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"nullable":true,"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"instance"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"nullable":true,"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"status"}
+                        required={false}
+                        schemaName={"int32"}
+                        qualifierMessage={undefined}
+                        schema={{"format":"int32","nullable":true,"type":"integer"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"title"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"nullable":true,"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"type"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"nullable":true,"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        name={"property name*"}
+                        required={false}
+                        schemaName={"any"}
+                        qualifierMessage={undefined}
+                        schema={{"additionalProperties":{},"properties":{"detail":{"nullable":true,"type":"string"},"instance":{"nullable":true,"type":"string"},"status":{"format":"int32","nullable":true,"type":"integer"},"title":{"nullable":true,"type":"string"},"type":{"nullable":true,"type":"string"}},"type":"object","title":"ProblemDetails"}}
+                        collapsible={false}
+                        discriminator={false}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"status\": 0,\n  \"title\": \"string\",\n  \"type\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Unauthorized
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"detail"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"nullable":true,"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"instance"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"nullable":true,"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"status"}
+                        required={false}
+                        schemaName={"int32"}
+                        qualifierMessage={undefined}
+                        schema={{"format":"int32","nullable":true,"type":"integer"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"title"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"nullable":true,"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"type"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"nullable":true,"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        name={"property name*"}
+                        required={false}
+                        schemaName={"any"}
+                        qualifierMessage={undefined}
+                        schema={{"additionalProperties":{},"properties":{"detail":{"nullable":true,"type":"string"},"instance":{"nullable":true,"type":"string"},"status":{"format":"int32","nullable":true,"type":"integer"},"title":{"nullable":true,"type":"string"},"type":{"nullable":true,"type":"string"}},"type":"object","title":"ProblemDetails"}}
+                        collapsible={false}
+                        discriminator={false}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"status\": 0,\n  \"title\": \"string\",\n  \"type\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"403"}
+        value={"403"}
+      >
+        <div>
+          
+          
+          Forbidden
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

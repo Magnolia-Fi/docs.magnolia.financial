@@ -1,0 +1,323 @@
+---
+id: update-the-current-organization-auth
+title: "Update the current organization. (Auth)"
+description: "Update the current organization. (Auth)"
+sidebar_label: "Update the current organization. (Auth)"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVtuO2zYQ/RVinnrR+tKmfRCCAI7RpN6kybbZLYou/EBJY4tZiWTIkWOtoH8vhpK8Wq+D+jVAXnQhzwxn5hxy2ICVTpZI6DzEtw1k6FOnLCmjIYbrHIXKsLSGUKe1uMNabIwTlKNAnVmjNEEEirE5ygwdRKBliRDD6sHu4g3WEIFPcywlxA1sjCslQQxVpTKIgGrLJp6c0ltoI/BUF2FElbZAaNcROPTWaI+eHfw0e8avx9G+MyI1mlCTGMATdvZsNn8KvtGyotw4dY9ZB/r5KeiVcYnKMtTQclCYVk5RHQr1EqVDB/HtmoMjueX6wbJyDjW9d1up1b0MbkLsnyr09NJkNS/SR8mf0tpCpQE4/eHHj56XbUaVklmmeFIWV85YdKS4ABtZeIyOgv3DZFgEesxoeWGlIyULUdlMEkIEduSoASylKp5m/hrJC+OE53egm3ETprcqCpkwO+QqPMFdx///OmQY+yvl/i3qLeUQ/zKbneHf5kafs0DAnRFxexgxyUdMWdCkKMhvzOOVpDQPNQ4mY+K+0fbV0Ea4p298fS18tcfF54ZkGSFKhoTj/ehcD/UPkaXdYfyIp4n4blFR/j1XBCk3GcQQHDJjkqsDU2nVdGwz3c2nva+L8Ti3NHS7oXVWruA2SGR9PGUnEy91lpj9ZGMcOfSex1JTTkM/G7rJBxZhJ5KhpxzX/KoiIdMUvRdk7lALpUOCidmLBAvzeSJeGSdwL7lbxuJ58qJzJbC+nOE/C/VeXb75e/6neru8zJPXKf9/uLlfzd+plV+VZP9drn5dPZ8mL77UzRd9sxwS76mUVnFvZ6J4U/310Od+64IZaX9QwsHn4b+X2kh8Sm8Mmw4KucbSFszrwiqIgGvelWY+mQWxGk+lDJu6d36+Dh7VuhkyCweFLaTS7D9w2/QKueW0IYIjLezmEMFJnawjyI0ntmyaRHq8cUXb8vCnCh3fJ9YR7KRT3fa5XbfRQEC4kynPE9npA2l0nTj3vnYyxTusT97adrKoGA1t1PSgZbfgxTX7eUA8aYks88Muu1pcL3+HCJL+EsQbGGJw8jNE4RkD1zRkFXZDGGugkHpbyS1jO6eh+1ZMRDOS4V0Itv/gqg1TepzEsYy7fPjJ2Z00aZpO5G17wHdTX7Q47J0OzeVdt237HwQm9MM=
+sidebar_class_name: "patch api-method"
+info_path: api/payments/template-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update the current organization. (Auth)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"patch"}
+  path={"/api/organization/v1/current-organization"}
+>
+  
+</MethodEndpoint>
+
+
+
+Update the current organization. (Auth)
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Header Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The idempotency key for the endpoint","in":"header","name":"Idempotency-Key","schema":{"format":"uuid","type":"string"},"style":"simple"}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><MimeTabs
+  className={"openapi-tabs__mime"}
+  schemaType={"request"}
+>
+  <TabItem
+    label={"application/*+json"}
+    value={"application/*+json"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        <div
+          style={{"marginTop":"1rem","marginBottom":"1rem"}}
+        >
+          
+          
+          The patch model.
+          
+          
+        </div>
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"email"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"description":"Gets or sets the email.","nullable":true,"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"name"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={"**Possible values:** `<= 500 characters`"}
+          schema={{"description":"Gets or sets the name.","maxLength":500,"nullable":true,"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"phone"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"description":"Gets or sets the phone.","nullable":true,"type":"string"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem><TabItem
+    label={"application/json"}
+    value={"application/json"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        <div
+          style={{"marginTop":"1rem","marginBottom":"1rem"}}
+        >
+          
+          
+          The patch model.
+          
+          
+        </div>
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"email"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"description":"Gets or sets the email.","nullable":true,"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"name"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={"**Possible values:** `<= 500 characters`"}
+          schema={{"description":"Gets or sets the name.","maxLength":500,"nullable":true,"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"phone"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"description":"Gets or sets the phone.","nullable":true,"type":"string"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem><TabItem
+    label={"text/json"}
+    value={"text/json"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        <div
+          style={{"marginTop":"1rem","marginBottom":"1rem"}}
+        >
+          
+          
+          The patch model.
+          
+          
+        </div>
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"email"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"description":"Gets or sets the email.","nullable":true,"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"name"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={"**Possible values:** `<= 500 characters`"}
+          schema={{"description":"Gets or sets the name.","maxLength":500,"nullable":true,"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"phone"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"description":"Gets or sets the phone.","nullable":true,"type":"string"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"204"}
+        value={"204"}
+      >
+        <div>
+          
+          
+          No content response.
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Unauthorized
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"403"}
+        value={"403"}
+      >
+        <div>
+          
+          
+          Forbidden
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

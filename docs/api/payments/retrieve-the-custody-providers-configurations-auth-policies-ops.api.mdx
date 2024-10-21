@@ -1,0 +1,370 @@
+---
+id: retrieve-the-custody-providers-configurations-auth-policies-ops
+title: "Retrieve the custody providers configurations. (Auth policies: Ops)"
+description: "Retrieve the custody providers configurations. (Auth policies: Ops)"
+sidebar_label: "Retrieve the custody providers configurations. (Auth policies: Ops)"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVt1v2zYQ/1eIe2oBxU62YQ9CUcA1lsDpumSJsw4L/EBTZ4u1RLLkyY1j6H8fjrL8nXjF9rgXW6J4d7+7+93HEpz0skRCHyB9XEKGQXntSFsDKQxzFNZPpdHPko+EztCQnmj0HUhA8x0nKYcEjCwRUrB+OsggAY9fK+0xg5R8hQkElWMpIV3CxPpSEqRQVZpv0sKxYCCvzRTqBAItiniiS1cg1MkxVDrD0llCoxZihgsxsV5QjgJN5qw21KLLUWboN/gGG7mzj7iAf4VsxH4GZ03AwAp+OD/nP2UNoSF+lM4VWsXYdb8ERr/cMiizTPMnWdx669CTZj0TWQRM9nzu26JAFXPQmhSlzbCABNyW8BIySVH5rvwVUhDWi8D/HCi+FnNIWIbvBVMFstlCOG/nOkMvlDUTPa18Q5LjuGQISJda0nDhMPS3JV6xfwLXrokWz6H7t6svARJAU5WQPgJ5lKHyi1uvS4QEyidIQOWoZrZi/rhCavNZexyYQL5SDdIEJtrjuLBqxi+m1Cxlw0oga/9vvVUYgvVDO0PTquupfF9bYb/dOcWqrOk5/UGaGXNvG9xnTTmf9+2UeTXap2YCpCkyc2AIp01Q79HPtcLWc6jrtZgdf0FFW2K97dzspOZTzGW9z4AoICZakmCdYZcBMTBVUcgxa28awK7pOmn4MIyn+9lqtEeJTbrYWL/ynkuXQ+4XjuzWgfN6LgnvUVVeE5+YSUyjR6VtFT4hyeK12EVXe2tUdfI/n07xadPlHzfBGr3Ms1XjaHUcZ9oLzJHey8WrLD6pfdNE71Y9dGW0PiD4iRa324M7DPun84tDnjwYWVFuvX7GrLn04+GlS+vHOsvQRO9CS2Aexx9QeubfI9y4ACOeOCSnYX2wD/sOyWucY2zxas+H/SrtiDe9inLhbKGVxpCKGxfeMnORcptBClOMxOUJn0JXOt21LnTnF93tpSB0l3Hq192VwbO1wbODthDQz9tdo/IFT2giF9Iua+8EabKxfepMrCePIfCZsmU3jto2MPc8P5uG34bnoDwrElJxvQjichHaxIiM7ZMYY2G/dcSl9QKfJA/yVLwbv29UCVxcn+OfPX2jrz/+cfG7/rV/nY+vFL/fPzwPLn7TgzAoyf3VH/w8eNcdv39p0eit8h493ywT0mleOzjR2kwsQ2/pO8TSFZJQ9Bz3AA5T481F5zx2IxuolHGFWNn4b7K9E7plC5Twibqxx7DtmKrligmP7AUkYB1ndH7Bj9t8gATSdg88SYlRArkNxFqXy7EM+OCLuubjrxV6roJRAnPpddMSeEXVgZ+z48vJ1voFb+5W/emtOLHJHnW6TZnhYTKXRcVvkMAMF+tNtx7VSZv77wP3D7fYo8gaBIe77BokL83NpZ5S6Gjr28FKyrW1rvirX4aQADetLS5Ip2dR/+qBHT0anH3SNxD4lwEdFVkum5Ko6/X95tOLEutKa25zREZ1Xf8NtXuAQw==
+sidebar_class_name: "get api-method"
+info_path: api/payments/template-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve the custody providers configurations. (Auth policies: Ops)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/api/ops/v1/organizations/{orgId}/custody-providers-configurations"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve the custody providers configurations. (Auth policies: Ops)
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The organization identifier.","in":"path","name":"orgId","required":true,"schema":{"format":"uuid","type":"string"},"style":"simple"}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Header Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"The idempotency key for the endpoint","in":"header","name":"Idempotency-Key","schema":{"format":"uuid","type":"string"},"style":"simple"}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Custody provider configuration response model.
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                data
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object[]
+                              </span><span
+                                className={"openapi-schema__divider"}
+                              >
+                                
+                              </span><span
+                                className={"openapi-schema__nullable"}
+                              >
+                                nullable
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <div
+                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                            >
+                              
+                              
+                              Gets or sets the data.
+                              
+                              
+                            </div><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                              >
+                                Array [
+                              </div>
+                            </li><SchemaItem
+                              collapsible={true}
+                              className={"schemaItem"}
+                            >
+                              <details
+                                style={{}}
+                                className={"openapi-markdown__details"}
+                              >
+                                <summary
+                                  style={{}}
+                                >
+                                  <span
+                                    className={"openapi-schema__container"}
+                                  >
+                                    <strong
+                                      className={"openapi-schema__property"}
+                                    >
+                                      assetFiatTypesConfigurations
+                                    </strong><span
+                                      className={"openapi-schema__name"}
+                                    >
+                                       object
+                                    </span><span
+                                      className={"openapi-schema__divider"}
+                                    >
+                                      
+                                    </span><span
+                                      className={"openapi-schema__nullable"}
+                                    >
+                                      nullable
+                                    </span>
+                                  </span>
+                                </summary><div
+                                  style={{"marginLeft":"1rem"}}
+                                >
+                                  <div
+                                    style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                  >
+                                    
+                                    
+                                    Asset fiat types configurations
+                                    
+                                    
+                                  </div><SchemaItem
+                                    collapsible={true}
+                                    className={"schemaItem"}
+                                  >
+                                    <details
+                                      style={{}}
+                                      className={"openapi-markdown__details"}
+                                    >
+                                      <summary
+                                        style={{}}
+                                      >
+                                        <span
+                                          className={"openapi-schema__container"}
+                                        >
+                                          <strong
+                                            className={"openapi-schema__property"}
+                                          >
+                                            property name*
+                                          </strong><span
+                                            className={"openapi-schema__name"}
+                                          >
+                                             AssetFiatTypeConfigurationModel
+                                          </span><span
+                                            className={"openapi-schema__divider"}
+                                          >
+                                            
+                                          </span><span
+                                            className={"openapi-schema__nullable"}
+                                          >
+                                            nullable
+                                          </span>
+                                        </span>
+                                      </summary><div
+                                        style={{"marginLeft":"1rem"}}
+                                      >
+                                        <SchemaItem
+                                          collapsible={false}
+                                          name={"provider"}
+                                          required={false}
+                                          schemaName={"IntegrationServiceProvider (string)"}
+                                          qualifierMessage={"**Possible values:** [`treasuryPrime`, `mx`, `checkout`, `plainWireInstructions`, `fireblocks`, `nmi`, `cos`, `plaid`, `plaidProcessorToken`, `plainAchInstructions`, `flowRpc`, `nonApiBank`, `treasuryPrimeWithBankCogent`]"}
+                                          schema={{"description":"Providers","enum":["treasuryPrime","mx","checkout","plainWireInstructions","fireblocks","nmi","cos","plaid","plaidProcessorToken","plainAchInstructions","flowRpc","nonApiBank","treasuryPrimeWithBankCogent"],"type":"string","title":"IntegrationServiceProvider"}}
+                                        >
+                                          
+                                        </SchemaItem>
+                                      </div>
+                                    </details>
+                                  </SchemaItem>
+                                </div>
+                              </details>
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"assetType"}
+                              required={false}
+                              schemaName={"ModelAssetType (string)"}
+                              qualifierMessage={"**Possible values:** [`fiatCurrency`, `cryptoCurrency`, `privateSecurity`, `nft`, `preciousMetal`]"}
+                              schema={{"description":"Asset type","enum":["fiatCurrency","cryptoCurrency","privateSecurity","nft","preciousMetal"],"type":"string","title":"ModelAssetType"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"provider"}
+                              required={true}
+                              schemaName={"IntegrationServiceProvider (string)"}
+                              qualifierMessage={"**Possible values:** [`treasuryPrime`, `mx`, `checkout`, `plainWireInstructions`, `fireblocks`, `nmi`, `cos`, `plaid`, `plaidProcessorToken`, `plainAchInstructions`, `flowRpc`, `nonApiBank`, `treasuryPrimeWithBankCogent`]"}
+                              schema={{"description":"Providers","enum":["treasuryPrime","mx","checkout","plainWireInstructions","fireblocks","nmi","cos","plaid","plaidProcessorToken","plainAchInstructions","flowRpc","nonApiBank","treasuryPrimeWithBankCogent"],"type":"string","title":"IntegrationServiceProvider"}}
+                            >
+                              
+                            </SchemaItem><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                              >
+                                ]
+                              </div>
+                            </li>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"data\": [\n    {\n      \"assetFiatTypesConfigurations\": {},\n      \"assetType\": \"fiatCurrency\",\n      \"provider\": \"treasuryPrime\"\n    }\n  ]\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Unauthorized
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"403"}
+        value={"403"}
+      >
+        <div>
+          
+          
+          Forbidden
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      
