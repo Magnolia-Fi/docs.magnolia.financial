@@ -5,4 +5,4 @@ slug: /api
 
 # Introduction
 
-Currently, Magnolia offers one set of APIs: Payments.
+it's good :)

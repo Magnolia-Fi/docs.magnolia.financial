@@ -1,12 +1,12 @@
 ---
-id: get-custodial-account-agreement-auth
-title: "Get custodial account agreement (Auth)"
-description: "Get custodial account agreement (Auth)"
-sidebar_label: "Get custodial account agreement (Auth)"
+id: update-custodial-account-label
+title: "Update custodial account label"
+description: "Update custodial account label"
+sidebar_label: "Update custodial account label"
 hide_title: true
 hide_table_of_contents: true
-api: eJztVU1v2zAM/SsGTxugxUnbk2/ZV7FDgWBYT0EOjMzE6mRJk6iuheH/PtBOk7XZ2gwYsMtOMkTq8fE9ie4gUgreJUpQdXA2ncqivWNyLJ8YgjUa2XhX3iTvZC/phloconVtJIR2EX2gyEZwNmgTKagp6WiCxKGCdzmxrw3aArX22XGB20jUkuPigUPR+posKAg/oXWQo5XlMd58f1rCCly2FteWoOKYSQHfB4IKEkfjttD3+x2/viHNoIANS/qB2Xwktkf+vKN1NbDqBePknqBXcDGd/QU1u/6pHjUxmkGSF5pWYFxidJpOSk6MnIcKGx9bZKjAOD4/+726xjFtKcrhnZonlBk3Xkx8xrFF9GtL7ftBh/QrZ64TxeK74aZIWTcFZm4KU5NjszESwVQ4z8XGZ1ePVp0fX7GPPq5NXZMbMy7+m/lvzHxudJhHRkrfpHM0fA/VsoO3hJEiVMtVv1LAuE1QLY8efILV05KXxIV+puyreebmNShoiRtfQwVbkqYCcgMVlBhMyTEnLm9n5R7ozQ4olYc5IYzjLcU0EB5GHTTMIVWloEwSunrt7yYtbp23Bicb49BpgxakJ+M2XvR/UPNql1bMF59AgQCPHc0mU/Er+MQtDnfVYUt/0uojhboHP5nuuAwWzfBKdqN6lGEJGIw4LUIImRkoOBYDFBzkWClofGI53HVrTHQdbd/L9rdMUVxdKbjFaMbLtlz1ChrCenC5g690L/8GrSkMFdFmIXn0VEW6vXWXH75A3/8AMWJ4eg==
-sidebar_class_name: "get api-method"
+api: eJztVk1v2zAM/SsGT/vwmnbrybeu27AB21AU26nIgbGYWJssaRLVNjD83wfKTpPMWVvssktzsa08UuR7FMUOPAZsiSlEqK46UBTroD1rZ6GC8xTZKY2mwLp2yXKhFVnWS00BStCC8cgNlGCxJaig3licDQafFJQQ6FfSgRRUHBKVEOuGWoSqg6ULLTJUkJIWJK+9eIkctF1BX0LktckruvWGoJ+Lt+idjRTFwevjU3nsh/3VFbWzTJbFxenxiUA2K1UH6L3RNQp69iOKSbcTEyql5S80F8F5CqzzVn0JfvcbFDFqI282GYMLiXPIb5KFtpHR1vQocGTkFPfY0ZbfvBaSD9tqy7SiIMas2Txum2HhQeAdEtziB9UMd3vARXALQ+27zEOEXrD7QnyPFIobzU0RU90UmLjZqaDiBmNhHRdLl6wapHozVfODCwutFNkBcfok5v8R80Az2JNPsqU6Bc3r3EreEgYKUF3N5dQyrqTDbL2MDSLCfGgQFPmtU+t71H3x8rH6LtFEmhSjV8h0F7zBBZli3LlonSIDf1ZFxkwrcsrEACyBbGolyxRzg6xd8C4gkyS5r8WW+T8Z+Zx93afVkMku/HJI40vOQkz/5VQ8scZ0y090PZKuabd/OPe/2dR/TbYlbpwa5oxaBo08b1QwQ69nHFLk2fXJ7M7+1WgfZ910FOlnG6+RwvVm5EnBQAUNs4/VTNweRbRq4W6PWlxZZzQeLbVFW2s0eQCRArncdqz3t5hnk62UgzL5qlg6Wd9w+mV0WJxdfIISJISBhpOjY8F7F7nFXH3jPPUgP3t0dhs1cyF7gzpfmjnDbmTuCtBr0Vm4kyBOpIYm/EEJ1cFhbth4XkLjIou7rltgpO/B9L0s/0oU5AKYl3CNQQ+3kUyWOsq7Onxwdpo+PLsc58XnxQMD6MFsx0W0a8kOTZIvKOEnrQ8PqP28L6EhVPm26kbg+RDPq2/ibuto0lj7cmNxVtfk+V7sfKegL86+nX+EEhbjrScnBCoIeCMjM94MUbtMUG4UeU2KzK4SrgQ7OJXfb1ZuI9g=
+sidebar_class_name: "patch api-method"
 info_path: api/endpoints/magnolia-api
 custom_edit_url: null
 ---
@@ -27,99 +27,214 @@ import TabItem from "@theme/TabItem";
 <Heading
   as={"h1"}
   className={"openapi__heading"}
-  children={"Get custodial account agreement (Auth)"}
+  children={"Update custodial account label"}
 >
 </Heading>
 
 <MethodEndpoint
-  method={"get"}
-  path={"/api/trust/v1/custodial-accounts/agreement"}
+  method={"patch"}
+  path={"/api/trust/v1/custodial-accounts/{custodialAccountId}/label"}
 >
   
 </MethodEndpoint>
 
 
 
-Get custodial account agreement (Auth)
+Update custodial account label
 
-<div>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"description":"Custodial account identifier","in":"path","name":"custodialAccountId","required":true,"schema":{"format":"uuid","type":"string"},"style":"simple"}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><MimeTabs
+  className={"openapi-tabs__mime"}
+  schemaType={"request"}
+>
+  <TabItem
+    label={"application/*+json"}
+    value={"application/*+json"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        <div
+          style={{"marginTop":"1rem","marginBottom":"1rem"}}
+        >
+          
+          
+          Update account label request model
+          
+          
+        </div>
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"label"}
+          required={false}
+          schemaName={"CustodialAccountLabel (string)"}
+          qualifierMessage={"**Possible values:** [`user`, `corporate`]"}
+          schema={{"description":"Custodial account label","enum":["user","corporate"],"type":"string","title":"CustodialAccountLabel"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem><TabItem
+    label={"application/json"}
+    value={"application/json"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        <div
+          style={{"marginTop":"1rem","marginBottom":"1rem"}}
+        >
+          
+          
+          Update account label request model
+          
+          
+        </div>
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"label"}
+          required={false}
+          schemaName={"CustodialAccountLabel (string)"}
+          qualifierMessage={"**Possible values:** [`user`, `corporate`]"}
+          schema={{"description":"Custodial account label","enum":["user","corporate"],"type":"string","title":"CustodialAccountLabel"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem><TabItem
+    label={"text/json"}
+    value={"text/json"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        <div
+          style={{"marginTop":"1rem","marginBottom":"1rem"}}
+        >
+          
+          
+          Update account label request model
+          
+          
+        </div>
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"label"}
+          required={false}
+          schemaName={"CustodialAccountLabel (string)"}
+          qualifierMessage={"**Possible values:** [`user`, `corporate`]"}
+          schema={{"description":"Custodial account label","enum":["user","corporate"],"type":"string","title":"CustodialAccountLabel"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
   <div>
     <ApiTabs
       label={undefined}
       id={undefined}
     >
       <TabItem
-        label={"200"}
-        value={"200"}
+        label={"204"}
+        value={"204"}
       >
         <div>
           
           
-          Custodial account agreement
+          No content
           
           
         </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"url"}
-                        required={false}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"description":"Agreement url","nullable":true,"type":"string"}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"url\": \"string\"\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
+          
         </div>
       </TabItem><TabItem
         label={"401"}
@@ -260,7 +375,7 @@ Get custodial account agreement (Auth)
         <div>
           
           
-          Custodial account agreement is not found
+          Custodial account is not found
           
           
         </div><div>

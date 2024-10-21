@@ -34,7 +34,10 @@ const config: Config = {
           docItemComponent: "@theme/ApiItem",
         },
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
+          customCss: [
+            require.resolve("./src/css/custom.css"),
+            require.resolve("./src/css/hc-methods.css")
+          ]
         },
       } satisfies Preset.Options,
     ],

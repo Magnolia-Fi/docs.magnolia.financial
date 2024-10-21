@@ -31,7 +31,7 @@ paths:
         - Bearer: []
       tags:
         - CurrentOrganization
-      summary: Retrieve the current organization. (Auth)
+      summary: Retrieve the current organization.
     patch:
       parameters:
         - description: The idempotency key for the endpoint
@@ -64,7 +64,7 @@ paths:
             schema:
               $ref: '#/components/schemas/OrganizationPatchModel'
         description: The patch model.
-      summary: Update the current organization. (Auth)
+      summary: Update the current organization.
   /api/organization/v1/current-organization/readonly:
     post:
       parameters:
@@ -102,7 +102,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ReadonlyUserRequestModel'
         description: The model.
-      summary: Create a read-only user. (Auth)
+      summary: Create a read-only user.
   /api/organization/v1/current-organization/webhook-config:
     get:
       responses:
@@ -122,7 +122,7 @@ paths:
         - Bearer: []
       tags:
         - CurrentOrganization
-      summary: Retrieve the webhook configuration. (Auth)
+      summary: Retrieve the webhook configuration.
     patch:
       parameters:
         - description: The idempotency key for the endpoint
@@ -157,7 +157,7 @@ paths:
             schema:
               $ref: '#/components/schemas/WebhookConfigPatchModel'
         description: The webhook config patch model
-      summary: Patch the current webhook config. (Auth)
+      summary: Patch the current webhook config.
   /api/trust/v1/custodial-accounts:
     get:
       parameters:
@@ -226,7 +226,7 @@ paths:
         - Bearer: []
       tags:
         - CustodialAccounts
-      summary: 'Retrieve the filtered, paged list with custodial accounts. (Auth)'
+      summary: 'Retrieve the filtered, paged list with custodial accounts.'
     post:
       parameters:
         - description: The idempotency key for the endpoint
@@ -285,7 +285,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateCustodialAccountRequestModel'
         description: Create custodial account request model.
-      summary: Create the new custodial account. (Auth)
+      summary: Create the new custodial account.
   /api/trust/v1/custodial-accounts/agreement:
     get:
       responses:
@@ -313,7 +313,7 @@ paths:
         - Bearer: []
       tags:
         - CustodialAccounts
-      summary: Get custodial account agreement (Auth)
+      summary: Get custodial account agreement
   '/api/trust/v1/custodial-accounts/{custodialAccountId}':
     get:
       parameters:
@@ -350,7 +350,7 @@ paths:
         - Bearer: []
       tags:
         - CustodialAccounts
-      summary: Retrieve the custodial account by id. (Auth)
+      summary: Retrieve the custodial account by id.
     patch:
       parameters:
         - description: Custodial account identifier
@@ -401,7 +401,7 @@ paths:
             schema:
               $ref: '#/components/schemas/UpdateAccountStatusRequestModel'
         description: Update account status request model
-      summary: Update account status (Auth)
+      summary: Update account status
   '/api/trust/v1/custodial-accounts/{custodialAccountId}/balances':
     get:
       parameters:
@@ -439,7 +439,7 @@ paths:
         - Bearer: []
       tags:
         - CustodialAccounts
-      summary: Retrieve the custodial account balances. (Auth)
+      summary: Retrieve the custodial account balances.
   '/api/trust/v1/custodial-accounts/{custodialAccountId}/crypto-deposit-instructions/{network}/{assetFiatType}':
     get:
       parameters:
@@ -496,7 +496,7 @@ paths:
         - Bearer: []
       tags:
         - CustodialAccounts
-      summary: Retrieve the crypto deposit instructions. (Auth)
+      summary: Retrieve the crypto deposit instructions.
   '/api/trust/v1/custodial-accounts/{custodialAccountId}/label':
     patch:
       parameters:
@@ -541,7 +541,7 @@ paths:
             schema:
               $ref: '#/components/schemas/UpdateAccountLabelRequestModel'
         description: Update account label request model
-      summary: Update custodial account label (Auth)
+      summary: Update custodial account label
   '/api/trust/v1/custodial-accounts/{custodialAccountId}/rename':
     patch:
       parameters:
@@ -593,7 +593,7 @@ paths:
             schema:
               $ref: '#/components/schemas/UpdateCustodialAccountNameRequestModel'
         description: Update custodial account name request model
-      summary: Update account name (Auth)
+      summary: Update account name
   '/api/trust/v1/custodial-accounts/{custodialAccountId}/withdraw-crypto':
     post:
       parameters:
@@ -655,7 +655,7 @@ paths:
             schema:
               $ref: '#/components/schemas/WithdrawCryptoRequestModel'
         description: Withdraw crypto request model
-      summary: Withdraw crypto. (Auth)
+      summary: Withdraw crypto.
   /api/trust/v1/payments:
     get:
       parameters:
@@ -698,7 +698,7 @@ paths:
         - Bearer: []
       tags:
         - Payments
-      summary: 'Retrieve the filtered, paged list with payments. (Auth)'
+      summary: 'Retrieve the filtered, paged list with payments.'
     post:
       parameters:
         - description: Session key
@@ -747,7 +747,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CreatePaymentRequestModel'
         description: The model.
-      summary: Create the payment. (Auth)
+      summary: Create the payment.
   '/api/trust/v1/payments/{paymentId}':
     get:
       parameters:
@@ -784,7 +784,7 @@ paths:
         - Bearer: []
       tags:
         - Payments
-      summary: Retrieve the payment by id. (Auth)
+      summary: Retrieve the payment by id.
   '/api/trust/v1/payments/{paymentId}/approve':
     post:
       parameters:
@@ -814,7 +814,7 @@ paths:
         - Bearer: []
       tags:
         - Payments
-      summary: Approve payment. Allowed only for Integration dashboard users. (Auth)
+      summary: Approve payment. Allowed only for Integration dashboard users.
   '/api/trust/v1/payments/{paymentId}/cancel':
     put:
       parameters:
@@ -847,7 +847,7 @@ paths:
         - Bearer: []
       tags:
         - Payments
-      summary: 'Cancel payment, right now ACH payments cancelling supported only (Auth)'
+      summary: 'Cancel payment, right now ACH payments cancelling supported only'
   '/api/trust/v1/payments/{paymentId}/reject':
     post:
       parameters:
@@ -877,7 +877,7 @@ paths:
         - Bearer: []
       tags:
         - Payments
-      summary: Reject payment. Allowed only for Integration dashboard users. (Auth)
+      summary: Reject payment. Allowed only for Integration dashboard users.
   /api/trust/v1/sub-accounts/payments:
     post:
       parameters:
@@ -921,7 +921,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateSubAccountPaymentRequestModel'
         description: Request model.
-      summary: Create a payment for sub accounts. (Auth)
+      summary: Create a payment for sub accounts.
   /api/trust/v1/transactions:
     get:
       parameters:
@@ -976,7 +976,7 @@ paths:
         - Bearer: []
       tags:
         - Transactions
-      summary: 'Retrieve the filtered, paged list with transactions. (Auth)'
+      summary: 'Retrieve the filtered, paged list with transactions.'
   '/api/trust/v1/transactions/{transactionId}':
     get:
       parameters:
@@ -1013,7 +1013,7 @@ paths:
         - Bearer: []
       tags:
         - Transactions
-      summary: Retrieve the transaction by id. (Auth)
+      summary: Retrieve the transaction by id.
   /api/trust/v1/transfers:
     post:
       parameters:
@@ -1067,7 +1067,7 @@ paths:
             schema:
               $ref: '#/components/schemas/TransferRequestModel'
         description: Transfer request model
-      summary: Execute transfer. (Auth)
+      summary: Execute transfer.
 components:
   schemas:
     AccountBeneficiaryRequestModel:
