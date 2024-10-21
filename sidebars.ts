@@ -22,7 +22,13 @@ const sidebars: SidebarsConfig = {
       type: "doc",
       id: "api/authentication",
     },
-    ...require("./docs/api/sidebar.ts")
+    {
+      type: "category",
+      label: "Endpoints",
+      collapsed: false,
+      collapsible: false,
+      items: require("./docs/api/sidebar.ts")
+    }
   ],
   guides: [
     {
