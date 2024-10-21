@@ -81,20 +81,20 @@ const config: Config = {
         style: "dark",
         links: [
           {
-            title: "Docs",
+            // title: "Docs",
             items: [
               {
                 label: "Guides",
                 to: "/guides",
               },
               {
-                label: "Payment API",
-                to: "/api/payments",
+                label: "API Documentation",
+                to: "/api",
               },
             ],
           },
           {
-            title: "Community",
+            // title: "Community",
             items: [
               {
                 label: "GitHub",
@@ -107,7 +107,7 @@ const config: Config = {
             ],
           },
           {
-            title: "More",
+            // title: "More",
             items: [
               {
                 label: "Magnolia Financial",
