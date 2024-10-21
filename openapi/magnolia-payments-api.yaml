@@ -5233,14 +5233,14 @@ components:
           nullable: true
           type: string
       type: object
-  securitySchemes:
-    Bearer:
-      description: >-
-        Put access token in the box below. For example: <b>Bearer
-        eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6I</b>
-      in: header
-      name: Authorization
-      type: apiKey
+  # securitySchemes:
+  #   Bearer:
+  #     description: >-
+  #       Put access token in the box below. For example: <b>Bearer
+  #       eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6I</b>
+  #     in: header
+  #     name: Authorization
+  #     type: apiKey
 security:
   - Bearer: []
 x-readme:

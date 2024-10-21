@@ -3,10 +3,6 @@ import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
 const sidebar: SidebarsConfig = {
   apisidebar: [
     {
-      type: "doc",
-      id: "api/template-api",
-    },
-    {
       type: "category",
       label: "CurrentOrganization",
       items: [

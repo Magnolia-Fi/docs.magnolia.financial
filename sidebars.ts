@@ -18,18 +18,10 @@ const sidebars: SidebarsConfig = {
       type: "doc",
       id: "api/README",
     },
-    // {
-    //   type: "category",
-    //   label: "API",
-    //   link: {
-    //     type: "generated-index",
-    //     title: "API",
-    //     description:
-    //       "This is a sample server Petstore server. You can find out more about Swagger at http://swagger.io or on irc.freenode.net, #swagger. For this sample, you can use the api key special-key to test the authorization filters.",
-    //     slug: "/api/payments"
-    //   },
-    //   items: require("./docs/api/payments/sidebar.ts")
-    // },
+    {
+      type: "doc",
+      id: "api/authentication",
+    },
     ...require("./docs/api/sidebar.ts")
   ],
   guides: [
