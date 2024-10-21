@@ -57,12 +57,13 @@ const config: Config = {
           src: "img/logo.png",
         },
         items: [
-          {
-            label: "Home",
-            to: "https://magnolia.financial",
-          },
           { to: "/guides", label: "Guides", position: "left" },
           { to: "/api", label: "API", position: "left" },
+          {
+            to: "https://magnolia.financial",
+            label: "Magnolia Financial",
+            position: "right"
+          },
           {
             href: "https://github.com/Magnolia-Fi",
             label: "GitHub",
@@ -103,7 +104,7 @@ const config: Config = {
             title: "More",
             items: [
               {
-                label: "Home",
+                label: "Magnolia Financial",
                 to: "https://magnolia.financial",
               }
             ],
