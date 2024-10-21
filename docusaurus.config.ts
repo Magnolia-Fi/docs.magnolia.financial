@@ -8,7 +8,7 @@ import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 
 const config: Config = {
   title: "Magnolia Docs",
-  tagline: "Trust in Crypto.",
+  tagline: "Trust in Bitcoin.",
   url: "https://docs.magnolia.financial/",
   baseUrl: "/",
   onBrokenLinks: "throw",
@@ -16,30 +16,19 @@ const config: Config = {
   favicon: "img/favicon.ico",
 
   // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: "magnolia-fi", // Usually your GitHub org/user name.
-  projectName: "docs.magnolia.financial", // Usually your repo name.
+  organizationName: "magnolia-fi",
+  projectName: "docs.magnolia.financial",
 
   presets: [
     [
       "classic",
       {
         docs: {
+          routeBasePath: '/',
           sidebarPath: require.resolve("./sidebars.ts"),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
             "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
-          docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
-          onInlineAuthors: "ignore",
-          onUntruncatedBlogPosts: "ignore",
+          docItemComponent: "@theme/ApiItem",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -58,24 +47,18 @@ const config: Config = {
       navbar: {
         title: "Magnolia Docs",
         logo: {
-          alt: "My Site Logo",
-          src: "img/logo.svg",
+          alt: "Magnolia Financial",
+          src: "img/logo.png",
         },
         items: [
           {
-            type: "doc",
-            docId: "intro",
-            position: "left",
-            label: "Tutorial",
+            label: "Home",
+            to: "https://magnolia.financial",
           },
-          { to: "/blog", label: "Blog", position: "left" },
+          { to: "/guides", label: "Guides", position: "left" },
+          { to: "/api", label: "API", position: "left" },
           {
-            label: "Petstore API",
-            position: "left",
-            to: "/docs/category/petstore-api",
-          },
-          {
-            href: "https://github.com/facebook/docusaurus",
+            href: "https://github.com/Magnolia-Fi",
             label: "GitHub",
             position: "right",
           },
@@ -88,8 +71,12 @@ const config: Config = {
             title: "Docs",
             items: [
               {
-                label: "Tutorial",
-                to: "/docs/intro",
+                label: "Guides",
+                to: "/guides",
+              },
+              {
+                label: "Payment API",
+                to: "/api/payments",
               },
             ],
           },
@@ -97,34 +84,26 @@ const config: Config = {
             title: "Community",
             items: [
               {
-                label: "Stack Overflow",
-                href: "https://stackoverflow.com/questions/tagged/docusaurus",
-              },
-              {
-                label: "Discord",
-                href: "https://discordapp.com/invite/docusaurus",
+                label: "GitHub",
+                href: "https://github.com/Magnolia-Fi",
               },
               {
                 label: "Twitter",
-                href: "https://twitter.com/docusaurus",
-              },
+                href: "https://x.com/joinMagnolia",
+              }
             ],
           },
           {
             title: "More",
             items: [
               {
-                label: "Blog",
-                to: "/blog",
-              },
-              {
-                label: "GitHub",
-                href: "https://github.com/facebook/docusaurus",
-              },
+                label: "Home",
+                to: "https://magnolia.financial",
+              }
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Magnolia Financial.`,
       },
       prism: {
         prism: {
