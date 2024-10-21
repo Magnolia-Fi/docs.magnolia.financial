@@ -44,6 +44,12 @@ const config: Config = {
           hideable: true,
         },
       },
+      colorMode: {
+        defaultMode: "dark",
+        // force dark, our yellow is unreadable on lightmode
+        disableSwitch: true,
+        respectPrefersColorScheme: false
+      },
       navbar: {
         title: "Magnolia Docs",
         logo: {
@@ -172,12 +178,12 @@ const config: Config = {
     [
       "docusaurus-plugin-openapi-docs",
       {
-        id: "openapi",
+        id: "payments",
         docsPluginId: "classic",
         config: {
           magnoliaPayments: {
             specPath: "openapi/magnolia-payments-api.yaml",
-            outputDir: "docs/payments",
+            outputDir: "docs/api/payments",
             // downloadUrl:
             //   "https://raw.githubusercontent.com/PaloAltoNetworks/docusaurus-template-openapi-docs/main/examples/petstore.yaml",
             sidebarOptions: {
