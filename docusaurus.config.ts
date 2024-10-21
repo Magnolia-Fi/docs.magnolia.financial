@@ -185,8 +185,8 @@ const config: Config = {
           magnoliaPayments: {
             specPath: "openapi/magnolia-payments-api.yaml",
             outputDir: "docs/api/payments",
-            // downloadUrl:
-            //   "https://raw.githubusercontent.com/PaloAltoNetworks/docusaurus-template-openapi-docs/main/examples/petstore.yaml",
+            downloadUrl:
+              "https://github.com/Magnolia-Fi/docs.magnolia.financial/tree/main/openapi/magnolia-payments-api.yaml",
             sidebarOptions: {
               groupPathsBy: "tag",
               categoryLinkSource: "tag",
