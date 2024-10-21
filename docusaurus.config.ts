@@ -187,7 +187,7 @@ const config: Config = {
         config: {
           magnoliaPayments: {
             specPath: "openapi/magnolia-payments-api.yaml",
-            outputDir: "docs/api",
+            outputDir: "docs/api/endpoints",
             downloadUrl:
               "https://github.com/Magnolia-Fi/docs.magnolia.financial/tree/main/openapi/magnolia-payments-api.yaml",
             sidebarOptions: {

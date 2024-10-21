@@ -27,7 +27,7 @@ const sidebars: SidebarsConfig = {
       label: "Endpoints",
       collapsed: false,
       collapsible: false,
-      items: require("./docs/api/sidebar.ts")
+      items: require("./docs/api/endpoints/sidebar.ts")
     }
   ],
   guides: [
