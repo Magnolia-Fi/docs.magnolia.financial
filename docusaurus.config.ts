@@ -27,7 +27,7 @@ const config: Config = {
           routeBasePath: '/',
           sidebarPath: require.resolve("./sidebars.ts"),
           editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+            "https://github.com/Magnolia-Fi/docs.magnolia.financial/tree/main/",
           docItemComponent: "@theme/ApiItem",
         },
         theme: {
