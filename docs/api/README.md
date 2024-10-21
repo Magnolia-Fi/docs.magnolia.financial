@@ -5,4 +5,4 @@ slug: /api
 
 # Introduction
 
-it's good :)
+This is our API, built to be compatible with Fortress Trust's APIs to ease migration.
