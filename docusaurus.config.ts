@@ -19,6 +19,9 @@ const config: Config = {
   organizationName: "magnolia-fi",
   projectName: "docs.magnolia.financial",
 
+  // https://docusaurus.io/docs/deployment#docusaurusconfigjs-settings
+  trailingSlash: false,
+
   presets: [
     [
       "classic",
