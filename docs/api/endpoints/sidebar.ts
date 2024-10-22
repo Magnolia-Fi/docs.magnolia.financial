@@ -132,24 +132,6 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "api/endpoints/approve-payment-allowed-only-for-integration-dashboard-users",
-          label: "Approve payment. Allowed only for Integration dashboard users.",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "api/endpoints/cancel-payment-right-now-ach-payments-cancelling-supported-only",
-          label: "Cancel payment, right now ACH payments cancelling supported only",
-          className: "api-method put",
-        },
-        {
-          type: "doc",
-          id: "api/endpoints/reject-payment-allowed-only-for-integration-dashboard-users",
-          label: "Reject payment. Allowed only for Integration dashboard users.",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
           id: "api/endpoints/create-a-payment-for-sub-accounts",
           label: "Create a payment for sub accounts.",
           className: "api-method post",
