@@ -77,3 +77,22 @@
   color: var(--ifm-color-secondary-contrast-foreground);
   border-color: var(--ifm-color-secondary-dark);
 }
+
+/* more customizations */
+.openapi__method-endpoint > .badge--primary {
+  /* GET badge */
+  background-color: var(--ifm-color-info-contrast-background);
+  border-color: var(--ifm-color-info-dark);
+}
+
+.openapi__method-endpoint > .badge--warning, .openapi__method-endpoint > .badge--success {
+  /* PATCH/POST badge */
+  background-color: var(--ifm-color-success-contrast-background);
+  border-color: var(--ifm-color-success-dark);
+}
+
+.openapi__method-endpoint > .badge--info {
+  /* PUT badge */
+  background-color: var(--ifm-color-warning-contrast-background);
+  border-color: var(--ifm-color-warning-dark);
+}
