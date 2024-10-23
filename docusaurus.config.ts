@@ -39,6 +39,9 @@ const config: Config = {
             require.resolve("./src/css/hc-methods.css")
           ]
         },
+        gtag: {
+          trackingID: "G-WWYY8PKDCL"
+        }
       } satisfies Preset.Options,
     ],
   ],
