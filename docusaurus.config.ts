@@ -204,6 +204,13 @@ const config: Config = {
         } satisfies Plugin.PluginOptions,
       },
     ],
+    [
+      require.resolve("@cmfcmf/docusaurus-search-local"),
+      {
+        indexDocs: true,
+        language: 'en'
+      },
+    ],
   ],
 
   themes: ["docusaurus-theme-openapi-docs"],
